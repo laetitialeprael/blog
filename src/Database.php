@@ -55,13 +55,33 @@ class Database{
 	/*
 	 * Méthode qui permet de récupérer les résultats de query, à la fin nous devrions avoir seulement du prepare
 	 *
-	 * @param $req permet de récuperer les résulats
-	 * @param $data array permet de stocker tous les résultats
+	 * @param $statement permet de stocker la requête Sql
+	 * @param $class_name permet de stocker le nom de la classe a charger
 	 * @return $datas
 	*/
-	public function query($statement){
+	public function query($statement, $class_name){
 		$req = $this->getPDO()->query($statement);
-		$datas = $req->fetchAll(PDO::FETCH_OBJ);
+		$datas = $req->fetchAll(PDO::FETCH_CLASS, $class_name);
+		return $datas;
+	}
+
+	/*
+	 * @param $statement permet de stocker la requête Sql
+	 * @param $attributes permet de stocker l'attribut
+	 * @param $class_name permet de stocker le nom de la classe a charger
+	 * @return $datas
+	*/
+	public function prepare($statement, $attributes, $class_name, $one = false){
+		$req = $this->getPDO()->prepare($statement);
+		$req->execute($attributes);
+		$req->setFetchMode(PDO::FETCH_CLASS, $class_name);
+		// Si on attend 1 seul résultat on fetch
+		if ($one){
+			$datas = $req->fetch();
+		} else {
+			// Si on doit retourner plusiseurs résultat on fetchAll
+			$datas = $req->fetchAll();
+		}
 		return $datas;
 	}
 }

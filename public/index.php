@@ -31,6 +31,8 @@ if ($page == 'accueil') {
 	require '../pages/home.php';
 } elseif ($page == 'blog') {
 	require '../pages/archive.php';
+} elseif ($page == 'blog/article') {
+	require '../pages/single-post.php';
 }
 $content = ob_get_clean();
 // On require le template de page par défaut qui contient la variable $content pour afficher le contenu de nos différentes pages
