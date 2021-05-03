@@ -69,6 +69,7 @@ class Database{
 	 * @param $statement permet de stocker la requête Sql
 	 * @param $attributes permet de stocker l'attribut
 	 * @param $class_name permet de stocker le nom de la classe a charger
+	 * @param $one permet d'afficher la méthode fetch() si $one vaut true ou fetchAll() si $one vaut false
 	 * @return $datas
 	*/
 	public function prepare($statement, $attributes, $class_name, $one = false){
