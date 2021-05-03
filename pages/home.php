@@ -1,12 +1,10 @@
 <?php
-/*
- * Connexion à la BDD
- * On instancie la class PDO que l'on stock dans la variable $pdo
- * @var $pdo
-*/
-$pdo = new PDO('mysql:dbname=openclassroomsblog;host=localhost', "root", "root");
-// Afficher les erreurs sql
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+// Le code ci-dessous devra être dans une class Models
+$db = new Src\Database('openclassroomsblog');
+$datas = $db->query('SELECT * FROM post');
+
+var_dump($datas);
 ?>
 <h1>Page d'accueil</h1>
 <p>On affiche quelques articles du blog</p>

@@ -28,7 +28,7 @@ class Autoloader{
 			// str_replace(search, replace, subject)
 			$class = str_replace('\\', '/', $class);
 			// __DIR__ contient le nom du dossier parent, dans notre cas src
-			require __DIR__ . '/' . $class . 'php';
+			require __DIR__ . '/' . $class . '.php';
 		}
 	}
 }
