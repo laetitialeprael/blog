@@ -14,10 +14,16 @@ if (isset($_GET['page'])) {
 // On met en place des conditions pour vérifier manuellement les fonctions
 // Le nom des fichiers est en anglais
 
+/*
+ * accueil : http://localhost:8888/blog/public/index.php?page=accueil
+ * blog : http://localhost:8888/blog/public/index.php?page=blog
+ *
+*/
+
 ob_start();
 // Si je veux essayer d'accéder à la page d'accueil
 if ($page == 'accueil') {
-	// On require le fichier accueil.php
+	// On require le fichier home.php
 	require '../pages/home.php';
 } elseif ($page == 'blog') {
 	require '../pages/archive.php';
