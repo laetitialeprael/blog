@@ -20,6 +20,10 @@ if (isset($_GET['page'])) {
  *
 */
 
+// Initialisation des objets
+$db = new Src\Database('openclassroomsblog');
+
+
 ob_start();
 // Si je veux essayer d'accéder à la page d'accueil
 if ($page == 'accueil') {
