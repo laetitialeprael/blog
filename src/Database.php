@@ -43,11 +43,13 @@ class Database{
 	 * @return $pdo
 	*/
 	private function getPDO(){
-		$pdo = new PDO('mysql:dbname=openclassroomsblog;host=localhost', "root", "root");
-		// Afficher les erreurs sql
-		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$this->pdo = $pdo;
-		return $pdo;
+		if($this->pdo === null){
+			$pdo = new PDO('mysql:dbname=openclassroomsblog;host=localhost', "root", "root");
+			// Afficher les erreurs sql
+			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$this->pdo = $pdo;
+		}
+		return $this->pdo;
 	}
 
 	/*
