@@ -3,10 +3,8 @@
 
 <ul>
 	<?php foreach ($db->query('SELECT * FROM post', 'Src\Models\Post') as $post): ?>
-		
 		<h2><a href="<?php echo $post->getUrl(); ?>"><?php echo $post->getTitle(); ?></a></h2>
 		<p><?php echo $post->getExtract(); ?></p>
-	
 	<?php endforeach; ?>
 </ul>
 
