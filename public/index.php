@@ -4,7 +4,6 @@ require '../vendor/autoload.php';
 
 require '../pages/header.php';
 
-
 /*
  * @author Danny van Kooten
  * @link https://github.com/dannyvankooten/AltoRouter
@@ -46,30 +45,3 @@ if( is_array($match) && is_callable( $match['target'] ) ) {
 }
 
 require '../pages/footer.php';
-// On met en place des conditions pour vérifier manuellement les fonctions
-// Le nom des fichiers est en anglais
-
-/*
- * accueil : http://localhost:8888/blog/public/index.php?page=accueil
- * blog : http://localhost:8888/blog/public/index.php?page=blog
- *
-*/
-
-// Initialisation des objets
-//
-
-
-//ob_start();
-// Si je veux essayer d'accéder à la page d'accueil
-//if ($page == 'accueil') {
-	// On require le fichier home.php
-	//require '../pages/home.php';
-//} elseif ($page == 'blog') {
-	//require '../pages/archive.php';
-//} elseif ($page == 'blog/article') {
-	//require '../pages/single-post.php';
-//}
-//$content = ob_get_clean();
-// On require le template de page par défaut qui contient la variable $content pour afficher le contenu de nos différentes pages
-// home.php, acrhives.php
-//require '../pages/page.php';
