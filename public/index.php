@@ -11,6 +11,8 @@ require '../pages/header.php';
 $router = new AltoRouter();
 
 /*
+ * Détermine quelle page on doit aller afficher
+ *
  * @var $method string contient la méthode de la requête HTTP (GET|POST|PATCH|PUT|DELETE)
  * @var $route string contient le nom de l'url
  * @var $name string contient le nom de la fonction à utiliser
