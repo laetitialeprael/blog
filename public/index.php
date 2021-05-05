@@ -2,12 +2,13 @@
 
 require '../vendor/autoload.php';
 
-require '../pages/header.php';
+require '../views/header.php';
 
 /*
  * @author Danny van Kooten
  * @link https://github.com/dannyvankooten/AltoRouter
 */
+
 $router = new AltoRouter();
 
 /*
@@ -20,15 +21,10 @@ $router = new AltoRouter();
  *
  * Reprendre pour utiliser le router afin de générer les urls
 */
-$router->map('GET', '/blog/', function() {
-    require '../pages/home.php';
-});
-$router->map('GET', '/blog/article', function() {
-    require '../pages/archive.php';
-});
-$router->map('GET', '/blog/[*:slug]-[i:id]', function() {
-    require '../pages/single-post.php';
-});
+
+$router->map('GET', '/blog/', 'Src\Controllers\PostController#showLast');
+$router->map('GET', '/blog/article', 'Src\Controllers\PostController#showList');
+$router->map('GET', '/blog/[*:slug]-[i:id]', 'Src\Controllers\PostController#showSingle');
 
 /*
  * @var target qui contient les closures ?
@@ -37,15 +33,16 @@ $router->map('GET', '/blog/[*:slug]-[i:id]', function() {
 */ 
 $match = $router->match();
 
-//use Src\Database;
-//$db = new Src\Database('openclassroomsblog');
 
-if( is_array($match) && is_callable( $match['target'] ) ) {
-	//ob_start();
-	call_user_func_array( $match['target'], $match['params'] );
-	//$content = ob_get_clean();
-} else {
+if($match == false){
 	echo 'On mettra la page 404';
+} else {
+	list($controller, $action ) = explode('#', $match['target']);
+		if (is_callable(array($controller, $action))) {
+	        call_user_func_array(array($controller,$action), array($match['params']));
+	    } else {
+	    	echo 'On mettra la page 404';
+	    }
 }
 
-require '../pages/footer.php';
+require '../views/footer.php';
