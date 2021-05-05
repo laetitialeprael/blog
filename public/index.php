@@ -22,9 +22,9 @@ $router = new AltoRouter();
  * Reprendre pour utiliser le router afin de générer les urls
 */
 
-$router->map('GET', '/blog/', 'Src\Controllers\PostController#showLast');
-$router->map('GET', '/blog/article', 'Src\Controllers\PostController#showList');
-$router->map('GET', '/blog/[*:slug]-[i:id]', 'Src\Controllers\PostController#showSingle');
+$router->map('GET', '/blog/', 'Src\Controllers\PostController#viewLast');
+$router->map('GET', '/blog/article', 'Src\Controllers\PostController#viewList');
+$router->map('GET', '/blog/[*:slug]-[i:id]', 'Src\Controllers\PostController#viewSingle');
 
 /*
  * @var target qui contient les closures ?
