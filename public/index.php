@@ -1,16 +1,22 @@
 <?php
 // On remplacera par l'aoutoader de composer
-require '../src/Autoloader.php';
+//require '../src/Autoloader.php';
+require '../vendor/autoload.php';
 
-Src\Autoloader::register();
+require '../pages/header.php';
+
+//Src\Autoloader::register();
 
 // On remplacera par le router
 // Les urls de page seront en français
-if (isset($_GET['page'])) {
-	$page = $_GET['page'];
-} else {
-	$page = 'accueil';
-}
+//if (isset($_GET['page'])) {
+	//$page = $_GET['page'];
+//} else {
+	//$page = 'accueil';
+//}
+var_dump($_SERVER);
+
+require '../pages/footer.php';
 // On met en place des conditions pour vérifier manuellement les fonctions
 // Le nom des fichiers est en anglais
 
@@ -21,20 +27,20 @@ if (isset($_GET['page'])) {
 */
 
 // Initialisation des objets
-$db = new Src\Database('openclassroomsblog');
+//$db = new Src\Database('openclassroomsblog');
 
 
-ob_start();
+//ob_start();
 // Si je veux essayer d'accéder à la page d'accueil
-if ($page == 'accueil') {
+//if ($page == 'accueil') {
 	// On require le fichier home.php
-	require '../pages/home.php';
-} elseif ($page == 'blog') {
-	require '../pages/archive.php';
-} elseif ($page == 'blog/article') {
-	require '../pages/single-post.php';
-}
-$content = ob_get_clean();
+	//require '../pages/home.php';
+//} elseif ($page == 'blog') {
+	//require '../pages/archive.php';
+//} elseif ($page == 'blog/article') {
+	//require '../pages/single-post.php';
+//}
+//$content = ob_get_clean();
 // On require le template de page par défaut qui contient la variable $content pour afficher le contenu de nos différentes pages
 // home.php, acrhives.php
-require '../pages/page.php';
+//require '../pages/page.php';
