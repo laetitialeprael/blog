@@ -9,5 +9,5 @@ namespace Src\Models;
 */
 class PostManager{
 
-	
+
 }
