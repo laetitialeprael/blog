@@ -2,17 +2,19 @@
 
 namespace Src\Controllers;
 
+use Src\Models\PostManager;
 
 /*
  * Class PostController
  *
  * @package Src
 */
-class PostController{
+class PostController {
 
 	public static function viewLast(){
-		echo 'On montre les 3 derniers articles';
 		// Appelle à la méthode du model qui affiche les 3 derniers post
+		$postModel = new PostManager;
+		$postModel->showLast();
 		require '../views/home.php';
 	}
 
