@@ -59,9 +59,9 @@ class Database{
 	 * @param $class_name permet de stocker le nom de la classe a charger
 	 * @return $datas
 	*/
-	public function query($statement, $class_name){
+	public function query($statement){
 		$req = $this->getPDO()->query($statement);
-		$datas = $req->fetchAll(PDO::FETCH_CLASS, $class_name);
+		$datas = $req->fetchAll(PDO::FETCH_ASSOC);
 		return $datas;
 	}
 
@@ -72,10 +72,10 @@ class Database{
 	 * @param $one permet d'afficher la méthode fetch() si $one vaut true ou fetchAll() si $one vaut false
 	 * @return $datas
 	*/
-	public function prepare($statement, $attributes, $class_name, $one = false){
+	public function prepare($statement, $attributes, $one = false){
 		$req = $this->getPDO()->prepare($statement);
 		$req->execute($attributes);
-		$req->setFetchMode(PDO::FETCH_CLASS, $class_name);
+		$req->setFetchMode(PDO::FETCH_ASSOC);
 		// Si on attend 1 seul résultat on fetch
 		if ($one){
 			$datas = $req->fetch();
