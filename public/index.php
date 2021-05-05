@@ -17,6 +17,8 @@ $router = new AltoRouter();
  * @var $route string contient le nom de l'url
  * @var $name string contient le nom de la fonction à utiliser
  * $router->map( 'POST', '/contact/', 'handleContactForm' );
+ *
+ * Reprendre pour utiliser le router afin de générer les urls
 */
 $router->map('GET', '/blog/', function() {
     require '../pages/home.php';
