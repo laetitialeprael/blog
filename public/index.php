@@ -26,6 +26,10 @@ $router->map('GET', '/blog/', 'Src\Controllers\PostController#viewLast');
 $router->map('GET', '/blog/article', 'Src\Controllers\PostController#viewList');
 $router->map('GET', '/blog/[*:slug]-[i:id]', 'Src\Controllers\PostController#viewSingle');
 
+// Routes d'administration
+$router->map('GET', '/blog/admin/nouvel-article', 'Src\Controllers\PostController#adminCreate');
+$router->map('GET', '/blog/admin/article/post=[i:id]&action=edit', 'Src\Controllers\PostController#adminUpdate');
+
 /*
  * @var target qui contient les closures ?
  * @var params qui contient les parèmetres de l'url

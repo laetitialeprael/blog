@@ -1,0 +1,1 @@
+<h1>Formulaire pour supprimer un article</h1>

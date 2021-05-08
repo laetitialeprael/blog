@@ -1,0 +1,1 @@
+<h1>Formulaire de création d'un article</h1>

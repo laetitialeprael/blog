@@ -31,8 +31,19 @@ class PostController {
 	}
 
 	// Méthode pour afficher la page de création d'un article
-	// Méthode pour afficher un article (ShowSingle ?)
+	public static function adminCreate(){
+		require '../views/admin/create-post.php';
+	}
+	// Méthode pour afficher un article (viewSingle ?)
+
 	// Méthode pour mettre à jour un article
+	public static function adminUpdate(){
+		require '../views/admin/update-post.php';
+	}
+	
 	// Méthode pour supprimer un article
+	public static function adminDelete(){
+		require '../views/admin/delete-post.php';
+	}
 
 }
