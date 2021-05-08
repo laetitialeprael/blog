@@ -12,7 +12,7 @@ use Src\Models\PostManager;
 class PostController {
 
 	public static function viewLast(){
-		// Appelle à la méthode du model qui affiche les 3 derniers post
+		// Appel à la méthode du model qui affiche les 3 derniers post
 		$postModel = new PostManager;
 		$postModel->showLast();
 		require '../views/home.php';
