@@ -1,5 +1,5 @@
 <h1>Page de tous les articles</h1>
-<p><a href="../blog/article">Revenir à l'accueil</a></p>
+<p><a href="../blog/">Revenir à l'accueil</a></p>
 <p>On affiche tous les articles</p>
 <ul>
 	<?php $db = new Src\Database('openclassroomsblog'); ?>

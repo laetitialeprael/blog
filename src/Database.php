@@ -30,10 +30,8 @@ class Database{
 	 * @return ce que la méthode (function) retourne
 	*/
 	public function __construct($db_name, $db_user='root', $db_password='root', $db_host='localhost'){
-		$this->db_name = $db_name;
-		$this->db_user = $db_user;
-		$this->db_password = $db_password;
-		$this->db_host = $db_host;
+		$this->pdo = new PDO("mysql:dbname=" . $db_name . ";host=" . $db_host, $db_user, $db_password);
+		$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
 
 	/*
@@ -43,12 +41,7 @@ class Database{
 	 * @return $pdo
 	*/
 	private function getPDO(){
-		if($this->pdo === null){
-			$pdo = new PDO('mysql:dbname=openclassroomsblog;host=localhost', "root", "root");
-			// Afficher les erreurs sql
-			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$this->pdo = $pdo;
-		}
+	
 		return $this->pdo;
 	}
 

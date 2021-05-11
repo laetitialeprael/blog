@@ -25,10 +25,18 @@ class Post{
 	private $title;
 	private $introduction;
 	private $content;
+	private $image;
+	private $state;
+	private $post_creation_date;
+	private $slug;
+	private $post_date_update;
+	private $post_date_published;
+	private $category_id_category;
+	private $user_id_user;
 
 	public function hydrate(array $datas){
-		if(isset($datas['title'])){
-			$this->setTitle($datas['title']);
+		foreach ($datas as $key => $value) {
+			$this->$key = $value;
 		}
 	}
 	/*
@@ -51,18 +59,18 @@ class Post{
 		}
 	}
 	
-	public function getUrl(){
-		return 'index.php?page=blog/article&id=' . $this->id_post;
-	}
+	//public function getUrl(){
+		//return 'index.php?page=blog/article&id=' . $this->id_post;
+	//}
 
-	public function getExtract(){
-		if (empty($this->introduction)){
-            $html = '<p>' . substr($this->content, 0, 150) . '...</p>';
-        }else{
-            $html = '<p>' . substr($this->introduction, 0, 150) . '...</p>';
-        }
-		$html .= '<a href="' . $this->getUrl() . '">Lire la suite</a>';
-		return $html;
-	}
+	//public function getExtract(){
+		//if (empty($this->introduction)){
+            //$html = '<p>' . substr($this->content, 0, 150) . '...</p>';
+        //}else{
+            //$html = '<p>' . substr($this->introduction, 0, 150) . '...</p>';
+        //}
+		//$html .= '<a href="' . $this->getUrl() . '">Lire la suite</a>';
+		//return $html;
+	//}
 
 }

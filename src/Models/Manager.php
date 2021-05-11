@@ -1,20 +1,20 @@
 <?php
 
-namespace Src\Controllers;
+namespace Src\Models;
 
 use Src\Database;
-
 /*
- * Class Controller
+ * Class Manager
  *
  * @package Src
 */
-class Controller{
+class Manager {
 
 	const DB_NAME = 'openclassroomsblog';
 	const DB_USER = 'root';
 	const DB_PASS = 'root';
 	const DB_HOST = 'localhost';
+
 
 	private static $database;
 

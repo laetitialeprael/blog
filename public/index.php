@@ -42,6 +42,7 @@ if($match == false){
 	echo 'On mettra la page 404';
 } else {
 	list($controller, $action ) = explode('#', $match['target']);
+		$controller = new $controller();
 		if (is_callable(array($controller, $action))) {
 	        call_user_func_array(array($controller,$action), array($match['params']));
 	    } else {
