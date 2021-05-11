@@ -12,18 +12,19 @@ use Src\Models\PostManager;
 */
 class PostController extends Controller{
 
+	/*
+	 * La méthode devra être déplacer dans la class UserController
+	*/
+	public function login(){
+		
+		require '../views/login.php';
+	}
+
 	public function viewLast(){
 		// Appel à la méthode du model qui affiche les 3 derniers post
 		$postModel = new PostManager();
 		$result = $postModel->showLast();
-		//var_dump($result);
-		/*
-		 * $db = $this->getDatabase();
-		 * Fatal error: Uncaught Error: Using $this when not in object context in /Applications/MAMP/htdocs/blog/src/Controllers/PostController.php:42 Stack trace: #0 /Applications/MAMP/htdocs/blog/public/index.php(46): Src\Controllers\PostController::viewLast(Array) #1 {main} thrown in /Applications/MAMP/htdocs/blog/src/Controllers/PostController.php on line 42
-		*/
-		//$db = self::getDatabase();
-		//$result = $db->query('SELECT * FROM post');
-		
+	
 		require '../views/home.php';
 	}
 

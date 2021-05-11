@@ -26,7 +26,7 @@ $router->map('GET', '/blog/', 'Src\Controllers\PostController#viewLast');
 $router->map('GET', '/blog/article', 'Src\Controllers\PostController#viewList');
 $router->map('GET', '/blog/[*:slug]-[i:id]', 'Src\Controllers\PostController#viewSingle');
 
-$router->map('GET', '/blog/connexion', 'Src\Controllers\UserController#login');
+$router->map('GET', '/blog/connexion', 'Src\Controllers\PostController#login');
 
 // Routes d'administration
 $router->map('GET', '/blog/admin/nouvel-article', 'Src\Controllers\PostController#adminCreate');
