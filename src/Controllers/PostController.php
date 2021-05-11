@@ -3,7 +3,7 @@
 namespace Src\Controllers;
 
 use Src\Models\PostManager;
-
+use Src\Models\UserManager;
 
 /*
  * Class PostController
@@ -16,6 +16,8 @@ class PostController extends Controller{
 	 * La méthode devra être déplacer dans la class UserController
 	*/
 	public function login(){
+		$userModel = new UserManager();
+		$user = $userModel->connexion();
 		
 		require '../views/login.php';
 	}
