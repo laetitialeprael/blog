@@ -22,6 +22,16 @@ class PostController extends Controller{
 		require '../views/login.php';
 	}
 
+	/*
+	 * La méthode devra être déplacer dans la class UserController
+	*/
+	public function createAccount(){
+		$userModel = new UserManager();
+		$user = $userModel->create();
+		
+		require '../views/create-account.php';
+	}
+
 	public function viewLast(){
 		// Appel à la méthode du model qui affiche les 3 derniers post
 		$postModel = new PostManager();

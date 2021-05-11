@@ -13,7 +13,9 @@ use Src\Database;
 */
 class UserManager extends Manager{
 
-	public function create(){}
+	public function create(){
+		echo 'Créer un compte';
+	}
 	public function update(){}
 	public function delete(){}
 	public function connexion(){
