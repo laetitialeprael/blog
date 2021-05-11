@@ -22,12 +22,16 @@ $router = new AltoRouter();
  * Reprendre pour utiliser le router afin de générer les urls
 */
 
-$router->map('GET', '/blog/', 'Src\Controllers\PostController#viewLast');
+$router->map('GET', '/blog/', 'Src\Controllers\PostController#viewLast', 'home');
 $router->map('GET', '/blog/article', 'Src\Controllers\PostController#viewList');
 $router->map('GET', '/blog/[*:slug]-[i:id]', 'Src\Controllers\PostController#viewSingle');
 
 $router->map('GET', '/blog/connexion', 'Src\Controllers\UserController#login');
-$router->map('GET', '/blog/creer-un-compte', 'Src\Controllers\UserController#createAccount');
+
+//$router->map('GET|POST', '/blog/creer-un-compte', 'Src\Controllers\UserController#createAccount');
+
+$router->map('GET','/blog/creer-un-compte', 'Src\Controllers\UserController#formAccount');
+$router->map('POST','/blog/creer-un-compte', 'Src\Controllers\UserController#processAccount');
 
 // Routes d'administration
 $router->map('GET', '/blog/admin/nouvel-article', 'Src\Controllers\PostController#adminCreate');

@@ -13,13 +13,21 @@ use Src\Database;
 */
 class UserManager extends Manager{
 
-	public function create(){
-		echo 'Créer un compte';
+	public function create($name, $firstname, $email){
+
+		$db = $this->getDatabase();
+		$user = $db->insert(
+		//$statement
+		'INSERT INTO user (user_name, user_first_name, user_email) VALUES (:user_name, :user_first_name, :user_email)',
+		//$attributes
+		array(':user_name' => $name,':user_first_name' => $firstname,':user_email' => $email));
+
+		//return $user;
+
 	}
 	public function update(){}
 	public function delete(){}
-	public function connexion(){
-		echo 'Hello';
-	}
+	
+	public function connexion(){}
 
 }
