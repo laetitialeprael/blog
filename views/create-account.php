@@ -2,13 +2,13 @@
 
 <form method="POST" action="">
 	<label for="inputName">Votre nom</label>
-	<input required name="name" value="" type="text" id="inputName">
+	<input name="name" type="text" id="inputName">
 
 	<label for="inputFirstname">Votre prénom</label>
-	<input required name="firstname" type="text" id="inputFirstname">
+	<input name="firstname" type="text" id="inputFirstname">
 
 	<label for="inputEmailAdress">Votre email</label>
-	<input required name="email" type="email" id="inputEmailAdress">
+	<input name="email" type="email" id="inputEmailAdress">
 	<!--
 	<label for="inputPassword">Votre mot de passe</label>
 	<input required name="user_password" type="password" id="inputPassword">
