@@ -3,7 +3,6 @@
 namespace Src\Controllers;
 
 use Src\Models\PostManager;
-use Src\Models\UserManager;
 
 /*
  * Class PostController
@@ -12,25 +11,6 @@ use Src\Models\UserManager;
 */
 class PostController extends Controller{
 
-	/*
-	 * La méthode devra être déplacer dans la class UserController
-	*/
-	public function login(){
-		$userModel = new UserManager();
-		$user = $userModel->connexion();
-		
-		require '../views/login.php';
-	}
-
-	/*
-	 * La méthode devra être déplacer dans la class UserController
-	*/
-	public function createAccount(){
-		$userModel = new UserManager();
-		$user = $userModel->create();
-		
-		require '../views/create-account.php';
-	}
 
 	public function viewLast(){
 		// Appel à la méthode du model qui affiche les 3 derniers post

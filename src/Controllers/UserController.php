@@ -2,17 +2,28 @@
 
 namespace Src\Controllers;
 
+use Src\Models\UserManager;
 
 /*
- * Class UserControler
+ * Class UserController
  *
  * @package Src
 */
-class UserControler extends Controller{
+class UserController extends Controller{
 
 	public function login(){
+		$userModel = new UserManager();
+		$user = $userModel->connexion();
 		
 		require '../views/login.php';
+	}
+
+
+	public function createAccount(){
+		$userModel = new UserManager();
+		$user = $userModel->create();
+		
+		require '../views/create-account.php';
 	}
 
 }
