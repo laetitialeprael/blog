@@ -82,7 +82,7 @@ class Database{
 	public function insert($statement, $attributes){
 		$req = $this->getPDO()->prepare($statement);
 		$req->execute($attributes);
-		$datas = $req->fetch();
-		return $datas;
+		//$datas = $req->fetch();
+		//return $datas;
 	}
 }
