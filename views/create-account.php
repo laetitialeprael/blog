@@ -1,6 +1,6 @@
 <h1>Formulaire de création de compte</h1>
 
-<form method="POST" action="">
+<form method="POST" action="mon-compte">
 	<label for="inputName">Votre nom</label>
 	<input name="name" type="text" id="inputName">
 

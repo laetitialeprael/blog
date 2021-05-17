@@ -21,11 +21,16 @@ class UserManager extends Manager{
 		'INSERT INTO user (user_name, user_first_name, user_email) VALUES (:user_name, :user_first_name, :user_email)',
 		//$attributes
 		array(':user_name' => $name,':user_first_name' => $firstname,':user_email' => $email));
-
-		//return $user;
-
 	}
-	public function update(){}
+
+	public function update($name, $firstname, $email){
+		$db = $this->getDatabase();
+		$user = $db->insert(
+		//$statement
+		'UPDATE user  SET user_name = :user_name, user_first_name = :user_first_name, user_email = user_email',
+		//$attributes
+		array(':user_name' => $name,':user_first_name' => $firstname,':user_email' => $email));
+	}
 	public function delete(){}
 	
 	public function connexion(){}
