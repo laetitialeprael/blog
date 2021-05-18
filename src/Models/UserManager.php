@@ -13,19 +13,20 @@ use Src\Database;
 */
 class UserManager extends Manager{
 
-	public function create($name, $firstname, $email){
+	public function create($name, $firstname, $email, $password){
 
 		$db = $this->getDatabase();
 		$user = $db->insert(
 		//$statement
-		'INSERT INTO user (user_name, user_first_name, user_email) VALUES (:user_name, :user_first_name, :user_email)',
+		'INSERT INTO user (user_name, user_first_name, user_email, user_password) VALUES (:user_name, :user_first_name, :user_email, :user_password)',
 		//$attributes
-		array(':user_name' => $name,':user_first_name' => $firstname,':user_email' => $email));
+		array(':user_name' => $name,':user_first_name' => $firstname,':user_email' => $email, ':user_password' => $password));
 	}
-	public function read($id, $name, $firstname, $email){
+	
+	public function read($id){
 
 		$db = $this->getDatabase();
-		$user = $db->prepare('SELECT * FROM user', array(':id_user' => $id, ':user_name' => $name,':user_first_name' => $firstname,':user_email' => $email), true);
+		$user = $db->prepare('SELECT * FROM user WHERE user.id_user = :id_user', array(':id_user' => $id), true);
 		return $user;
 	}
 
@@ -38,7 +39,6 @@ class UserManager extends Manager{
 		array(':user_name' => $name,':user_first_name' => $firstname,':user_email' => $email));
 	}
 	public function delete(){}
-	
 	public function connexion(){}
 
 }

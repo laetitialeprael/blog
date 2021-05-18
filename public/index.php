@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require '../vendor/autoload.php';
 
@@ -31,7 +32,8 @@ $router->map('GET', '/blog/connexion', 'Src\Controllers\UserController#login');
 
 //$router->map('GET|POST', '/blog/creer-un-compte', 'Src\Controllers\UserController#createAccount');
 
-$router->map('GET','/blog/creer-un-compte', 'Src\Controllers\UserController#formAccount');
+$router->map('GET|POST','/blog/creer-un-compte', 'Src\Controllers\UserController#formAccount');
+
 $router->map('POST','/blog/mon-compte', 'Src\Controllers\UserController#processAccount');
 
 $router->map('GET','/blog/modifier-mon-compte', 'Src\Controllers\UserController#updateAccount');

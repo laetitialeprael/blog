@@ -1,6 +1,6 @@
 <h1>Formulaire de création de compte</h1>
 
-<form method="POST" action="mon-compte">
+<form method="POST">
 	<label for="inputName">Votre nom</label>
 	<input name="name" type="text" id="inputName">
 
@@ -9,6 +9,12 @@
 
 	<label for="inputEmailAdress">Votre email</label>
 	<input name="email" type="email" id="inputEmailAdress">
+
+	<label for="inputPassword">Votre mot de passe</label>
+	<input name="password" type="password" id="inputPassword">
+
+	<label for="inputValidPassword">Confirmation de votre mot de passe</label>
+	<input name="validpassword" type="password" id="inputValidPassword">
 	<!--
 	<label for="inputPassword">Votre mot de passe</label>
 	<input required name="user_password" type="password" id="inputPassword">

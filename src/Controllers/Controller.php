@@ -27,4 +27,9 @@ class Controller{
 		return self::$database;
 
 	}
+	public function isAuth(){
+		if(!isset($_SESSION['email'])){
+			header('Location: /blog/connexion');
+		}
+	}
 }
