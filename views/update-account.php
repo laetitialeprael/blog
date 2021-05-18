@@ -1,5 +1,4 @@
-<h1>Profil de l'utilisateur</h1>
-<p>La page s'affiche si l'utilisateur à réussi la création de son compte</p>
+<h1>Modifier le profil de l'utilisateur</h1>
 
 <form method="POST" action="modifier-mon-compte">
 	<label for="inputUpdateName"><?php echo $_POST['name']; ?></label>

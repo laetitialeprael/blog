@@ -22,6 +22,12 @@ class UserManager extends Manager{
 		//$attributes
 		array(':user_name' => $name,':user_first_name' => $firstname,':user_email' => $email));
 	}
+	public function read($id, $name, $firstname, $email){
+
+		$db = $this->getDatabase();
+		$user = $db->prepare('SELECT * FROM user', array(':id_user' => $id, ':user_name' => $name,':user_first_name' => $firstname,':user_email' => $email), true);
+		return $user;
+	}
 
 	public function update($name, $firstname, $email){
 		$db = $this->getDatabase();

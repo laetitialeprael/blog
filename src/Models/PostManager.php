@@ -17,7 +17,7 @@ class PostManager extends Manager{
 		//echo 'on y est presque';
 		$db = $this->getDatabase();
 		$results = $db->query('SELECT * FROM post');
-		// trqnsfor le retour en class Post()
+		// transforme le retour en class Post()
 		$posts = [];
 		foreach ($results as $result) {
 			$post = new Post();

@@ -2,6 +2,7 @@
 
 require '../vendor/autoload.php';
 
+require '../views/head.php';
 require '../views/header.php';
 
 /*
@@ -34,7 +35,7 @@ $router->map('GET','/blog/creer-un-compte', 'Src\Controllers\UserController#form
 $router->map('POST','/blog/mon-compte', 'Src\Controllers\UserController#processAccount');
 
 $router->map('GET','/blog/modifier-mon-compte', 'Src\Controllers\UserController#updateAccount');
-$router->map('POST','/blog/mon-compte', 'Src\Controllers\UserController#processAccount');
+$router->map('GET','/blog/mon-compte', 'Src\Controllers\UserController#viewAccount');
 
 // Routes d'administration
 $router->map('GET', '/blog/admin/nouvel-article', 'Src\Controllers\PostController#adminCreate');
