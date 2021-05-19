@@ -39,6 +39,14 @@ class UserManager extends Manager{
 		array(':user_name' => $name,':user_first_name' => $firstname,':user_email' => $email));
 	}
 	public function delete(){}
-	public function connexion(){}
+	
+	public function connexion($password){
+		$db = $this->getDatabase();
+		$user = $db->prepare(
+			'SELECT * FROM user WHERE user.user_password = :user_password',
+			array(':user_password' => $password), true);
+		
+		return $user;
+	}
 
 }

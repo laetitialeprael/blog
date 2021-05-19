@@ -13,7 +13,22 @@ class UserController extends Controller{
 
 	public function login(){
 		$userModel = new UserManager();
-		$user = $userModel->connexion();
+
+		if(isset($_POST['email'], $_POST['password']) && ($_POST['email'] != '' && $_POST['password'] !='')) {
+			//$email = $_POST['email'];
+			//$password = $_POST['password'];
+			//$user = $userModel->connexion($email, $password);
+			if($user = $userModel->connexion($_POST['password'])){
+				//echo 'Le mot de passe est correcte';
+				header('Location: /blog/mon-compte');
+			}
+			//$_SESSION['email'] = $_POST['email'];
+			//$_SESSION['password'] = $_POST['password'];
+
+			//
+			
+			//var_dump($user);
+		}
 		
 		require '../views/login.php';
 	}
@@ -46,9 +61,9 @@ class UserController extends Controller{
 	}
 
 	public function viewAccount(){
-		$this->isAuth();
-		$userModel = new UserManager();
-		$user = $userModel->read($id);
+		//$this->isAuth();
+		//$userModel = new UserManager();
+		//$user = $userModel->read($id);
 		// On affiche le profil de l'utilisateur
 		require '../views/account.php';
 
