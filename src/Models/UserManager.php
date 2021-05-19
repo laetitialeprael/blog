@@ -23,10 +23,10 @@ class UserManager extends Manager{
 		array(':user_name' => $name,':user_first_name' => $firstname,':user_email' => $email, ':user_password' => $password));
 	}
 	
-	public function read($id){
+	public function read(){
 
 		$db = $this->getDatabase();
-		$user = $db->prepare('SELECT * FROM user WHERE user.id_user = :id_user', array(':id_user' => $id), true);
+		$user = $db->prepare('SELECT * FROM user WHERE user.user_password = :user_password', array(':user_password' => $password), true);
 		return $user;
 	}
 
@@ -40,11 +40,11 @@ class UserManager extends Manager{
 	}
 	public function delete(){}
 	
-	public function connexion($password){
+	public function connexion($email, $password){
 		$db = $this->getDatabase();
 		$user = $db->prepare(
-			'SELECT * FROM user WHERE user.user_password = :user_password',
-			array(':user_password' => $password), true);
+			'SELECT * FROM user WHERE user.user_email = :user_email AND user.user_password = :user_password',
+			array(':user_email' => $email, ':user_password' => $password), true);
 		
 		return $user;
 	}

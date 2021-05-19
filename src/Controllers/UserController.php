@@ -18,7 +18,7 @@ class UserController extends Controller{
 			//$email = $_POST['email'];
 			//$password = $_POST['password'];
 			//$user = $userModel->connexion($email, $password);
-			if($user = $userModel->connexion($_POST['password'])){
+			if($user = $userModel->connexion($_POST['email'], $_POST['password'])){
 				//echo 'Le mot de passe est correcte';
 				header('Location: /blog/mon-compte');
 			}
@@ -63,7 +63,7 @@ class UserController extends Controller{
 	public function viewAccount(){
 		//$this->isAuth();
 		//$userModel = new UserManager();
-		//$user = $userModel->read($id);
+		//$user = $userModel->read();
 		// On affiche le profil de l'utilisateur
 		require '../views/account.php';
 
