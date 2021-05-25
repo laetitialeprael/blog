@@ -32,6 +32,7 @@ class User{
 	private $last_visit_date;
 
 	public function hydrate(array $datas){
+		// On fait une boucle avec le tableau de données
 		foreach ($datas as $key => $value) {
 			$this->$key = $value;
 		}
@@ -43,31 +44,20 @@ class User{
 	 * Les propriétés ne sont pas altérées en dehors de la class
 	 *
 	*/
-	public function getName(){
-		return $this->user_name;
+	public function getEmail(){
+		return $this->user_email;
+	}
+	public function getPassword(){
+		return $this->user_email;
 	}
 	/*
 	 * Setter : permet d'accéder à une propriété private en dehors de la class et de modifier sa valeur. 
 	*/
-	public function setTitle($user_name){
+	public function setEmail($user_email){
 		// On vérifie qu'il s'agit bien d'une chaine de caractère
-		if(is_string($user_name)){
-			$this->user_name = $user_name;
+		if(is_string($user_email)){
+			$this->user_email = $user_email;
 		}
 	}
-	
-	//public function getUrl(){
-		//return 'index.php?page=blog/article&id=' . $this->id_post;
-	//}
-
-	//public function getExtract(){
-		//if (empty($this->introduction)){
-            //$html = '<p>' . substr($this->content, 0, 150) . '...</p>';
-        //}else{
-            //$html = '<p>' . substr($this->introduction, 0, 150) . '...</p>';
-        //}
-		//$html .= '<a href="' . $this->getUrl() . '">Lire la suite</a>';
-		//return $html;
-	//}
 
 }

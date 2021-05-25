@@ -12,24 +12,19 @@ use Src\Models\UserManager;
 class UserController extends Controller{
 
 	public function login(){
-	//	$userModel = new UserManager();
+		$userModel = new UserManager();
 
-	//	if(isset($_POST['email'], $_POST['password']) && ($_POST['email'] != '' && $_POST['password'] !='')) {
-	//		$user = $userModel->connexion($_POST['email'], $_POST['password']);
-			// Si l'adresse mail est le mot de passe sont correct
-	//		if($user = ){
-	//			header('Location: /blog/mon-compte');
-	//		}
-			// Si le mot de passe est différent
-	//		elseif($user != $_POST['password']){
-	//			echo 'Le mot de passe est incorrect';
-	//		}
-			// Si l'adresse mail est différente
-	//		elseif($user != $_POST['email']){
-	//			echo 'Adresse mail inconnue';
-	//		}	
-			// Si l'adresse mail est le mot de passe sont incorrectes
-	//	}
+		if(isset($_POST['email'], $_POST['password']) && ($_POST['email'] != '' && $_POST['password'] !='')) {
+			
+			$user = $userModel->connexion($_POST['email'], $_POST['password']);
+			var_dump($user);
+
+			if(password_verify($_POST['password'], $user->user_password)){
+				echo 'Mot de passe correcte';
+			}else{
+				echo 'Mot de pass incorrecte';
+			}
+		}
 		
 		require '../views/login.php';
 	}
@@ -48,11 +43,14 @@ class UserController extends Controller{
 
 		if($user = $this->isValid($_POST)){
 
-			// On vérifie la saisie des mot de passe
+			// Si les champs mot de passe correspond
 			if($user['password'] === $user['validpassword']){
+				// On lance la méthode de création de l'utilisateur en hachant le mot de passe
 				$user = $userModel->create($user['name'], $user['firstname'], $user['email'], password_hash($user['password'], PASSWORD_DEFAULT));
+				// On redirige l'utilistaur sur la page de connexion
 				header('Location: /blog/connexion');
 			
+			// Si les mot de passe sont différents
 			}else{
 				echo 'Les mots de passe sont différents';
 			}
