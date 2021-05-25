@@ -14,42 +14,37 @@ class UserController extends Controller{
 
 	public function login(){
 		$userModel = new UserManager();
-		//$userGetter = new User();
 
 		if(isset($_POST['email'], $_POST['password']) && ($_POST['email'] != '' && $_POST['password'] !='')) {
 			
-			if($user = $userModel->connexion($_POST['email'], $_POST['password'])){
-				echo 'Ok on passe à la suite';
-				if($_POST['password'] === $user->user_password){
-					echo 'le mot de passe est correcte';
-					var_dump($user);
-				}else{
-					echo 'le mot de passe ne convient pas';
+			// Si l'adresse mail de l'utilisateur est enregistrée
+			if($user = $userModel->connexion($_POST['email'])){
+				// On devrait pouvoir accéder à la donnée avec un getter
+				// La visibilité de $user_password est modifié à public User.php
+				$password = $user->user_password;
+
+				// Si le mot de passe saisie par l'utilisateur
+				if(password_verify($_POST['password'], $password)){
+					// On enregistre les variables de la table user dans $_SESSION
+					$_SESSION['name'] = $user->user_name;
+					$_SESSION['firstname'] = $user->user_first_name;
+					$_SESSION['email'] = $user->user_email;
+					$_SESSION['creationDate'] = $user->user_creation_date;
+					$_SESSION['lastVisit'] = $user->last_visit_date;
+					// On redirige l'utilisateur sur son profil
+					header('Location: /blog/mon-compte');
+				}
+				// Sinon
+				else{
+					echo "Le mot de passe n'est pas correcte";
 				}
 			}
-			//var_dump($user);
-			// Si les données ne sont pas enregistrées on a le message d'alerte
-			// Fatal error: Uncaught TypeError: Argument 1 passed to Src\Models\User::hydrate() must be of the type array, bool given, called in /Applications/MAMP/htdocs/blog/src/Models/UserManager.php on line 50 and defined in /Applications/MAMP/htdocs/blog/src/Models/User.php:34 Stack trace: #0 /Applications/MAMP/htdocs/blog/src/Models/UserManager.php(50): Src\Models\User->hydrate(false) #1 /Applications/MAMP/htdocs/blog/src/Controllers/UserController.php(21): Src\Models\UserManager->connexion('ccdscs@kj.fr', 'test') #2 /Applications/MAMP/htdocs/blog/public/index.php(60): Src\Controllers\UserController->login(Array) #3 {main} thrown in /Applications/MAMP/htdocs/blog/src/Models/User.php on line 34
-
-			//if($_POST['password'] === $user->user_password){
-			//	echo 'le mot de passe est correcte';
-			//}else{
-			//	echo 'le mot de passe ne convient pas';
-			//}
-
-			//$email = $userGetter->getPassword();
-			//var_dump($email);
-
-			// $user->user_password
-			//if(password_verify($_POST['password'], $user->user_password)){
-			//	echo 'Mot de passe correcte';
-			//}else{
-			//	echo 'Mot de pass incorrecte';
-			//}
-		} else {
-			echo 'Une erreur s\'est produit';
+			// Si l'adresse mail de l'utilisateur n'est pas enregistrée
+			else{
+				echo "L'adresse mail n'est pas enregistrée";
+			}		
 		}
-		
+
 		require '../views/login.php';
 	}
 

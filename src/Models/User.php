@@ -22,14 +22,14 @@ class User{
 	 * @var $content string contenu de l'article
 	*/
 	private $id_user;
-	private $user_name;
-	private $user_first_name;
-	private $user_email;
+	public $user_name;
+	public $user_first_name;
+	public $user_email;
 	public $user_password;
 	private $role;
-	private $user_creation_date;
+	public $user_creation_date;
 	private $gdpr_consent;
-	private $last_visit_date;
+	public $last_visit_date;
 
 	public function hydrate(array $datas){
 		// On fait une boucle avec le tableau de données
