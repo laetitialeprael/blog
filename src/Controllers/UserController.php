@@ -18,16 +18,24 @@ class UserController extends Controller{
 
 		if(isset($_POST['email'], $_POST['password']) && ($_POST['email'] != '' && $_POST['password'] !='')) {
 			
-			$user = $userModel->connexion($_POST['email'], $_POST['password']);
+			if($user = $userModel->connexion($_POST['email'], $_POST['password'])){
+				echo 'Ok on passe à la suite';
+				if($_POST['password'] === $user->user_password){
+					echo 'le mot de passe est correcte';
+					var_dump($user);
+				}else{
+					echo 'le mot de passe ne convient pas';
+				}
+			}
 			//var_dump($user);
 			// Si les données ne sont pas enregistrées on a le message d'alerte
 			// Fatal error: Uncaught TypeError: Argument 1 passed to Src\Models\User::hydrate() must be of the type array, bool given, called in /Applications/MAMP/htdocs/blog/src/Models/UserManager.php on line 50 and defined in /Applications/MAMP/htdocs/blog/src/Models/User.php:34 Stack trace: #0 /Applications/MAMP/htdocs/blog/src/Models/UserManager.php(50): Src\Models\User->hydrate(false) #1 /Applications/MAMP/htdocs/blog/src/Controllers/UserController.php(21): Src\Models\UserManager->connexion('ccdscs@kj.fr', 'test') #2 /Applications/MAMP/htdocs/blog/public/index.php(60): Src\Controllers\UserController->login(Array) #3 {main} thrown in /Applications/MAMP/htdocs/blog/src/Models/User.php on line 34
 
-			if($_POST['password'] === $user->user_password){
-				echo 'le mot de passe est correcte';
-			}else{
-				echo 'le mot de passe ne convient pas';
-			}
+			//if($_POST['password'] === $user->user_password){
+			//	echo 'le mot de passe est correcte';
+			//}else{
+			//	echo 'le mot de passe ne convient pas';
+			//}
 
 			//$email = $userGetter->getPassword();
 			//var_dump($email);
