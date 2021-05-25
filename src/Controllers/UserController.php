@@ -59,11 +59,6 @@ class UserController extends Controller{
 			}else{
 				echo 'Les mots de passe sont différents';
 			}
-			
-			// On stock les résultats dans la superglobale $_SESSION
-			//$_SESSION['name'] = $_POST['name'];
-			//$_SESSION['firstname'] = $_POST['firstname'];
-			//$_SESSION['email'] = $_POST['email'];
 		}
 		// On affiche le formulaire de création
 		require '../views/create-account.php';
@@ -71,10 +66,6 @@ class UserController extends Controller{
 	}
 
 	public function viewAccount(){
-		//$this->isAuth();
-		//$userModel = new UserManager();
-		//$user = $userModel->read();
-		// On affiche le profil de l'utilisateur
 		require '../views/account.php';
 
 	}
