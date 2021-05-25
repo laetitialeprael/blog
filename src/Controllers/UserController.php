@@ -3,6 +3,7 @@
 namespace Src\Controllers;
 
 use Src\Models\UserManager;
+use Src\Models\User;
 
 /*
  * Class UserController
@@ -13,17 +14,21 @@ class UserController extends Controller{
 
 	public function login(){
 		$userModel = new UserManager();
+		$userGetter = new User();
 
 		if(isset($_POST['email'], $_POST['password']) && ($_POST['email'] != '' && $_POST['password'] !='')) {
 			
 			$user = $userModel->connexion($_POST['email'], $_POST['password']);
 			var_dump($user);
 
-			if(password_verify($_POST['password'], $user->user_password)){
-				echo 'Mot de passe correcte';
-			}else{
-				echo 'Mot de pass incorrecte';
-			}
+			$email = $userGetter->getEmail();
+			var_dump($email);
+
+			//if(password_verify($_POST['password'], $user->user_password)){
+			//	echo 'Mot de passe correcte';
+			//}else{
+			//	echo 'Mot de pass incorrecte';
+			//}
 		}
 		
 		require '../views/login.php';
