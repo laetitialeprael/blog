@@ -15,10 +15,6 @@
 
 	<label for="inputValidPassword">Confirmation de votre mot de passe</label>
 	<input name="validpassword" type="password" id="inputValidPassword">
-	<!--
-	<label for="inputPassword">Votre mot de passe</label>
-	<input required name="user_password" type="password" id="inputPassword">
-	-->
 
 	<button type="submit">Créer mon compte</button>
 </form>

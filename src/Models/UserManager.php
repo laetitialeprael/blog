@@ -45,7 +45,16 @@ class UserManager extends Manager{
 		$user = $db->prepare(
 			'SELECT * FROM user WHERE user.user_email = :user_email AND user.user_password = :user_password',
 			array(':user_email' => $email, ':user_password' => $password), true);
-		
+		//$results = $db->prepare(
+		//	'SELECT * FROM user WHERE user.user_email = :user_email AND user.user_password = :user_password',
+		//	array(':user_email' => $email, ':user_password' => $password), true);
+		//$users = [];
+		//foreach ($results as $result) {
+		//	$user = new User();
+		//	$user->hydrate($result);
+		//	$users[] = $user;
+		//}
+		//return $users;
 		return $user;
 	}
 
