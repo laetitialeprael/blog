@@ -25,7 +25,7 @@ class User{
 	private $user_name;
 	private $user_first_name;
 	private $user_email;
-	private $user_password;
+	public $user_password;
 	private $role;
 	private $user_creation_date;
 	private $gdpr_consent;
@@ -48,7 +48,7 @@ class User{
 		return $this->user_email;
 	}
 	public function getPassword(){
-		return $this->user_email;
+		return $this->user_password;
 	}
 	/*
 	 * Setter : permet d'accéder à une propriété private en dehors de la class et de modifier sa valeur. 

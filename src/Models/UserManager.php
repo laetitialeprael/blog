@@ -44,13 +44,11 @@ class UserManager extends Manager{
 		$db = $this->getDatabase();
 		$results = $db->prepare(
 			'SELECT * FROM user WHERE user.user_email = :user_email AND user.user_password = :user_password',
-			array(':user_email' => $email, ':user_password' => $password), false);
+			array(':user_email' => $email, ':user_password' => $password), true);
 		
-		$users = [];
 		$user = new User();
 		$user->hydrate($results);
-		$users[] = $user;
-		return $users;
+		return $user;
 	}
 
 }
