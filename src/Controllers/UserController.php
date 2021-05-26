@@ -31,12 +31,15 @@ class UserController extends Controller{
 					$_SESSION['email'] = $user->user_email;
 					$_SESSION['creationDate'] = $user->user_creation_date;
 					$_SESSION['lastVisit'] = $user->last_visit_date;
+					$_SESSION['iduser'] = $user->id_user;
+
 					// On redirige l'utilisateur sur son profil
 					header('Location: /blog/mon-compte');
 				}
 				// Sinon
 				else{
 					echo "Le mot de passe n'est pas correcte";
+					var_dump($user);
 				}
 			}
 			// Si l'adresse mail de l'utilisateur n'est pas enregistrée
@@ -66,8 +69,10 @@ class UserController extends Controller{
 			if($user['password'] === $user['validpassword']){
 				// On lance la méthode de création de l'utilisateur en hachant le mot de passe
 				$user = $userModel->create($user['name'], $user['firstname'], $user['email'], password_hash($user['password'], PASSWORD_DEFAULT));
-				// On redirige l'utilistaur sur la page de connexion
+				// On redirige l'utilisateur sur la page de connexion
 				header('Location: /blog/connexion');
+				// Après une redirection on doit toujours sortir du script
+				exit;
 			
 			// Si les mot de passe sont différents
 			}else{
@@ -86,13 +91,20 @@ class UserController extends Controller{
 
 	public function updateAccount(){
 		$userModel = new UserManager();
+
+		$_POST['name'] = $_SESSION['name'];
+		$_POST['firstname'] = $_SESSION['firstname'];
+		$_POST['email'] = $_SESSION['email'];
+		$_POST['iduser'] = $_SESSION['iduser'];
+
+		echo $_POST['name'];
 		
-		if($user = $this->isValid($_POST)){
-
-			//$result = $userModel->read($_POST['name'], $_POST['firstname'], $_POST['email']);
-			$result = $userModel->update($_POST['name'], $_POST['firstname'], $_POST['email']);
-
+		if(isset($_POST['name'], $_POST['firstname'], $_POST['email'], $_POST['iduser']) && ($_POST['name'] != '') && ($_POST['firstname'] != '') && ($_POST['email'] != '') && ($_POST['iduser'] != '')) {
+			echo 'Nice';
+			$result = $userModel->update($_POST['name'], $_POST['firstname'], $_POST['email'], $_POST['iduser']);
+			var_dump($result);
 		}
+		//if($user = $this->isValid($_POST)){}
 		require '../views/update-account.php';
 	}
 

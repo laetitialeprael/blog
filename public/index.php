@@ -40,7 +40,7 @@ $router->map('GET|POST','/blog/modifier-mon-compte', 'Src\Controllers\UserContro
 $router->map('GET','/blog/mon-compte', 'Src\Controllers\UserController#viewAccount');
 
 // Routes d'administration
-$router->map('GET', '/blog/admin/nouvel-article', 'Src\Controllers\PostController#adminCreate');
+$router->map('GET|POST', '/blog/admin/nouvel-article', 'Src\Controllers\PostController#adminCreate');
 $router->map('GET', '/blog/admin/article/post=[i:id]&action=edit', 'Src\Controllers\PostController#adminUpdate');
 
 /*

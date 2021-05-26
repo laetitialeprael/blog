@@ -1,14 +1,17 @@
-<h1>Modifier le profil de l'utilisateur</h1>
+<h1>Modifier le profil de l'utilisateur</h1><span>Id : <?php echo $_SESSION['iduser']; ?></span>
 
 <form method="POST">
-	<label for="inputUpdateName">Nom</label>
-	<input name="name" type="text" id="inputUpdateName" value="<?php echo $_SESSION['name']; ?>">
+	<p><label for="inputUpdateName">Identifiant</label></p>
+	<p><input disabled name="iduser" type="text" id="inputUpdateName" value="<?php echo htmlspecialchars($_SESSION['iduser']); ?>"></p>
 
-	<label for="inputUdateFirstname">Prénom</label>
-	<input name="firstname" type="text" id="inputUdateFirstname" value="<?php echo $_SESSION['firstname']; ?>">
+	<p><label for="inputUpdateName">Nom</label></p>
+	<p><input name="name" type="text" id="inputUpdateName" value="<?php echo htmlspecialchars($_SESSION['name']); ?>"></p>
 
-	<label for="inputUpdateEmailAdress">Adresse mail</label>
-	<input name="email" type="email" id="inputUpdateEmailAdress" value="<?php echo $_SESSION['email']; ?>">
+	<p><label for="inputUdateFirstname">Prénom</label></p>
+	<p><input name="firstname" type="text" id="inputUdateFirstname" value="<?php echo htmlspecialchars($_SESSION['firstname']);?>"></p>
+
+	<p><label for="inputUpdateEmailAdress">Email</label></p>
+	<p><input name="email" type="email" id="inputUpdateEmailAdress" value="<?php echo htmlspecialchars($_SESSION['email']);?>"></p>
 	<!--
 	<label for="inputPassword">Votre mot de passe</label>
 	<input required name="user_password" type="password" id="inputPassword">

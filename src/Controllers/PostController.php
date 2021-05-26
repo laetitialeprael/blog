@@ -34,9 +34,14 @@ class PostController extends Controller{
 
 	// Méthode pour afficher la page de création d'un article
 	public function adminCreate(){
-		$postModel = new PostManager();		
-		$result = $postModel->create();
-		var_dump($result);
+		$postModel = new PostManager();
+
+		if(isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category'], $_POST['user_id_user']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='') && ($_POST['user_id_user'] !='')) {
+			
+			$post = $postModel->create($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category'], $_POST['user_id_user']);
+			echo 'Article ajouté';
+		
+		}
 		require '../views/admin/create-post.php';
 	}
 

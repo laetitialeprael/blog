@@ -21,7 +21,7 @@ class User{
 	 * @var $introduction string introduction de l'article
 	 * @var $content string contenu de l'article
 	*/
-	private $id_user;
+	public $id_user;
 	public $user_name;
 	public $user_first_name;
 	public $user_email;
