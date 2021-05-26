@@ -1,14 +1,14 @@
 <h1>Modifier le profil de l'utilisateur</h1>
 
-<form method="POST" action="modifier-mon-compte">
-	<label for="inputUpdateName"><?php echo $_POST['name']; ?></label>
-	<input name="name" type="text" id="inputUpdateName">
+<form method="POST">
+	<label for="inputUpdateName">Nom</label>
+	<input name="name" type="text" id="inputUpdateName" value="<?php echo $_SESSION['name']; ?>">
 
-	<label for="inputUdateFirstname"><?php echo $_POST['firstname']; ?></label>
-	<input name="firstname" type="text" id="inputUdateFirstname">
+	<label for="inputUdateFirstname">Prénom</label>
+	<input name="firstname" type="text" id="inputUdateFirstname" value="<?php echo $_SESSION['firstname']; ?>">
 
-	<label for="inputUpdateEmailAdress"><?php echo $_POST['email']; ?></label>
-	<input name="email" type="email" id="inputUpdateEmailAdress">
+	<label for="inputUpdateEmailAdress">Adresse mail</label>
+	<input name="email" type="email" id="inputUpdateEmailAdress" value="<?php echo $_SESSION['email']; ?>">
 	<!--
 	<label for="inputPassword">Votre mot de passe</label>
 	<input required name="user_password" type="password" id="inputPassword">

@@ -36,7 +36,7 @@ $router->map('GET|POST','/blog/creer-un-compte', 'Src\Controllers\UserController
 
 //$router->map('POST','/blog/mon-compte', 'Src\Controllers\UserController#processAccount');
 
-$router->map('GET','/blog/modifier-mon-compte', 'Src\Controllers\UserController#updateAccount');
+$router->map('GET|POST','/blog/modifier-mon-compte', 'Src\Controllers\UserController#updateAccount');
 $router->map('GET','/blog/mon-compte', 'Src\Controllers\UserController#viewAccount');
 
 // Routes d'administration

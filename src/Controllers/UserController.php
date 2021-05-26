@@ -89,7 +89,8 @@ class UserController extends Controller{
 		
 		if($user = $this->isValid($_POST)){
 
-			$result = $userModel->read($_POST['name'], $_POST['firstname'], $_POST['email']);
+			//$result = $userModel->read($_POST['name'], $_POST['firstname'], $_POST['email']);
+			$result = $userModel->update($_POST['name'], $_POST['firstname'], $_POST['email']);
 
 		}
 		require '../views/update-account.php';
