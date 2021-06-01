@@ -51,6 +51,7 @@ $router->map('GET', '/blog/admin/article/post=[i:id]&action=edit', 'Src\Controll
 */ 
 $match = $router->match();
 
+unset($_SESSION['message']);
 
 if($match == false){
 	echo 'On mettra la page 404';

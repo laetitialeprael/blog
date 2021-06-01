@@ -21,24 +21,26 @@ class UserController extends Controller{
 			if($user = $userModel->connexion($_POST['email'])){
 				// On devrait pouvoir accéder à la donnée avec un getter
 				// La visibilité de $user_password est modifié à public User.php
-				$password = $user->user_password;
+				$password = $user->getPassword();
+				//var_dump();die;
 
 				// Si le mot de passe saisie par l'utilisateur est enregistré
 				if(password_verify($_POST['password'], $password)){
 					// On enregistre les variables de la table user dans $_SESSION
-					$_SESSION['name'] = $user->user_name;
+					$_SESSION['user']['name'] = $user->user_name;
 					$_SESSION['firstname'] = $user->user_first_name;
 					$_SESSION['email'] = $user->user_email;
 					$_SESSION['creationDate'] = $user->user_creation_date;
 					$_SESSION['lastVisit'] = $user->last_visit_date;
 					$_SESSION['iduser'] = $user->id_user;
 
+
 					// On redirige l'utilisateur sur son profil
 					header('Location: /blog/mon-compte');
 				}
 				// Sinon
 				else{
-					echo "Le mot de passe n'est pas correcte";
+					$_SESSION['message'] = "Le mot de passe n'est pas correcte";
 					//var_dump($user);
 				}
 			}
@@ -90,7 +92,17 @@ class UserController extends Controller{
 	}
 
 	public function updateAccount(){
-	
+		$this->isAuth();
+
+		$userModel = new UserManager();
+
+		if(isset($_POST['email'], $_POST['password']) && ($_POST['email'] != '' && $_POST['password'] !='')) {
+			if($_POST['password'] === $_POST['validpassword']){
+
+				$user = $userModel->update(password_hash($_POST['password'], PASSWORD_DEFAULT),$_SESSION['iduser']);
+			}
+		}
+
 		require '../views/form-password.php';
 	}
 

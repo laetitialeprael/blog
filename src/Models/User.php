@@ -25,7 +25,7 @@ class User{
 	public $user_name;
 	public $user_first_name;
 	public $user_email;
-	public $user_password;
+	private $user_password;
 	private $role;
 	public $user_creation_date;
 	private $gdpr_consent;

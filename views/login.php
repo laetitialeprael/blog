@@ -1,3 +1,6 @@
+<?php if (isset($_SESSION['message'])): ?>
+<p><?php echo $_SESSION['message']; ?></p>
+<?php endif; ?>
 <h1>Formulaire de connexion</h1>
 
 <form method="post">
