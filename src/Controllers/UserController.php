@@ -23,7 +23,7 @@ class UserController extends Controller{
 				// La visibilité de $user_password est modifié à public User.php
 				$password = $user->user_password;
 
-				// Si le mot de passe saisie par l'utilisateur
+				// Si le mot de passe saisie par l'utilisateur est enregistré
 				if(password_verify($_POST['password'], $password)){
 					// On enregistre les variables de la table user dans $_SESSION
 					$_SESSION['name'] = $user->user_name;
@@ -39,7 +39,7 @@ class UserController extends Controller{
 				// Sinon
 				else{
 					echo "Le mot de passe n'est pas correcte";
-					var_dump($user);
+					//var_dump($user);
 				}
 			}
 			// Si l'adresse mail de l'utilisateur n'est pas enregistrée
@@ -90,22 +90,8 @@ class UserController extends Controller{
 	}
 
 	public function updateAccount(){
-		$userModel = new UserManager();
-
-		$_POST['name'] = $_SESSION['name'];
-		$_POST['firstname'] = $_SESSION['firstname'];
-		$_POST['email'] = $_SESSION['email'];
-		$_POST['iduser'] = $_SESSION['iduser'];
-
-		echo $_POST['name'];
-		
-		if(isset($_POST['name'], $_POST['firstname'], $_POST['email'], $_POST['iduser']) && ($_POST['name'] != '') && ($_POST['firstname'] != '') && ($_POST['email'] != '') && ($_POST['iduser'] != '')) {
-			echo 'Nice';
-			$result = $userModel->update($_POST['name'], $_POST['firstname'], $_POST['email'], $_POST['iduser']);
-			var_dump($result);
-		}
-		//if($user = $this->isValid($_POST)){}
-		require '../views/update-account.php';
+	
+		require '../views/form-password.php';
 	}
 
 }

@@ -9,3 +9,4 @@
 
 	<button type="submit">Connexion</button>
 </form>
+<a href="../blog/mot-de-passe-oublie">Mot de passe oublié</a>

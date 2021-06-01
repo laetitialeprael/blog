@@ -33,10 +33,11 @@ $router->map('GET|POST', '/blog/connexion', 'Src\Controllers\UserController#logi
 //$router->map('GET|POST', '/blog/creer-un-compte', 'Src\Controllers\UserController#createAccount');
 
 $router->map('GET|POST','/blog/creer-un-compte', 'Src\Controllers\UserController#formAccount');
+$router->map('GET|POST','/blog/mot-de-passe-oublie', 'Src\Controllers\UserController#updateAccount');
 
 //$router->map('POST','/blog/mon-compte', 'Src\Controllers\UserController#processAccount');
 
-$router->map('GET|POST','/blog/modifier-mon-compte', 'Src\Controllers\UserController#updateAccount');
+//$router->map('GET|POST','/blog/modifier-mon-compte', 'Src\Controllers\UserController#updateAccount');
 $router->map('GET','/blog/mon-compte', 'Src\Controllers\UserController#viewAccount');
 
 // Routes d'administration
