@@ -12,21 +12,6 @@ use Src\Database;
  * @package Src
 */
 class PostManager extends Manager{
-
-	public function showLast(){
-		//echo 'on y est presque';
-		$db = $this->getDatabase();
-		$results = $db->query('SELECT post.id_post, post.title, post.introduction, post.content, post.post_creation_date, post.category_id_category, user.user_first_name, user.user_name, category.category_name FROM user INNER JOIN post ON user.id_user = post.user_id_user INNER JOIN category ON post.category_id_category = category.id_category ORDER BY post.post_creation_date DESC LIMIT 3');
-		// transforme le retour en class Post()
-		$posts = [];
-		foreach ($results as $result) {
-			$post = new Post();
-			$post->hydrate($result);
-			$posts[] = $post;
-		}
-		return $posts;
-		//var_dump($result);
-	}
 	
 	public function create($title, $introduction, $content, $category, $user){
 		$db = $this->getDatabase();
@@ -46,7 +31,7 @@ class PostManager extends Manager{
 
 	public function readAll(){
 		$db = $this->getDatabase();
-		$results = $db->query('SELECT post.id_post, post.title, post.introduction, post.content, post.post_creation_date, post.category_id_category, user.user_first_name, user.user_name, category.category_name FROM user INNER JOIN post ON user.id_user = post.user_id_user INNER JOIN category ON post.category_id_category = category.id_category ORDER BY post.post_creation_date DESC');
+		$results = $db->query('SELECT post.id_post, post.title, post.introduction, post.content, post.post_creation_date, post.slug, post.category_id_category, user.user_first_name, user.user_name, category.category_name FROM user INNER JOIN post ON user.id_user = post.user_id_user INNER JOIN category ON post.category_id_category = category.id_category ORDER BY post.post_creation_date DESC');
 		// transforme le retour en class Post()
 		$posts = [];
 		foreach ($results as $result) {
@@ -55,6 +40,21 @@ class PostManager extends Manager{
 			$posts[] = $post;
 		}
 		return $posts;
+	}
+
+	public function readLast(){
+		//echo 'on y est presque';
+		$db = $this->getDatabase();
+		$results = $db->query('SELECT post.id_post, post.title, post.introduction, post.content, post.post_creation_date, post.slug, post.category_id_category, user.user_first_name, user.user_name, category.category_name FROM user INNER JOIN post ON user.id_user = post.user_id_user INNER JOIN category ON post.category_id_category = category.id_category ORDER BY post.post_creation_date DESC LIMIT 3');
+		// transforme le retour en class Post()
+		$posts = [];
+		foreach ($results as $result) {
+			$post = new Post();
+			$post->hydrate($result);
+			$posts[] = $post;
+		}
+		return $posts;
+		//var_dump($result);
 	}
 
 }

@@ -50,6 +50,13 @@ class Post{
 	 *
 	*/
 	/*
+	 * Getter qui permet d'accéder à la propriété private $id_post dans la class PostControler
+	 * @return l'identifiant de l'article sous forme de chaine de caractère
+	*/
+	public function getId(){
+		return $this->id_post;
+	}
+	/*
 	 * Getter qui permet d'accéder à la propriété private $title dans la class PostControler
 	 * @return le titre de l'article sous forme de chaine de caractère
 	*/
@@ -76,6 +83,13 @@ class Post{
 	*/
 	public function getCreationDate(){
 		return $this->post_creation_date;
+	}
+	/*
+	 * Getter qui permet d'accéder à la propriété private $slug dans la class PostControler
+	 * @return le slug de l'article sous forme de chaine de caractère
+	*/
+	public function getSlug(){
+		return $this->slug;
 	}
 	/*
 	 * Getter qui permet d'accéder à la propriété private $category_name dans la class PostControler
@@ -116,12 +130,20 @@ class Post{
 		return $html;
 	}
 	/*
-	 * Méthode qui permet d'afficher le prénom et la première lettre du nom de l'aiteur de l'article
+	 * Méthode qui permet d'afficher le prénom et la première lettre du nom de l'auteur de l'article
 	 * @return l'auteur de l'article sous forme de chaine de caractère
 	*/
 	public function viewAuthor(){
 		$html = substr($this->getName(), 0, 1) . '. ' . $this->getFirstName();
 		return $html;
+	}
+	/*
+	 * Méthode qui permet de générer l'url des articles
+	 * @return l'url de l'article
+	*/
+	public function viewUrl(){
+		$url = $this->getSlug() . '-' . $this->getId();
+		return $url;
 	}
 	/*
 	 * Setter : permet d'accéder à une propriété private en dehors de la class et de modifier sa valeur. 
