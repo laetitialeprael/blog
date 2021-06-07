@@ -1,14 +1,55 @@
-<h1>Page d'accueil</h1>
-<p>On affiche quelques articles du blog</p>
-
-<ul>
-	
-	<?php foreach ($result as $post): ?>
-		
-		<h2><a href="#"><?php echo $post->getTitle(); ?></a></h2>
-		<p><?php echo '' ?></p>
-	
-	<?php endforeach; ?>
-</ul>
-
-<p><a href="../blog/article">Voir tous les articles</a></p>
+<section class="banner"></section>
+<section class="introduce text-center text-white position-relative">
+	<div class="container-fluid position-absolute top-50 start-50 translate-middle">
+		<div class="row">
+			<div class="col">
+				<h1>Bonjour visiteur.euse,</h1>
+				<p>Je m'appelle Laëtitia L., bienvenue sur OpenclassroomsBlog !<br/>Ici on écrit des articles sur les différents domaines de notre métier. On vous parle de dévellopement, de référencement et de design.</p>
+				<button type="button" class="btn btn-primary rounded-0">
+					<a class="link-light" href="/blog/article">Visiter le blog</a>
+				</button>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="content pt-5 pb-4">
+	<div class="container">
+		<div class="row">
+			<h2 class="text-center mb-4">Les derniers articles du blog</h2>
+			<?php foreach ($result as $post): ?>
+			<div class="col-md-6 col-lg-4">
+				<div class="card rounded-0 border-0 h-100 overflow-hidden">
+					<div class="card-img position-relative card-element-hover">
+						<img src="/blog/public/images/exemple-blog.jpg">
+						<div class="position-absolute top-0 m-4 d-flex">
+							<div class="ms-3 my-2 text-start">
+								<p class="mb-0 text-white">Par Auteur de l'article</p>
+			                    <p class="small mt-n1 mb-0 text-white">Date</p>
+							</div>
+						</div>
+						<div class="card-body py-4 px-0 d-flex align-items-start flex-column">
+							<div class="mb-auto">
+								<div class="card-meta mb-3 d-flex flex-row align-items-center text-gray current-text">
+									<span class="text-capitalize">Catégorie de l'article</span>
+								</div>
+								<h5><?php echo $post->getTitle(); ?></h5>
+								<p class="text-gray current-text">Le contenu de l'article</p>
+							</div>
+							<div class="mt-auto">
+								<a class="btn text-dark btn-sm btn-line position-relative" href="#">Lire la suite</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<?php endforeach; ?>
+		</div>
+		<div class="row">
+			<div class="col text-center">
+				<button type="button" class="btn btn-primary rounded-0">
+					<a class="link-light" href="/blog/article">Voir tous les articles</a>
+				</button>
+			</div>
+		</div>
+	</div>
+</section>
