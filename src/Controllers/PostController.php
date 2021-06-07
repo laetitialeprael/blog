@@ -21,8 +21,11 @@ class PostController extends Controller{
 		require '../views/home.php';
 	}
 
+	// Méthode pour afficher tous les articles du blog
 	public function viewList(){
 		// Appelle à la méthode du model qui affiche la liste des articles
+		$postModel = new PostManager();
+		$result = $postModel->readAll();
 		require '../views/archive.php';
 	}
 
@@ -45,7 +48,6 @@ class PostController extends Controller{
 		}
 		require '../views/admin/create-post.php';
 	}
-
 
 	// Méthode pour afficher un article (viewSingle ?)
 
