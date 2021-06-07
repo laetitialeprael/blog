@@ -3,6 +3,7 @@
 namespace Src\Controllers;
 
 use Src\Models\PostManager;
+use Src\Models\User;
 
 /*
  * Class PostController
@@ -36,9 +37,9 @@ class PostController extends Controller{
 	public function adminCreate(){
 		$postModel = new PostManager();
 
-		if(isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category'], $_POST['user_id_user']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='') && ($_POST['user_id_user'] !='')) {
+		if(isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
 			
-			$post = $postModel->create($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category'], $_POST['user_id_user']);
+			$post = $postModel->create($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category'], $_SESSION['user']['iduser']);
 			echo 'Article ajouté';
 		
 		}

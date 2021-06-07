@@ -10,7 +10,7 @@
 
 	<div><input type="text" name="category_id_category" id="category" placeholder="1, 2 ou 3" /></div>
 
-	<div><input type="text" name="user_id_user" id="iduser" placeholder="107" /></div>
+	<!-- <div><input type="text" name="user_id_user" id="iduser" placeholder="107" /></div> -->
 	
 	<p>Catégorie<br />
 		<input type="checkbox" name="developpement" id="developpement" value="1" />
