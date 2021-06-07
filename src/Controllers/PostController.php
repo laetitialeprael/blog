@@ -22,7 +22,6 @@ class PostController extends Controller{
 	}
 
 	public function viewList(){
-		echo 'On montre tous les articles';
 		// Appelle à la méthode du model qui affiche la liste des articles
 		require '../views/archive.php';
 	}
