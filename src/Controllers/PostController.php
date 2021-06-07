@@ -40,6 +40,7 @@ class PostController extends Controller{
 		if(isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
 			
 			$post = $postModel->create($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category'], $_SESSION['user']['iduser']);
+			
 			echo 'Article ajouté';
 		
 		}
