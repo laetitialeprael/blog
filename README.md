@@ -1,7 +1,14 @@
 # Blog
 ## Install Composer
 ## Install Router
-We chose to [install Altorouteur](https://github.com/dannyvankooten/AltoRouter) for our project because it is easy to use.
+We chose to [install Altorouteur](https://github.com/dannyvankooten/AltoRouter) for our project because it is easy to use. To start, we enter our command below in your terminal to access the project folder 'Blog'.
+```bash
+cd /Applications/MAMP/htdocs/blog/
+```
+We enter the command line below to launch the installation of Altorouteur with Composer.
+```bash
+composer require altorouter/altorouter
+```
 ## Install Bootstrap
 We enter the command below to access our project 'Blog' folder.
 ```bash
