@@ -30,11 +30,18 @@ class PostManager extends Manager{
 	
 	public function create($title, $introduction, $content, $category, $user){
 		$db = $this->getDatabase();
-		$post = $db->insert(
+		$results = $db->insert(
 		//$statement
 		'INSERT INTO post (title, introduction, content, category_id_category, user_id_user) VALUES (:title, :introduction, :content, :category_id_category, :user_id_user)',
 		//$attributes
 		array(':title' => $title,':introduction' => $introduction,':content' => $content, ':category_id_category' => $category, ':user_id_user' => $user));
+
+		if($results){
+			$post = new Post();
+			$post->hydrate($results);
+			return $post;
+		}
+		return false;
 	}
 
 }
