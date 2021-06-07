@@ -42,14 +42,59 @@ class User{
 	 * 
 	 * Getter : permet d'accéder à une propriété private en dehors de la class pour l'afficher.
 	 * Les propriétés ne sont pas altérées en dehors de la class
-	 *
+	*/
+	
+	/*
+	 * Getter qui permet d'accéder à la propriété private $id_user dans la class UserControler
+	 * @return l'identifiant de l'utilisateur sous forme de chaine de caractère
+	*/
+	public function getId(){
+		return $this->id_user;
+	}
+	/*
+	 * Getter qui permet d'accéder à la propriété private $user_name dans la class UserControler
+	 * @return le nom de l'utilisateur sous forme de chaine de caractère
+	*/
+	public function getName(){
+		// Modifier la méthode pour faire afficher la première lettre du nom de famille suivit d'un point.
+		return $this->user_name;
+	}
+	/*
+	 * Getter qui permet d'accéder à la propriété private $user_first_name dans la class UserControler
+	 * @return le prénom de l'utilisateur sous forme de chaine de caractère
+	*/
+	public function getFirstName(){
+		return $this->user_first_name;
+	}
+	/*
+	 * Getter qui permet d'accéder à la propriété private $user_email dans la class UserControler
+	 * @return l'email de l'utilisateur sous forme de chaine de caractère
 	*/
 	public function getEmail(){
 		return $this->user_email;
 	}
+	/*
+	 * Getter qui permet d'accéder à la propriété private $user_password dans la class UserControler
+	 * @return le mot de passe de l'utilisateur sous forme de chaine de caractère
+	*/
 	public function getPassword(){
 		return $this->user_password;
 	}
+	/*
+	 * Getter qui permet d'accéder à la propriété private $role dans la class UserControler
+	 * @return le rôle de l'utilisateur sous forme de chaine de caractère
+	*/
+	public function getRole(){
+		return $this->role;
+	}
+	/*
+	 * Getter qui permet d'accéder à la propriété private $user_creation_date dans la class UserControler
+	 * @return la date de création du compte de l'utilisateur sous forme de chaine de caractère
+	*/
+	public function getCreationDate(){
+		return $this->user_creation_date;
+	}
+	
 	/*
 	 * Setter : permet d'accéder à une propriété private en dehors de la class et de modifier sa valeur. 
 	*/

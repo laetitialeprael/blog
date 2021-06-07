@@ -27,12 +27,11 @@ class UserController extends Controller{
 				// Si le mot de passe saisie par l'utilisateur est enregistré
 				if(password_verify($_POST['password'], $password)){
 					// On enregistre les variables de la table user dans $_SESSION
-					$_SESSION['user']['name'] = $user->user_name;
-					$_SESSION['firstname'] = $user->user_first_name;
-					$_SESSION['email'] = $user->user_email;
-					$_SESSION['creationDate'] = $user->user_creation_date;
-					$_SESSION['lastVisit'] = $user->last_visit_date;
-					$_SESSION['iduser'] = $user->id_user;
+					$_SESSION['user']['name'] = $user->getName();
+					$_SESSION['user']['firstname'] = $user->getFirstName();
+					$_SESSION['user']['email'] = $user->getEmail();
+					$_SESSION['user']['creationDate'] = $user->getCreationDate();
+					$_SESSION['user']['iduser'] = $user->getId();
 
 
 					// On redirige l'utilisateur sur son profil
