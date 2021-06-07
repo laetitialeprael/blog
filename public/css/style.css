@@ -1,0 +1,27 @@
+section.banner{position:fixed;top:0;left:0;width:100vw;height:70vh;z-index:-1;background-image:url('/openclassroomsblog/public/images/openclassroomsblog-home.jpg');background-size:cover;}
+section.introduce{height:55vh;}
+section{padding-top:6rem;padding-bottom:4.8rem;}
+.opacity-1{opacity:0.1;}
+.divider-light{height:1px;background:#fff;display:block;width:100%;margin:0 auto;}
+img{max-width:100%;height:auto;}
+/*NAVBAR*/
+.navbar-white{background:#fff;}
+/*LINK*/
+a{cursor:pointer;text-decoration:none;color:#dab602;}a:hover{color:#a8851b;}
+.btn-primary{background:#dab602;border-color:#dab602;}.btn-primary:hover{background:#a8851b;border-color:#a8851b;}
+.btn-outline-secondary{color:#dab602;border-color:#dab602;}.btn-outline-secondary:hover{color:#fff;background:#dab602;border-color:#dab602;}
+.btn-line.text-dark{padding:0.5rem 0rem 0.5rem 1.3rem;}
+.btn-line.text-dark:hover{padding:0.5rem 1.3rem 0.5rem 0rem;}
+.btn-line.text-dark:before{bottom:12px;background:#19191c;left:0;content:'';width:16px;height:2px;display:block;position:absolute;transition:all 0.3s ease-in-out;}
+.btn-line.text-dark:after{bottom:12px;background:#19191c;right:-16px;content:'';width:16px;height:2px;display:block;position:absolute;transition:all 0.3s ease-in-out;}
+.input-group .form-control{border:solid 1px #fff;}.form-control{font-size:0.875rem;}
+/*TEXT*/
+h1,h2,h3,h4,h5,h6,.navbar-brand{font-family: 'Nunito', sans-serif;}
+.fab{font-size:1.2em;}.current-text{font-size:0.875rem;}
+.smaller{font-size:60%;}
+.text-white{color:#fff;}.text-dark{color:#212529;}.text-gray{color:#a1a1a8;}.text-mustard{color:#dab602;}
+.state{color:#fff;padding:.25rem .75rem;}.state[data-state='published']{background-color:#dab602;}.state[data-state='pending']{background-color:#be914c;}.state[data-state='revised']{background-color:#509151;}.state[data-state='draft']{background-color:#ed692f;}
+section.content{background-color:#fff;}
+section.newsletter{background-color:#0f0f11;color:#fff;}
+footer{background-color:#19191c;color:#fff;}
+p{margin-top:0;margin-bottom:1rem;}
