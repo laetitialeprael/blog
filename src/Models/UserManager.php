@@ -37,6 +37,8 @@ class UserManager extends Manager{
 		'UPDATE user  SET user_password = :user_password WHERE user.id_user = :user_iduser',
 		//$attributes
 		array(':user_password' => $password, ':user_iduser' => $iduser));
+
+		
 	}
 	public function delete(){}
 	
