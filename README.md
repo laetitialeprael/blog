@@ -19,3 +19,8 @@ We enter the command below to start the [installation of Bootsrap](https://getbo
 ```bash
 composer require twbs/bootstrap:5.0.1
 ```
+## Install Font Awesome
+We enter the command below to access our project 'Blog' folder.
+```bash
+cd /Applications/MAMP/htdocs/blog/
+```
