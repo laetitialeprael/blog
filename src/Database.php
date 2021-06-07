@@ -82,8 +82,5 @@ class Database{
 	public function insert($statement, $attributes){
 		$req = $this->getPDO()->prepare($statement);
 		$req->execute($attributes);
-		//$req->setFetchMode(PDO::FETCH_ASSOC);
-		//$datas = $req->fetch();
-		//return $req;
 	}
 }

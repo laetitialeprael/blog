@@ -56,8 +56,14 @@ class PostController extends Controller{
 		$postModel = new PostManager();
 
 		if(isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
+
+			//Remplacer les majuscules, les accents, les espaces, la ponctuation
+			//$search = array('[A-Z0-9]');
+			//$replace = array('[a-z0-9]');
+			$slug = str_replace(' ', '-', $_POST['title']);
+			//$slug = preg_replace($search, '-', $_POST['title'])
 			
-			$post = $postModel->create($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category'], $_SESSION['user']['iduser']);
+			$post = $postModel->create($_POST['title'], $_POST['introduction'], $_POST['content'], $slug, $_POST['category_id_category'], $_SESSION['user']['iduser']);
 			
 			echo 'Article ajouté';
 		
