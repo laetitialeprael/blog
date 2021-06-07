@@ -6,7 +6,7 @@ We chose to [install Altorouteur](https://github.com/dannyvankooten/AltoRouter) 
 ```bash
 cd /Applications/MAMP/htdocs/blog/
 ```
-We enter the command line below to launch the installation of Altorouteur with Composer.
+We enter the command line below to start the installation of Altorouter with Composer.
 ```bash
 composer require altorouter/altorouter
 ```
@@ -23,4 +23,8 @@ composer require twbs/bootstrap:5.0.1
 We enter the command below to access our project 'Blog' folder.
 ```bash
 cd /Applications/MAMP/htdocs/blog/
+```
+We enter the command line below to start the installation of Font Awesome with Composer.
+```bash
+composer require components/font-awesome
 ```
