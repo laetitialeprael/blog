@@ -72,8 +72,6 @@ class UserController extends Controller{
 				$user = $userModel->create($user['name'], $user['firstname'], $user['email'], password_hash($user['password'], PASSWORD_DEFAULT));
 				// On redirige l'utilisateur sur la page de connexion
 				header('Location: /blog/connexion');
-				// Après une redirection on doit toujours sortir du script
-				exit;
 			
 			// Si les mot de passe sont différents
 			}else{
