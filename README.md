@@ -1,5 +1,6 @@
 # Blog
 ## Install Composer
+## Install Router
 ## Install Bootstrap
 We enter the command below to access our project 'Blog' folder.
 ```bash
