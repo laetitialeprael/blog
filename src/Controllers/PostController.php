@@ -37,9 +37,16 @@ class PostController extends Controller{
 	/*
 	 * Méthode pour afficher un article
 	*/
-	public function viewSingle(){
+	public function viewSingle($params){
+		var_dump($params);
+		
 		$postModel = new PostManager();
-		echo 'On montre un seul article';
+		//var_dump($postModel);
+		//$_SESSION['post']['idpost'] = $post->getId();
+		//$_GET['idpost'] = $post->getId();
+		//$post = $postModel->read($_GET['idpost']);
+		//var_dump($post);
+
 		// Appelle à la méthode qui affiche l'article en fonction de son id
 		require '../views/single-post.php';
 	}

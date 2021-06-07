@@ -26,7 +26,7 @@ $router = new AltoRouter();
 
 $router->map('GET', '/blog/', 'Src\Controllers\PostController#viewLast', 'home');
 $router->map('GET', '/blog/article', 'Src\Controllers\PostController#viewList');
-$router->map('GET', '/blog/[*:slug]-[i:id]', 'Src\Controllers\PostController#viewSingle');
+$router->map('GET', '/blog/article/[*:slug]-[i:id]', 'Src\Controllers\PostController#viewSingle');
 
 $router->map('GET|POST', '/blog/connexion', 'Src\Controllers\UserController#login');
 
