@@ -139,12 +139,16 @@ class Post{
 	}
 	/*
 	 * Méthode qui permet de générer l'url des articles
-	 * @return l'url de l'article
+	 * @return l'url de l'article sous forme de chaine de caractère
 	*/
 	public function viewUrl(){
 		$url = $this->getSlug() . '-' . $this->getId();
 		return $url;
 	}
+	/*
+	 * Méthode qui permet de générer le slug d'un article
+	 * @return le slug sous forme de chaine de caractère
+	*/
 	public static function viewSlug($string, $delimiter = '-'){
 		$oldLocale = setlocale(LC_ALL, '0');
 		setlocale(LC_ALL, 'en_US.UTF-8');
