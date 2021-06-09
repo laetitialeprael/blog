@@ -55,11 +55,11 @@ class PostManager extends Manager{
 		return $posts;
 	}
 
-	public function read($idpost){
+	public function read($slug,$idpost){
 		$db = $this->getDatabase();
 		$results = $db->prepare(
-			'SELECT * from post WHERE post.id_post = :id_post',
-			array(':id_post' => $idpost), true);
+			'SELECT * from post WHERE post.id_post = :id_post AND post.slug = :slug',
+			array(':id_post' => $idpost, ':slug' => $slug), true);
 		
 		if($results){
 			$post = new Post();

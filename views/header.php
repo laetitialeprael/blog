@@ -12,7 +12,7 @@
 				<div class="d-flex align-items-center justify-content-center">
 					<ul class="nav ms-3">
 						<li class="nav-item">
-							<?php if(empty($_SESSION['user']['iduser'])): ?>
+							<?php if(!isset($_SESSION['user']['iduser'])): ?>
 								<a class="nav-link current-text text-dark" href="/blog/connexion"><i class="far fa-user me-2 text-mustard"></i>Connexion</a>
 								<a class="nav-link current-text text-dark" href="/blog/creer-un-compte">Créer un compte</a>
 							<?php else: ?>

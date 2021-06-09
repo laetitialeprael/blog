@@ -145,6 +145,17 @@ class Post{
 		$url = $this->getSlug() . '-' . $this->getId();
 		return $url;
 	}
+	public static function viewSlug($string, $delimiter = '-'){
+		$oldLocale = setlocale(LC_ALL, '0');
+		setlocale(LC_ALL, 'en_US.UTF-8');
+		$clean = iconv('UTF-8', 'ASCII//TRANSLIT', $string);
+		$clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $clean);
+		$clean = strtolower($clean);
+		$clean = preg_replace("/[\/_|+ -]+/", $delimiter, $clean);
+		$clean = trim($clean, $delimiter);
+		setlocale(LC_ALL, $oldLocale);
+		return $clean;
+	}
 	/*
 	 * Setter : permet d'accéder à une propriété private en dehors de la class et de modifier sa valeur. 
 	*/
@@ -154,8 +165,4 @@ class Post{
 			$this->title = $title;
 		}
 	}
-	
-	//public function getUrl(){
-		//return 'index.php?page=blog/article&id=' . $this->id_post;
-	//}
 }

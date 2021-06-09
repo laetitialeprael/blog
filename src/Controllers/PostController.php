@@ -3,7 +3,6 @@
 namespace Src\Controllers;
 
 use Src\Models\PostManager;
-use Src\Models\User;
 
 /*
  * Class PostController
@@ -44,7 +43,7 @@ class PostController extends Controller{
 		//var_dump($postModel);
 		//$_SESSION['post']['idpost'] = $post->getId();
 		//$_GET['idpost'] = $post->getId();
-		//$post = $postModel->read($_GET['idpost']);
+		$post = $postModel->read($params['slug'], $params['id']);
 		//var_dump($post);
 
 		// Appelle à la méthode qui affiche l'article en fonction de son id
@@ -57,11 +56,7 @@ class PostController extends Controller{
 
 		if(isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
 
-			//Remplacer les majuscules, les accents, les espaces, la ponctuation
-			//$search = array('[A-Z0-9]');
-			//$replace = array('[a-z0-9]');
-			$slug = str_replace(' ', '-', $_POST['title']);
-			//$slug = preg_replace($search, '-', $_POST['title'])
+			$slug = $this->viewSlug($_POST['title']);
 			
 			$post = $postModel->create($_POST['title'], $_POST['introduction'], $_POST['content'], $slug, $_POST['category_id_category'], $_SESSION['user']['iduser']);
 			
