@@ -1,23 +1,51 @@
-<h1>Formulaire de création d'un article</h1>
+<section class="content pt-5 pb-4">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h1>Formulaire de création d'un article</h1>
+			</div>
+		</div>
 
-<form method="post">
-	
-	<div><input type="text" name="title" id="title" placeholder="Saisissez le titre" required /></div>
-	
-	<div><textarea name="introduction" id="introduction">Introduction de l'article</textarea></div>
-	
-	<div><textarea name="content" id="content">Contenu de l'article</textarea></div>
-
-	<!-- <div><input type="text" name="category_id_category" id="category" placeholder="1, 2 ou 3" /></div> -->
-
-	<!-- <div><input type="text" name="user_id_user" id="iduser" placeholder="107" /></div> -->
-	<label for="category">Choose a car:</label>
-
-	<select name="category_id_category" id="category">
-	  <option value="1">Dévellopement</option>
-	  <option value="2">Référencement</option>
-	  <option value="3">Webdesign</option>
-	</select>
-
-	<input type="submit" value="Publier" />
-</form>
+		<form method="post">
+			<div class="row">
+				<div class="col col-md-8">
+					<div class="mb-3">
+						<label for="title" class="form-label">Saisissez le titre de l'article</label>
+			    		<input name="title" type="text" class="form-control" id="title" required>
+					</div>
+				</div>
+				<div class="col col-md-4">
+					<div class="mb-3">
+						<label for="category" class="form-label">Sélectionner la catégorie de l'article</label>
+						<select class="form-select" name="category_id_category" id="category">
+  							<option value="1">Dévellopement</option>
+  							<option value="2">Référencement</option>
+  							<option value="3">Webdesign</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-md-8">
+					<div class="mb-3">
+	  					<label for="introduction" class="form-label">Introduction de l'article</label>
+	  					<textarea name="introduction" class="form-control" id="introduction" rows="3"></textarea>
+					</div>
+					<div class="mb-3">
+	  					<label for="content" class="form-label">Contenu de l'article</label>
+	  					<textarea name="content" class="form-control" id="content" rows="9"></textarea>
+					</div>
+				</div>
+				<div class="col col-md-4">
+					<div class="mb-3">
+						<label for="formFile" class="form-label">Définir l'image mise en avant</label>
+  						<input class="form-control" type="file" id="formFile">
+					</div>
+					<div class="mb-3">
+						<input type="submit" value="Publier" class="btn btn-primary rounded-0" />
+					</div>
+				</div>
+			</div>
+			</form>
+	</div>
+</section>

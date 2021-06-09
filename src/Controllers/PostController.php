@@ -3,6 +3,7 @@
 namespace Src\Controllers;
 
 use Src\Models\PostManager;
+use Src\Models\Post;
 
 /*
  * Class PostController
@@ -56,7 +57,7 @@ class PostController extends Controller{
 
 		if(isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
 
-			$slug = $this->viewSlug($_POST['title']);
+			$slug = Post::viewSlug($_POST['title']);
 			
 			$post = $postModel->create($_POST['title'], $_POST['introduction'], $_POST['content'], $slug, $_POST['category_id_category'], $_SESSION['user']['iduser']);
 			
