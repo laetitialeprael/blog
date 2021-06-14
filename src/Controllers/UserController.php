@@ -39,13 +39,13 @@ class UserController extends Controller{
 				}
 				// Sinon
 				else{
-					$_SESSION['message'] = "Le mot de passe n'est pas correcte";
+					$_SESSION['message'] = "Oops ! Le mot de passe n'est pas correcte.";
 					//var_dump($user);
 				}
 			}
 			// Si l'adresse mail de l'utilisateur n'est pas enregistrée
 			else{
-				echo "L'adresse mail n'est pas enregistrée";
+				$_SESSION['message'] = "Oops ! L'adresse mail n'est pas enregistrée.";
 			}		
 		}
 
