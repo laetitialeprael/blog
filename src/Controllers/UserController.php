@@ -53,14 +53,20 @@ class UserController extends Controller{
 	}
 
 
-	public function isValid($data = []) {
+	/*
+	 * Méthode pour vérifier que les champs du formulaire ne sont pas vides
+	*/
+	public function isValid($data = [])
+	{
 		if(isset($data['name'], $data['firstname'], $data['email'], $data['password'], $data['validpassword']) && ($data['name'] != '') && ($data['firstname'] != '') && ($data['email'] != '' && $data['password'] !='' && $data['validpassword'] !='')) {
 			return $data;
 		}
 
 		return false;
 	}
-
+	/*
+	 * Méthode pour la création du compte d'un utilisateur
+	*/
 	public function formAccount(){
 		$userModel = new UserManager();
 
@@ -87,7 +93,9 @@ class UserController extends Controller{
 		require '../views/account.php';
 
 	}
-
+	/*
+	 * Méthode pour réinitiliser le mot de passe de l'utilisateur
+	*/
 	public function updateAccount(){
 		$this->isAuth();
 
@@ -102,5 +110,12 @@ class UserController extends Controller{
 
 		require '../views/form-password.php';
 	}
-
+	/*
+	 * Méthode pour déconnecter l'utilisateur
+	*/
+	public function logout()
+	{
+		session_destroy();
+		header('Location: /blog/');
+	}
 }

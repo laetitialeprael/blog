@@ -45,6 +45,8 @@ $router->map('GET|POST', '/blog/admin/nouvel-article', 'Src\Controllers\PostCont
 $router->map('GET', '/blog/admin/article/post=[i:id]&action=edit', 'Src\Controllers\PostController#adminUpdate');
 $router->map('GET', '/blog/admin/mes-articles', 'Src\Controllers\PostController#adminRead');
 
+$router->map('GET', '/blog/admin/deconnexion', 'Src\Controllers\UserController#logout');
+
 /*
  * @var target qui contient les closures ?
  * @var params qui contient les parèmetres de l'url
