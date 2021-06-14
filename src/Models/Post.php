@@ -42,64 +42,50 @@ class Post{
 			$this->$key = $value;
 		}
 	}
+
 	/*
-	 * Pour accéder à une propriété private en dehors de la class on peut la réutiliser en dehors de la class en faisant une méthode.
-	 * 
-	 * Getter : permet d'accéder à une propriété private en dehors de la class pour l'afficher.
-	 * Les propriétés ne sont pas altérées en dehors de la class
-	 *
-	*/
-	/*
-	 * Getter qui permet d'accéder à la propriété private $id_post dans la class PostControler
 	 * @return l'identifiant de l'article sous forme de chaine de caractère
 	*/
 	public function getId(){
 		return $this->id_post;
 	}
 	/*
-	 * Getter qui permet d'accéder à la propriété private $title dans la class PostControler
 	 * @return le titre de l'article sous forme de chaine de caractère
 	*/
 	public function getTitle(){
 		return $this->title;
 	}
 	/*
-	 * Getter qui permet d'accéder à la propriété private $introduction dans la class PostControler
 	 * @return le texte d'introduction de l'article sous forme de chaine de caractère
 	*/
 	public function getIntroduction(){
 		return $this->introduction;
 	}
 	/*
-	 * Getter qui permet d'accéder à la propriété private $content dans la class PostControler
 	 * @return le contenu de l'article sous forme de chaine de caractère
 	*/
 	public function getContent(){
 		return $this->content;
 	}
 	/*
-	 * Getter qui permet d'accéder à la propriété private $post_creation_date dans la class PostControler
 	 * @return la date de création de l'article sous forme de chaine de caractère
 	*/
 	public function getCreationDate(){
 		return $this->post_creation_date;
 	}
 	/*
-	 * Getter qui permet d'accéder à la propriété private $slug dans la class PostControler
 	 * @return le slug de l'article sous forme de chaine de caractère
 	*/
 	public function getSlug(){
 		return $this->slug;
 	}
 	/*
-	 * Getter qui permet d'accéder à la propriété private $category_name dans la class PostControler
 	 * @return la catégorie de l'article sous forme de chaine de caractère
 	*/
 	public function getCategory(){
 		return $this->category_name;
 	}
 	/*
-	 * Getter qui permet d'accéder à la propriété private $user_name dans la class PostControler
 	 * @return le nom de l'utilisateur sous forme de chaine de caractère
 	*/
 	public function getName(){
@@ -107,7 +93,6 @@ class Post{
 		return $this->user_name;
 	}
 	/*
-	 * Getter qui permet d'accéder à la propriété private $user_first_name dans la class PostControler
 	 * @return le prénom de l'utilisateur sous forme de chaine de caractère
 	*/
 	public function getFirstName(){
