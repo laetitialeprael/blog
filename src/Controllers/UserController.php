@@ -35,7 +35,7 @@ class UserController extends Controller{
 
 
 					// On redirige l'utilisateur sur son profil
-					header('Location: /blog/mon-compte');
+					header('Location: /blog/admin/mon-compte');
 				}
 				// Sinon
 				else{
@@ -90,7 +90,7 @@ class UserController extends Controller{
 	}
 
 	public function viewAccount(){
-		require '../views/account.php';
+		require '../views/admin/account.php';
 
 	}
 	/*

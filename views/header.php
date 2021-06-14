@@ -16,7 +16,7 @@
 								<a class="nav-link current-text text-dark" href="/blog/connexion"><i class="far fa-user me-2 text-mustard"></i>Connexion</a>
 								<a class="nav-link current-text text-dark" href="/blog/creer-un-compte">Créer un compte</a>
 							<?php else: ?>
-								<a href="/blog/mon-compte"><i class="far fa-user me-2 text-mustard"></i>Mon compte</a>
+								<a href="/blog/admin/mon-compte"><i class="far fa-user me-2 text-mustard"></i>Mon compte</a>
 								<a href="/blog/admin/deconnexion">Déconnexion</a>
 							<?php endif ?>
 						</li>
