@@ -29,8 +29,3 @@
 		</div>
 	</div>
 </section>
-
-<!--<a href="../blog/modifier-mon-compte">Modifier mes informations</a>-->
-<h2>Menu de navigation</h2>
-<a href="../blog/admin/nouvel-article">Ajouter un article</a>
-<a href="../blog/admin/mes-articles">Mes articles</a>
