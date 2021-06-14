@@ -2,6 +2,9 @@
 	<div class="container">
 		<div class="row">
 			<h2 class="text-center mb-4">Mes articles</h2>
+			<a href="">En attente de validation ()</a>
+			<a href="">En cours de rédaction ()</a>
+			<a href="">Corbeille ()</a>
 			<?php foreach ($result as $post): ?>
 			<div class="col-md-6 col-lg-4">
 				<div class="card rounded-0 border-0 h-100 overflow-hidden">
@@ -11,6 +14,7 @@
 							<div class="mb-auto">
 								<div class="card-meta mb-3 d-flex flex-row align-items-center text-gray current-text">
 									<span class="text-capitalize"><?php echo $post->getCategory(); ?></span>
+									<span class="text-uppercase"><?php echo $post->viewState(); ?></span>
 								</div>
 								<h5><?php echo $post->getTitle(); ?></h5>
 								<p class="small mt-n1 mb-0 text-dark"><?php echo $post->getCreationDate(); ?></p>

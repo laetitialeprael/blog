@@ -87,7 +87,7 @@ class PostManager extends Manager{
 	{
 		$db = $this->getDatabase();
 		$results = $db->prepare(
-			'SELECT post.id_post, post.title, post.introduction, post.content, post.post_creation_date, post.slug, post.category_id_category, user.user_first_name, user.user_name, category.category_name FROM user INNER JOIN post ON user.id_user = post.user_id_user INNER JOIN category ON post.category_id_category = category.id_category WHERE post.user_id_user = :user_id_user ORDER BY post.post_creation_date DESC',
+			'SELECT post.id_post, post.title, post.introduction, post.content, post.state, post.post_creation_date, post.slug, post.category_id_category, user.user_first_name, user.user_name, category.category_name FROM user INNER JOIN post ON user.id_user = post.user_id_user INNER JOIN category ON post.category_id_category = category.id_category WHERE post.user_id_user = :user_id_user ORDER BY post.post_creation_date DESC',
 			array(':user_id_user' => $iduserpost));
 		
 		$posts = [];
@@ -97,6 +97,21 @@ class PostManager extends Manager{
 			$posts[] = $post;
 		}
 		return $posts;
+	}
+
+	public function countPostPendingValidation($iduserpost)
+	{
+		$db = $this->getDatabase();
+		$results = $db->prepare(
+			'SELECT COUNT * from post WHERE post.user_id_user = :user_id_user',
+			array(':user_id_user' => $iduserpost), true);
+		
+		if($results){
+			$post = new Post();
+			$post->hydrate($results);
+			return $post;
+		}
+		return false;
 	}
 
 }

@@ -68,6 +68,12 @@ class Post{
 		return $this->content;
 	}
 	/*
+	 * @return le statut de l'article sous forme de chaine de caractère
+	*/
+	public function getSate(){
+		return $this->state;
+	}
+	/*
 	 * @return la date de création de l'article sous forme de chaine de caractère
 	*/
 	public function getCreationDate(){
@@ -129,6 +135,22 @@ class Post{
 	public function viewUrl(){
 		$url = $this->getSlug() . '-' . $this->getId();
 		return $url;
+	}
+	/*
+	 * Méthode qui permet d'afficher le statut des articles
+	 * @return le statut de l'article sous forme de chaine de caractère
+	*/
+	public function viewState(){
+		if($this->getSate() == 0){
+			echo ('Corbeille');
+		}elseif($this->getSate() == 1){
+			echo ('En cours de modification');
+		}elseif($this->getSate() == 2){
+			echo ('En attente de validation');
+		}else{
+			echo ('Publié');
+		}
+		//return $html;
 	}
 	/*
 	 * Méthode qui permet de générer le slug d'un article
