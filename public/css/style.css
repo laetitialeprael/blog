@@ -7,7 +7,7 @@ img{max-width:100%;height:auto;}
 /*NAVBAR*/
 .navbar-white{background:#fff;}
 /*LINK*/
-a{cursor:pointer;text-decoration:none;color:#dab602;}a:hover{color:#a8851b;}
+a{cursor:pointer;text-decoration:none;color:#dab602;}/*a:hover{color:#a8851b;}*/
 .btn-primary{background:#dab602;border-color:#dab602;}.btn-primary:hover{background:#a8851b;border-color:#a8851b;}
 .btn-outline-secondary{color:#dab602;border-color:#dab602;}.btn-outline-secondary:hover{color:#fff;background:#dab602;border-color:#dab602;}
 .btn-line.text-dark{padding:0.5rem 0rem 0.5rem 1.3rem;}
@@ -15,6 +15,8 @@ a{cursor:pointer;text-decoration:none;color:#dab602;}a:hover{color:#a8851b;}
 .btn-line.text-dark:before{bottom:12px;background:#19191c;left:0;content:'';width:16px;height:2px;display:block;position:absolute;transition:all 0.3s ease-in-out;}
 .btn-line.text-dark:after{bottom:12px;background:#19191c;right:-16px;content:'';width:16px;height:2px;display:block;position:absolute;transition:all 0.3s ease-in-out;}
 .input-group .form-control{border:solid 1px #fff;}.form-control{font-size:0.875rem;}
+.pointer{cursor:pointer;}
+.hover-mustard:hover{color:#dab602 !important;}
 /*TEXT*/
 h1,h2,h3,h4,h5,h6,.navbar-brand{font-family: 'Nunito', sans-serif;}
 .fab{font-size:1.2em;}.current-text{font-size:0.875rem;}
