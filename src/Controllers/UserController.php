@@ -88,11 +88,6 @@ class UserController extends Controller{
 		require '../views/create-account.php';
 		
 	}
-
-	public function viewAccount(){
-		require '../views/admin/account.php';
-
-	}
 	/*
 	 * Méthode pour réinitiliser le mot de passe de l'utilisateur
 	*/
@@ -109,13 +104,5 @@ class UserController extends Controller{
 		}
 
 		require '../views/form-password.php';
-	}
-	/*
-	 * Méthode pour déconnecter l'utilisateur
-	*/
-	public function logout()
-	{
-		session_destroy();
-		header('Location: /blog/');
 	}
 }

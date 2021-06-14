@@ -24,14 +24,13 @@ $router = new AltoRouter();
  * Reprendre pour utiliser le router afin de générer les urls
 */
 
+// Routes publics de la class PostController
 $router->map('GET', '/blog/', 'Src\Controllers\PostController#viewLast', 'home');
 $router->map('GET', '/blog/article', 'Src\Controllers\PostController#viewList');
 $router->map('GET', '/blog/article/[*:slug]-[i:id]', 'Src\Controllers\PostController#viewSingle');
 
+// Routes publics de la class UserController
 $router->map('GET|POST', '/blog/connexion', 'Src\Controllers\UserController#login');
-
-//$router->map('GET|POST', '/blog/creer-un-compte', 'Src\Controllers\UserController#createAccount');
-
 $router->map('GET|POST','/blog/creer-un-compte', 'Src\Controllers\UserController#formAccount');
 $router->map('GET|POST','/blog/mot-de-passe-oublie', 'Src\Controllers\UserController#updateAccount');
 
@@ -42,8 +41,8 @@ $router->map('GET', '/blog/admin/article/post=[i:id]&action=edit', 'Src\Controll
 $router->map('GET', '/blog/admin/mes-articles', 'Src\Controllers\PostController#adminRead');
 
 // Routes d'administration de la class UserController
-$router->map('GET','/blog/admin/mon-compte', 'Src\Controllers\UserController#viewAccount');
-$router->map('GET', '/blog/admin/deconnexion', 'Src\Controllers\UserController#logout');
+$router->map('GET','/blog/admin/mon-compte', 'Src\Controllers\AdminController#viewAccount');
+$router->map('GET', '/blog/admin/deconnexion', 'Src\Controllers\AdminController#logout');
 
 /*
  * @var target qui contient les closures ?
