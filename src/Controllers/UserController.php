@@ -92,7 +92,7 @@ class UserController extends Controller{
 	 * Méthode pour réinitiliser le mot de passe de l'utilisateur
 	*/
 	public function updateAccount(){
-		$this->isAuth();
+		//$this->isAuth();
 
 		$userModel = new UserManager();
 
@@ -100,6 +100,12 @@ class UserController extends Controller{
 			if($_POST['password'] === $_POST['validpassword']){
 
 				$user = $userModel->update(password_hash($_POST['password'], PASSWORD_DEFAULT),$_SESSION['iduser']);
+
+				// Si l'utilisateur n'est pas enregistré en base de donnée
+				if($_SESSION['iduser'] == NULL){
+					echo 'Il faut créer un compte';
+				}
+				//var_dump($_SESSION['iduser']);
 			}
 		}
 

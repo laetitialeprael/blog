@@ -35,7 +35,7 @@
 		</form>
 		<div class="row">
 			<div class="col col-md-8 mx-auto text-center">
-				<a href="../blog/mot-de-passe-oublie">Mot de passe oublié</a>
+				<a class="current-text text-dark hover-mustard" href="/blog/mot-de-passe-oublie">Mot de passe oublié</a>
 			</div>
 		</div>
 	</div>
