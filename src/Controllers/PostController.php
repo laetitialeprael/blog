@@ -40,56 +40,10 @@ class PostController extends Controller{
 	*/
 	public function viewSingle($params)
 	{
-		var_dump($params);
-		
 		$postModel = new PostManager();
-		//var_dump($postModel);
-		//$_SESSION['post']['idpost'] = $post->getId();
-		//$_GET['idpost'] = $post->getId();
 		$post = $postModel->read($params['slug'], $params['id']);
-		//var_dump($post);
-
 		// Appelle à la méthode qui affiche l'article en fonction de son id
 		require '../views/single-post.php';
-	}
-
-	// Méthode pour afficher la page de création d'un article
-	public function adminCreate()
-	{
-		$postModel = new PostManager();
-
-		if(isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
-
-			$slug = Post::viewSlug($_POST['title']);
-			
-			$post = $postModel->create($_POST['title'], $_POST['introduction'], $_POST['content'], $slug, $_POST['category_id_category'], $_SESSION['user']['iduser']);
-			
-			echo 'Article ajouté';
-		
-		}
-		require '../views/admin/create-post.php';
-	}
-
-	// Méthode pour afficher les articles rédiger par l'utilisateur
-	public function adminRead()
-	{
-		$postModel = new PostManager();
-
-		$result = $postModel->readUserPost($_SESSION['user']['iduser']);
-		//$postPendingValidation = $postModel->countPostPendingValidation($_SESSION['user']['iduser']);
-		require '../views/admin/read-post.php';
-	}
-
-	// Méthode pour mettre à jour un article
-	public function adminUpdate()
-	{
-		require '../views/admin/update-post.php';
-	}
-	
-	// Méthode pour supprimer un article
-	public function adminDelete()
-	{
-		require '../views/admin/delete-post.php';
 	}
 
 }

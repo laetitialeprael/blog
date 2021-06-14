@@ -30,14 +30,14 @@ class PostManager extends Manager{
 		return false;
 	}
 
-	public function update($idpost)
+	public function update($title, $introduction, $content, $slug, $category, $idpost)
 	{
 		$db = $this->getDatabase();
 		$post = $db->insert(
 		//$statement
-		'UPDATE post WHERE post.id_post = :id_post',
+		'UPDATE post SET title = :title, introduction = :introduction, content = :content, slug = :slug, category_id_category = :category WHERE post.id_post = :id_post',
 		//$attributes
-		array(':id_post' => $idpost));
+		array(':title' => $title, ':introduction' => $introduction, ':content' => $content, ':slug' => $slug, ':category_id_category' => $category, ':id_post' => $idpost));
 	}
 
 	public function readAll()
@@ -72,7 +72,7 @@ class PostManager extends Manager{
 	{
 		$db = $this->getDatabase();
 		$results = $db->prepare(
-			'SELECT * from post WHERE post.id_post = :id_post AND post.slug = :slug',
+			'SELECT post.id_post, post.title, post.introduction, post.content, post.post_creation_date, post.slug, post.category_id_category, user.user_first_name, user.user_name, category.category_name FROM user INNER JOIN post ON user.id_user = post.user_id_user INNER JOIN category ON post.category_id_category = category.id_category WHERE post.id_post = :id_post AND post.slug = :slug',
 			array(':id_post' => $idpost, ':slug' => $slug), true);
 		
 		if($results){

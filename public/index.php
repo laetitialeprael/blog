@@ -35,12 +35,11 @@ $router->map('GET|POST','/blog/creer-un-compte', 'Src\Controllers\UserController
 $router->map('GET|POST','/blog/mot-de-passe-oublie', 'Src\Controllers\UserController#updateAccount');
 
 
-// Routes d'administration de la class PostController
-$router->map('GET|POST', '/blog/admin/nouvel-article', 'Src\Controllers\PostController#adminCreate');
-$router->map('GET', '/blog/admin/article/post=[i:id]&action=edit', 'Src\Controllers\PostController#adminUpdate');
-$router->map('GET', '/blog/admin/mes-articles', 'Src\Controllers\PostController#adminRead');
+// Routes d'administration
+$router->map('GET|POST', '/blog/admin/nouvel-article', 'Src\Controllers\AdminController#postCreate');
+$router->map('GET|POST', '/blog/admin/article/[*:slug]-[i:id]', 'Src\Controllers\AdminController#postUpdate');
+$router->map('GET', '/blog/admin/mes-articles', 'Src\Controllers\AdminController#postRead');
 
-// Routes d'administration de la class UserController
 $router->map('GET','/blog/admin/mon-compte', 'Src\Controllers\AdminController#viewAccount');
 $router->map('GET', '/blog/admin/deconnexion', 'Src\Controllers\AdminController#logout');
 
