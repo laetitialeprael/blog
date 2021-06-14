@@ -43,6 +43,7 @@ $router->map('GET','/blog/mon-compte', 'Src\Controllers\UserController#viewAccou
 // Routes d'administration
 $router->map('GET|POST', '/blog/admin/nouvel-article', 'Src\Controllers\PostController#adminCreate');
 $router->map('GET', '/blog/admin/article/post=[i:id]&action=edit', 'Src\Controllers\PostController#adminUpdate');
+$router->map('GET', '/blog/admin/mes-articles', 'Src\Controllers\PostController#adminRead');
 
 /*
  * @var target qui contient les closures ?
