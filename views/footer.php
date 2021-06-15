@@ -60,12 +60,12 @@
 			<div class="col mb-5">
 				<h3 class="mb-4">Liens utiles</h3>
 				<ul class="nav current-text">
-					<li class="nav-item"><a class="nav-link pt-0 ps-0">Télécharger mon CV</a></li>
+					<li class="nav-item"><a class="nav-link text-white hover-mustard pt-0 ps-0">Télécharger mon CV</a></li>
 					<li class="nav-item">
-						<a class="nav-link pt-0 ps-0" href="/blog/contact">Contact</a>
+						<a class="nav-link text-white hover-mustard pt-0 ps-0" href="/blog/contact">Contact</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link pt-0 ps-0" href="/blog/devenir-auteur">Devenir auteur</a>
+						<a class="nav-link text-white hover-mustard pt-0 ps-0" href="/blog/devenir-auteur">Devenir auteur</a>
 					</li>
 				</ul>
 			</div>
@@ -78,16 +78,16 @@
 			<div class="col-8">
 				<ul class="nav justify-content-end">
 					<li class="nav-item">
-						<a class="nav-link text-gray pt-0 ps-0" href="/blog/mentions-legales">Mentions légales</a>
+						<a class="nav-link text-gray hover-mustard pt-0 ps-0" href="/blog/mentions-legales">Mentions légales</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-gray pt-0 ps-0" href="/blog/politique-de-confidentialite">Politiques de confidentialité</a>
+						<a class="nav-link text-gray hover-mustard pt-0 ps-0" href="/blog/politique-de-confidentialite">Politiques de confidentialité</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-gray pt-0 ps-0" href="/blog/cookies">Cookies</a>
+						<a class="nav-link text-gray hover-mustard pt-0 ps-0" href="/blog/cookies">Cookies</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-gray pt-0 ps-0" href="/blog/charte-utilisation-blog">Charte d'utilisation du blog</a>
+						<a class="nav-link text-gray hover-mustard pt-0 ps-0" href="/blog/charte-utilisation-blog">Charte d'utilisation du blog</a>
 					</li>
 				</ul>
 			</div>

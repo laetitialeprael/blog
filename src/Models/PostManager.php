@@ -35,9 +35,9 @@ class PostManager extends Manager{
 		$db = $this->getDatabase();
 		$post = $db->insert(
 		//$statement
-		'UPDATE post SET title = :title, introduction = :introduction, content = :content, slug = :slug, category_id_category = :category WHERE post.id_post = :id_post',
+		"UPDATE post SET title = :title, introduction = :introduction, content = :content, slug = :slug, category_id_category = :category WHERE post.id_post = :id_post",
 		//$attributes
-		array(':title' => $title, ':introduction' => $introduction, ':content' => $content, ':slug' => $slug, ':category_id_category' => $category, ':id_post' => $idpost));
+		array(':title' => $title, ':introduction' => $introduction, ':content' => $content, ':slug' => $slug, ':category' => $category, 'id_post' => $idpost));
 	}
 
 	public function readAll()
@@ -103,15 +103,10 @@ class PostManager extends Manager{
 	{
 		$db = $this->getDatabase();
 		$results = $db->prepare(
-			'SELECT COUNT * from post WHERE post.user_id_user = :user_id_user',
+			'SELECT COUNT(*) AS pending from post WHERE post.state = "2" AND post.user_id_user = :user_id_user',
 			array(':user_id_user' => $iduserpost), true);
-		
-		if($results){
-			$post = new Post();
-			$post->hydrate($results);
-			return $post;
-		}
-		return false;
+
+		return $results;
 	}
 
 }

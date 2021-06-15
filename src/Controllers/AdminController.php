@@ -57,13 +57,14 @@ class AdminController extends Controller{
     {
         $postModel = new PostManager();
         $post = $postModel->read($params['slug'], $params['id']);
-        var_dump($params);
 
         if(isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
 
             $slug = Post::viewSlug($_POST['title']);
+
+            //var_dump($_POST['title'], $_POST['introduction'], $_POST['content'], $slug, $_POST['category_id_category'], $params['id']);die;
             
-            $post = $postModel->update($_POST['title'], $_POST['introduction'], $_POST['content'], $slug, $_POST['category_id_category'], $params['id']);
+            $post = $postModel->update($_POST['title'], $_POST['introduction'], $_POST['content'], $slug, $_POST['category_id_category'], (int)$params['id']);
             
             echo 'Modifications enregistrées';
         
@@ -79,7 +80,7 @@ class AdminController extends Controller{
         $postModel = new PostManager();
 
         $result = $postModel->readUserPost($_SESSION['user']['iduser']);
-        //$postPendingValidation = $postModel->countPostPendingValidation($_SESSION['user']['iduser']);
+        $postPendingValidation = $postModel->countPostPendingValidation($_SESSION['user']['iduser']);
         require '../views/admin/read-post.php';
     }
     

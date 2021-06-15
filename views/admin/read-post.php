@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<h2 class="text-center mb-4">Mes articles</h2>
-			<a href="">En attente de validation ()</a>
+			<a href="">En attente de validation (<?php echo implode($postPendingValidation); ?>)</a>
 			<a href="">En cours de rédaction ()</a>
 			<a href="">Corbeille ()</a>
 			<?php foreach ($result as $post): ?>

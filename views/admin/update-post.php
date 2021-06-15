@@ -18,7 +18,7 @@
 					<div class="mb-3">
 						<label for="category" class="form-label">Sélectionner la catégorie de l'article</label>
 						<select class="form-select" name="category_id_category" id="category">
-							<option><?php echo $post->getCategory(); ?></option>
+							<option><?php echo ($post->getCategory()); ?></option>
   							<option value="1">Dévellopement</option>
   							<option value="2">Référencement</option>
   							<option value="3">Webdesign</option>
