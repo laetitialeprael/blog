@@ -3,8 +3,8 @@
 		<div class="row">
 			<h2 class="text-center mb-4">Mes articles</h2>
 			<a href="">En attente de validation (<?php echo implode($postPendingValidation); ?>)</a>
-			<a href="">En cours de rédaction ()</a>
-			<a href="">Corbeille ()</a>
+			<a href="">Publié (<?php echo implode($postPublished); ?>)</a>
+			<a href="">Corbeille (<?php echo implode($postDraft); ?>)</a>
 			<?php foreach ($result as $post): ?>
 			<div class="col-md-6 col-lg-4">
 				<div class="card rounded-0 border-0 h-100 overflow-hidden">

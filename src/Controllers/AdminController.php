@@ -80,7 +80,9 @@ class AdminController extends Controller{
         $postModel = new PostManager();
 
         $result = $postModel->readUserPost($_SESSION['user']['iduser']);
+        $postDraft = $postModel->countPostDraft($_SESSION['user']['iduser']);
         $postPendingValidation = $postModel->countPostPendingValidation($_SESSION['user']['iduser']);
+        $postPublished = $postModel->countPostPublished($_SESSION['user']['iduser']);
         require '../views/admin/read-post.php';
     }
     

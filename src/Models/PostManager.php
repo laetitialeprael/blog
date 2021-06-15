@@ -99,11 +99,43 @@ class PostManager extends Manager{
 		return $posts;
 	}
 
+	/*
+	 * Méthode pour compter le nombre d'article sur le statut 'corbeille'
+	 * @return string
+	*/
+	public function countPostDraft($iduserpost)
+	{
+		$db = $this->getDatabase();
+		$results = $db->prepare(
+			'SELECT COUNT(*) AS draft from post WHERE post.state = "0" AND post.user_id_user = :user_id_user',
+			array(':user_id_user' => $iduserpost), true);
+
+		return $results;
+	}
+
+	/*
+	 * Méthode pour compter le nombre d'article sur le statut 'en attente de validation'
+	 * @return string
+	*/
 	public function countPostPendingValidation($iduserpost)
 	{
 		$db = $this->getDatabase();
 		$results = $db->prepare(
 			'SELECT COUNT(*) AS pending from post WHERE post.state = "2" AND post.user_id_user = :user_id_user',
+			array(':user_id_user' => $iduserpost), true);
+
+		return $results;
+	}
+	
+	/*
+	 * Méthode pour compter le nombre d'article sur le statut 'publié'
+	 * @return string
+	*/
+	public function countPostPublished($iduserpost)
+	{
+		$db = $this->getDatabase();
+		$results = $db->prepare(
+			'SELECT COUNT(*) AS published from post WHERE post.state = "1" AND post.user_id_user = :user_id_user',
 			array(':user_id_user' => $iduserpost), true);
 
 		return $results;
