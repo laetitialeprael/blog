@@ -158,6 +158,7 @@ class Post{
 		}
 		//return $html;
 	}
+	
 	/*
 	 * Méthode qui permet de générer le slug d'un article
 	 * @return le slug sous forme de chaine de caractère

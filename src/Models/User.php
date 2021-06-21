@@ -21,15 +21,15 @@ class User{
 	 * @var $introduction string introduction de l'article
 	 * @var $content string contenu de l'article
 	*/
-	public $id_user;
-	public $user_name;
-	public $user_first_name;
-	public $user_email;
+	private $id_user;
+	private $user_name;
+	private $user_first_name;
+	private $user_email;
 	private $user_password;
 	private $role;
-	public $user_creation_date;
+	private $user_creation_date;
 	private $gdpr_consent;
-	public $last_visit_date;
+	private $last_visit_date;
 
 	public function hydrate(array $datas){
 		// On fait une boucle avec le tableau de données
@@ -93,6 +93,22 @@ class User{
 	*/
 	public function getCreationDate(){
 		return $this->user_creation_date;
+	}
+
+	/*
+	 * Méthode pour afficher le rôle de l'utilisateur
+	 * @return le rôle de l'utlisateur sous forme de chaine de caractère
+	*/
+	public function viewRole(){
+		if($this->getRole() == 0){
+			echo ('Contributeur en attente');
+		}elseif($this->getRole() == 1){
+			echo ('Administrateur en attente');
+		}elseif($this->getRole() == 2){
+			echo ('Contributeur');
+		}else{
+			echo ('Administrateur');
+		}
 	}
 	
 	/*

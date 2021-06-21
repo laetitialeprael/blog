@@ -81,6 +81,7 @@ class UserController extends Controller{
 					$_SESSION['user']['email'] = $user->getEmail();
 					$_SESSION['user']['creationDate'] = $user->getCreationDate();
 					$_SESSION['user']['iduser'] = $user->getId();
+					$_SESSION['user']['role'] = $user->viewRole();
 
 
 					// On redirige l'utilisateur sur son profil
@@ -125,7 +126,7 @@ class UserController extends Controller{
 
 				$mailer = new Swift_Mailer($transport);
 
-				$message = (new Swift_Message('Réinitilatisation de votre mot de passe'))
+				$message = (new Swift_Message('Réinitialitisation de votre mot de passe'))
 	  				->setFrom([YOUR_GMAIL_MAIL => 'OpenclassroomsBlog'])
 	  				->setTo([$_POST['email']])
 	  				->setBody('Voici le lien de réinitialisation de votre mot de passe : '.$url)

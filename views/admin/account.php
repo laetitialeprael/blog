@@ -19,7 +19,7 @@
 				</div>
 				<div class="mb-3 border-bottom">
   					<p class="text-gray current-text m-0">Rôle</p>
-  					<p class="text-dark"><?php echo $_SESSION['user']['firstname']; ?></p>
+  					<p class="text-dark"><?php echo $_SESSION['user']['role']; ?></p>
 				</div>
 				<div class="mb-3 border-bottom">
   					<p class="text-gray current-text m-0">Email</p>
