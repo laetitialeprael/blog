@@ -13,6 +13,10 @@ use Src\Database;
 */
 class PostManager extends Manager{
 	
+	/*
+	 * Méthode pour créer un article
+	 * @return string
+	*/
 	public function create($title, $introduction, $content, $slug, $category, $user)
 	{
 		$db = $this->getDatabase();
@@ -30,6 +34,10 @@ class PostManager extends Manager{
 		return false;
 	}
 
+	/*
+	 * Méthode pour mettre à jour un article
+	 * @return string
+	*/
 	public function update($title, $introduction, $content, $slug, $category, $idpost)
 	{
 		$db = $this->getDatabase();
@@ -40,6 +48,10 @@ class PostManager extends Manager{
 		array(':title' => $title, ':introduction' => $introduction, ':content' => $content, ':slug' => $slug, ':category' => $category, 'id_post' => $idpost));
 	}
 
+	/*
+	 * Méthode pour afficher tous les articles du blog
+	 * @return string
+	*/
 	public function readAll()
 	{
 		$db = $this->getDatabase();
@@ -54,6 +66,10 @@ class PostManager extends Manager{
 		return $posts;
 	}
 
+	/*
+	 * Méthode pour afficher les 3 derniers articles du blog
+	 * @return string
+	*/
 	public function readLast()
 	{
 		$db = $this->getDatabase();
@@ -68,6 +84,10 @@ class PostManager extends Manager{
 		return $posts;
 	}
 
+	/*
+	 * Méthode pour afficher un article
+	 * @return string
+	*/
 	public function read($slug,$idpost)
 	{
 		$db = $this->getDatabase();
@@ -82,7 +102,11 @@ class PostManager extends Manager{
 		}
 		return false;
 	}
-
+	
+	/*
+	 * Méthode pour afficher les articles écrit par un utilisateur connecté à son profil
+	 * @return string
+	*/
 	public function readUserPost($iduserpost)
 	{
 		$db = $this->getDatabase();
@@ -100,8 +124,25 @@ class PostManager extends Manager{
 	}
 
 	/*
+	 * Méthode pour afficher les catégories d'article
+	*/
+	public function readCategories(){
+		$db = $this->getDatabase();
+		$results = $db->query(
+			'SELECT * FROM category ORDER BY category.id_category DESC');
+
+		$categories = [];
+		foreach ($results as $result) {
+			$category = new Post();
+			$category->hydrate($result);
+			$categories[] = $category;
+		}
+		return $categories;
+	}
+
+	/*
 	 * Méthode pour compter le nombre d'article sur le statut 'corbeille'
-	 * @return string
+	 * @return int
 	*/
 	public function countPostDraft($iduserpost)
 	{
@@ -115,7 +156,7 @@ class PostManager extends Manager{
 
 	/*
 	 * Méthode pour compter le nombre d'article sur le statut 'en attente de validation'
-	 * @return string
+	 * @return int
 	*/
 	public function countPostPendingValidation($iduserpost)
 	{
@@ -129,7 +170,7 @@ class PostManager extends Manager{
 	
 	/*
 	 * Méthode pour compter le nombre d'article sur le statut 'publié'
-	 * @return string
+	 * @return int
 	*/
 	public function countPostPublished($iduserpost)
 	{

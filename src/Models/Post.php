@@ -31,7 +31,7 @@ class Post{
 	private $slug;
 	private $post_date_update;
 	private $post_date_published;
-	private $category_id_category;
+	private $id_category;
 	private $category_name;
 	private $user_id_user;
 	private $user_name;
@@ -84,6 +84,12 @@ class Post{
 	*/
 	public function getSlug(){
 		return $this->slug;
+	}
+	/*
+	 * @return l'id de la catégorie de l'article sous forme de chaine de caractère
+	*/
+	public function getIdCategory(){
+		return $this->id_category;
 	}
 	/*
 	 * @return la catégorie de l'article sous forme de chaine de caractère

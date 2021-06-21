@@ -17,10 +17,10 @@
 				<div class="col col-md-4">
 					<div class="mb-3">
 						<label for="category" class="form-label">Sélectionner la catégorie de l'article</label>
-						<select class="form-select" name="category_id_category" id="category">
-  							<option value="1">Dévellopement</option>
-  							<option value="2">Référencement</option>
-  							<option value="3">Webdesign</option>
+						<select class="form-select text-capitalize" name="category_id_category" id="category">
+							<?php foreach ($categories as $category): ?>
+								<option value="<?php echo $category->getIdCategory() ?>"><?php echo $category->getCategory() ?></option>
+							<?php endforeach; ?>
 						</select>
 					</div>
 				</div>
