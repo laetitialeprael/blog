@@ -98,13 +98,15 @@ class UserController extends Controller{
 	/*
 	 * Méthode pour réinitiliser le mot de passe de l'utilisateur
 	*/
-	public function updatePassword(){
+	public function requestPassword(){
 
-		//$userModel = new UserManager();
+		$userModel = new UserManager();
 
 		if(isset($_POST['email']) && ($_POST['email'] != '')) {
 
-			//$user = $userModel->sendMail(base64_encode($_POST['email']));
+			$token = uniqid();
+			$url = 'http://localhost:8888/blog/nouveau-mot-de-passe/'.$token;
+
 			$transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
   				->setUsername(YOUR_GMAIL_MAIL)
   				->setPassword(YOUR_GMAIL_PASSWORD)
@@ -112,17 +114,29 @@ class UserController extends Controller{
 
 			$mailer = new Swift_Mailer($transport);
 
-			$message = (new Swift_Message('Wonderful Subject'))
+			$message = (new Swift_Message('Réinitilatisation de votre mot de passe'))
   				->setFrom([YOUR_GMAIL_MAIL => 'Jane Doe'])
   				->setTo([$_POST['email'] => 'A name'])
-  				->setBody('Here is the message itself')
+  				->setBody('Bonjour, voici le lien de réinitialisation de votre mot de passe :'.$url)
   			;
 
   			$result = $mailer->send($message);
 
+  			if(mail($_POST['email'], 'Réinitilatisation de votre mot de passe', 'Bonjour, voici le lien de réinitialisation de votre mot de passe :'.$url)) {
+  				$user = $userModel->updateToken($token, $_POST['email']);
+  			}
+
 		}
 
 		require '../views/form-forgot-password.php';
+	}
+
+	/*
+	 * Méthode pour réinitiliser le mot de passe de l'utilisateur
+	*/
+	public function updatePassword(){
+
+		require '../views/form-password.php';
 	}
 
 	/*

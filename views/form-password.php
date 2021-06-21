@@ -5,6 +5,7 @@
 		</div>
 		<form class="needs-validation" method="post" novalidate>
 			<div class="row">
+				<!--
 				<div class="col col-md-8 mx-auto">
 					<div class="mb-3 form-group">
 						<label class="form-label" for="inputEmailAdress">Votre email</label>
@@ -12,6 +13,7 @@
 			    		<div class="invalid-feedback"><p>Oops ! Vous devez saisir votre adresse mail.</p></div>
 					</div>
 				</div>
+				-->
 				<div class="col col-md-8 mx-auto">
 					<div class="mb-3 form-group">
 						<label class="form-label"  for="inputPassword">Votre nouveau mot de passe</label>

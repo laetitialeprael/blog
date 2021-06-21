@@ -36,9 +36,16 @@ class UserManager extends Manager{
 		//$statement
 		'UPDATE user SET user_password = :user_password WHERE user.id_user = :user_iduser',
 		//$attributes
-		array(':user_password' => $password, ':user_iduser' => $iduser));
+		array(':user_password' => $password, ':user_iduser' => $iduser));		
+	}
 
-		
+	public function updateToken($token, $email){
+		$db = $this->getDatabase();
+		$user = $db->insert(
+		//$statement
+		'UPDATE user SET token = :token WHERE user.user_email = :user_email',
+		//$attributes
+		array(':token' => $token, ':user_email' => $email));
 	}
 	public function delete(){}
 	
