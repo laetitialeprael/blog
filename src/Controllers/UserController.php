@@ -96,7 +96,7 @@ class UserController extends Controller{
 	}
 	
 	/*
-	 * Méthode pour réinitiliser le mot de passe de l'utilisateur
+	 * Méthode pour envoyer le lien de réinitialisation du mot de passe
 	*/
 	public function requestPassword(){
 
@@ -104,7 +104,7 @@ class UserController extends Controller{
 
 		if(isset($_POST['email']) && ($_POST['email'] != '')) {
 
-			$token = uniqid();
+			$token = base64_encode($_POST['email']);
 			$url = 'http://localhost:8888/blog/nouveau-mot-de-passe/'.$token;
 
 			$transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
@@ -115,16 +115,12 @@ class UserController extends Controller{
 			$mailer = new Swift_Mailer($transport);
 
 			$message = (new Swift_Message('Réinitilatisation de votre mot de passe'))
-  				->setFrom([YOUR_GMAIL_MAIL => 'Jane Doe'])
-  				->setTo([$_POST['email'] => 'A name'])
+  				->setFrom([YOUR_GMAIL_MAIL => 'OpenclassroomsBlog'])
+  				->setTo([$_POST['email']])
   				->setBody('Bonjour, voici le lien de réinitialisation de votre mot de passe :'.$url)
   			;
 
   			$result = $mailer->send($message);
-
-  			if(mail($_POST['email'], 'Réinitilatisation de votre mot de passe', 'Bonjour, voici le lien de réinitialisation de votre mot de passe :'.$url)) {
-  				$user = $userModel->updateToken($token, $_POST['email']);
-  			}
 
 		}
 
@@ -134,8 +130,26 @@ class UserController extends Controller{
 	/*
 	 * Méthode pour réinitiliser le mot de passe de l'utilisateur
 	*/
-	public function updatePassword(){
+	public function updatePassword($params){
+		echo implode($params);
+		$userModel = new UserManager();
 
+		//On vérifie que les champs sont remplis
+		if(isset($_POST['password'], $_POST['validpassword']) && ($_POST['password'] != '' && $_POST['validpassword'] !='')){
+			
+			//On vérifie que les champs password et validpassword sont identiques
+			if($_POST['password'] === $_POST['validpassword']){
+				//On lance la méthode
+				$user = $userModel->updatePassword(password_hash($_POST['password'], PASSWORD_DEFAULT), base64_decode($params['token']));
+				
+				//On redirige l'utilisateur sur le formulaire de connexion
+				header('Location: /blog/connexion');
+
+			}else{
+				//Sinon on affiche le message d'erreur
+				$_SESSION['message'] = "Oops ! Le nouveau mot de passe et la confirmation du mot de passe ne sont pas identiques";
+			}
+		}
 		require '../views/form-password.php';
 	}
 
