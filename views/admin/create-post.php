@@ -19,7 +19,7 @@
 						<label for="category" class="form-label">Sélectionner la catégorie de l'article</label>
 						<select class="form-select text-capitalize" name="category_id_category" id="category">
 							<?php foreach ($categories as $category): ?>
-								<option value="<?php echo $category->getIdCategory() ?>"><?php echo $category->getCategory() ?></option>
+								<option value="<?php echo $category->getIdCategory(); ?>"><?php echo $category->getCategory(); ?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>

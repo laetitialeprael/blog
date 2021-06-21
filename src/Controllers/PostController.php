@@ -41,6 +41,7 @@ class PostController extends Controller{
     {
         $postModel = new PostManager();
         $post = $postModel->read($params['slug'], $params['id']);
+        $categories = $postModel->readCategories();
 
         if(isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
 
