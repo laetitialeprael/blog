@@ -97,6 +97,7 @@ class UserController extends Controller{
 	
 	/*
 	 * Méthode pour envoyer le lien de réinitialisation du mot de passe
+	 * Swiftmailer : https://swiftmailer.symfony.com/docs/sending.html
 	*/
 	public function requestPassword(){
 
@@ -104,6 +105,7 @@ class UserController extends Controller{
 
 		if(isset($_POST['email']) && ($_POST['email'] != '')) {
 
+			//On crée un token avec l'adresse mail
 			$token = base64_encode($_POST['email']);
 			$url = 'http://localhost:8888/blog/nouveau-mot-de-passe/'.$token;
 
