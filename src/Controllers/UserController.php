@@ -18,20 +18,64 @@ use Swift_Message;
 */
 class UserController extends Controller{
 
-	public function login(){
+	/*
+	 * Méthode pour vérifier que les champs du formulaire ne sont pas vides
+	*/
+	public function isValid($data = [])
+	{
+		if(isset($data['name'], $data['firstname'], $data['email'], $data['password'], $data['validpassword']) && ($data['name'] != '') && ($data['firstname'] != '') && ($data['email'] != '' && $data['password'] !='' && $data['validpassword'] !='')) {
+			return $data;
+		}
+
+		return false;
+	}
+
+	/*
+	 * Méthode pour la création du compte d'un utilisateur
+	*/
+	public function viewAccount()
+	{
+		$userModel = new UserManager();
+
+		if($user = $this->isValid($_POST)){
+
+			//Si les champs mot de passe correspond
+			if($user['password'] === $user['validpassword']){
+				
+				//On lance la méthode de création de l'utilisateur en hachant le mot de passe
+				$user = $userModel->create($user['name'], $user['firstname'], $user['email'], password_hash($user['password'], PASSWORD_DEFAULT));
+				
+				//On redirige l'utilisateur sur la page de connexion
+				header('Location: /blog/connexion');
+			
+			//Si les mot de passe sont différents
+			}else{
+				echo 'Les mots de passe sont différents';
+			}
+		}
+		//On affiche le formulaire de création
+		require '../views/create-account.php';
+		
+	}
+
+	/*
+	 * Méthode de connexion de l'utilisateur
+	*/
+	public function viewLogin()
+	{
 		$userModel = new UserManager();
 
 		if(isset($_POST['email'], $_POST['password']) && ($_POST['email'] != '' && $_POST['password'] !='')) {
 			
 			// Si l'adresse mail de l'utilisateur est enregistrée
 			if($user = $userModel->connexion($_POST['email'])){
-				// On devrait pouvoir accéder à la donnée avec un getter
+				
 				// La visibilité de $user_password est modifié à public User.php
 				$password = $user->getPassword();
-				//var_dump();die;
 
 				// Si le mot de passe saisie par l'utilisateur est enregistré
 				if(password_verify($_POST['password'], $password)){
+					
 					// On enregistre les variables de la table user dans $_SESSION
 					$_SESSION['user']['name'] = $user->getName();
 					$_SESSION['user']['firstname'] = $user->getFirstName();
@@ -43,7 +87,7 @@ class UserController extends Controller{
 					// On redirige l'utilisateur sur son profil
 					header('Location: /blog/admin/mon-compte');
 				}
-				// Sinon
+				// Sinon on affiche le message d'erreur
 				else{
 					$_SESSION['message'] = "Oops ! Le mot de passe n'est pas correcte.";
 					//var_dump($user);
@@ -57,55 +101,19 @@ class UserController extends Controller{
 
 		require '../views/login.php';
 	}
-
-
-	/*
-	 * Méthode pour vérifier que les champs du formulaire ne sont pas vides
-	*/
-	public function isValid($data = [])
-	{
-		if(isset($data['name'], $data['firstname'], $data['email'], $data['password'], $data['validpassword']) && ($data['name'] != '') && ($data['firstname'] != '') && ($data['email'] != '' && $data['password'] !='' && $data['validpassword'] !='')) {
-			return $data;
-		}
-
-		return false;
-	}
-	/*
-	 * Méthode pour la création du compte d'un utilisateur
-	*/
-	public function formAccount(){
-		$userModel = new UserManager();
-
-		if($user = $this->isValid($_POST)){
-
-			// Si les champs mot de passe correspond
-			if($user['password'] === $user['validpassword']){
-				// On lance la méthode de création de l'utilisateur en hachant le mot de passe
-				$user = $userModel->create($user['name'], $user['firstname'], $user['email'], password_hash($user['password'], PASSWORD_DEFAULT));
-				// On redirige l'utilisateur sur la page de connexion
-				header('Location: /blog/connexion');
-			
-			// Si les mot de passe sont différents
-			}else{
-				echo 'Les mots de passe sont différents';
-			}
-		}
-		// On affiche le formulaire de création
-		require '../views/create-account.php';
-		
-	}
 	
 	/*
 	 * Méthode pour envoyer le lien de réinitialisation du mot de passe
 	 * Swiftmailer : https://swiftmailer.symfony.com/docs/sending.html
 	*/
-	public function requestPassword(){
+	public function viewRequestPassword()
+	{
 
 		$userModel = new UserManager();
 
 		if(isset($_POST['email']) && ($_POST['email'] != '')) {
 
-			//On crée un token avec l'adresse mail
+			//On crée un token avec l'adresse mail de l'utilisateur
 			$token = base64_encode($_POST['email']);
 			$url = 'http://localhost:8888/blog/nouveau-mot-de-passe/'.$token;
 
@@ -132,8 +140,8 @@ class UserController extends Controller{
 	/*
 	 * Méthode pour réinitiliser le mot de passe de l'utilisateur
 	*/
-	public function updatePassword($params){
-		echo implode($params);
+	public function viewUpdatePassword($params)
+	{
 		$userModel = new UserManager();
 
 		//On vérifie que les champs sont remplis
@@ -152,30 +160,6 @@ class UserController extends Controller{
 				$_SESSION['message'] = "Oops ! Le nouveau mot de passe et la confirmation du mot de passe ne sont pas identiques";
 			}
 		}
-		require '../views/form-password.php';
-	}
-
-	/*
-	 * Méthode pour mettre à jour le profil de l'utilisateur
-	*/
-	public function updateAccount(){
-		//$this->isAuth();
-
-		$userModel = new UserManager();
-
-		if(isset($_POST['email'], $_POST['password']) && ($_POST['email'] != '' && $_POST['password'] !='')) {
-			if($_POST['password'] === $_POST['validpassword']){
-
-				$user = $userModel->update(password_hash($_POST['password'], PASSWORD_DEFAULT),$_SESSION['iduser']);
-
-				// Si l'utilisateur n'est pas enregistré en base de donnée
-				if($_SESSION['iduser'] == NULL){
-					echo 'Il faut créer un compte';
-				}
-				//var_dump($_SESSION['iduser']);
-			}
-		}
-
 		require '../views/form-password.php';
 	}
 }

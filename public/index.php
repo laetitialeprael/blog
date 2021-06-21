@@ -30,10 +30,10 @@ $router->map('GET', '/blog/article', 'Src\Controllers\PostController#viewList');
 $router->map('GET', '/blog/article/[*:slug]-[i:id]', 'Src\Controllers\PostController#viewSingle');
 
 // Routes publics de la class UserController
-$router->map('GET|POST', '/blog/connexion', 'Src\Controllers\UserController#login');
-$router->map('GET|POST','/blog/creer-un-compte', 'Src\Controllers\UserController#formAccount');
-$router->map('GET|POST','/blog/mot-de-passe-oublie', 'Src\Controllers\UserController#requestPassword');
-$router->map('GET|POST','/blog/nouveau-mot-de-passe/[*:token]', 'Src\Controllers\UserController#updatePassword');
+$router->map('GET|POST', '/blog/connexion', 'Src\Controllers\UserController#viewLogin');
+$router->map('GET|POST','/blog/creer-un-compte', 'Src\Controllers\UserController#viewAccount');
+$router->map('GET|POST','/blog/mot-de-passe-oublie', 'Src\Controllers\UserController#viewRequestPassword');
+$router->map('GET|POST','/blog/nouveau-mot-de-passe/[*:token]', 'Src\Controllers\UserController#viewUpdatePassword');
 
 
 // Routes d'administration
