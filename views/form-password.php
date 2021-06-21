@@ -2,6 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<h2 class="text-center mb-4">Réinitialisation de votre mot de passe</h2>
+			<p class="text-center current-text mb-4">Tous les champs sont obligatoires</p>
 		</div>
 		<?php if (isset($_SESSION['message'])): ?>
 			<div class="row mb-3">

@@ -21,7 +21,7 @@ a{cursor:pointer;text-decoration:none;color:#dab602;}/*a:hover{color:#a8851b;}*/
 h1,h2,h3,h4,h5,h6,.navbar-brand{font-family: 'Nunito', sans-serif;}
 .fab{font-size:1.2em;}.current-text{font-size:0.875rem;}
 .smaller{font-size:60%;}
-.text-white{color:#fff;}.text-dark{color:#212529;}.text-gray{color:#a1a1a8;}.text-mustard{color:#dab602;}.text-error{color:#dc3545;}.border-error{border-left: solid 5px;border-color:#dc3545;}
+.text-white{color:#fff;}.text-dark{color:#212529;}.text-gray{color:#a1a1a8;}.text-mustard{color:#dab602;}.text-error{color:#dc3545;}.border-error{border-left: solid 5px;border-color:#dc3545;}.text-valid{color:#198754;}.border-valid{border-left: solid 5px;border-color:#198754;}
 .state{color:#fff;padding:.25rem .75rem;}.state[data-state='published']{background-color:#dab602;}.state[data-state='pending']{background-color:#be914c;}.state[data-state='revised']{background-color:#509151;}.state[data-state='draft']{background-color:#ed692f;}
 section.content{background-color:#fff;}
 section.newsletter{background-color:#0f0f11;color:#fff;}

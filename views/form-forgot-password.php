@@ -3,6 +3,13 @@
 		<div class="row">
 			<h2 class="text-center mb-4">Mot de passe oublié</h2>
 		</div>
+		<?php if (isset($_SESSION['message'])): ?>
+			<div class="row mb-3">
+				<div class="col col-md-8 mx-auto p-3 bg-light text-valid border-valid">
+					<p class="m-0"><?php echo $_SESSION['message']; ?></p>
+				</div>
+			</div>
+		<?php endif; ?>
 		<form class="needs-validation" method="post" novalidate>
 			<div class="row">
 				<div class="col col-md-8 mx-auto">

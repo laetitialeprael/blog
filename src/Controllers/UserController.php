@@ -127,11 +127,16 @@ class UserController extends Controller{
 			$message = (new Swift_Message('Réinitilatisation de votre mot de passe'))
   				->setFrom([YOUR_GMAIL_MAIL => 'OpenclassroomsBlog'])
   				->setTo([$_POST['email']])
-  				->setBody('Bonjour, voici le lien de réinitialisation de votre mot de passe :'.$url)
+  				->setBody('Voici le lien de réinitialisation de votre mot de passe : '.$url)
   			;
 
   			$result = $mailer->send($message);
 
+
+  			if(mail($_POST['email'], 'Réinitilatisation de votre mot de passe', 'Voici le lien de réinitialisation de votre mot de passe :' .$url)){
+
+  				$_SESSION['message'] = "Un lien de réinitilisation vient de vous être envoyer par mail.";
+  			}
 		}
 
 		require '../views/form-forgot-password.php';
