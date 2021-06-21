@@ -70,7 +70,6 @@ class UserController extends Controller{
 			// Si l'adresse mail de l'utilisateur est enregistrée
 			if($user = $userModel->connexion($_POST['email'])){
 				
-				// La visibilité de $user_password est modifié à public User.php
 				$password = $user->getPassword();
 
 				// Si le mot de passe saisie par l'utilisateur est enregistré
@@ -112,30 +111,39 @@ class UserController extends Controller{
 
 		if(isset($_POST['email']) && ($_POST['email'] != '')) {
 
-			//On crée un token avec l'adresse mail de l'utilisateur
-			$token = base64_encode($_POST['email']);
-			$url = 'http://localhost:8888/blog/nouveau-mot-de-passe/'.$token;
+			// Si l'adresse mail de l'utilisateur est enregistrée
+			if($user = $userModel->connexion($_POST['email'])){
 
-			$transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
-  				->setUsername(YOUR_GMAIL_MAIL)
-  				->setPassword(YOUR_GMAIL_PASSWORD)
-			;
+				//On crée un token avec l'adresse mail de l'utilisateur
+				$token = base64_encode($_POST['email']);
+				$url = 'http://localhost:8888/blog/nouveau-mot-de-passe/'.$token;
 
-			$mailer = new Swift_Mailer($transport);
+				$transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
+	  				->setUsername(YOUR_GMAIL_MAIL)
+	  				->setPassword(YOUR_GMAIL_PASSWORD)
+				;
 
-			$message = (new Swift_Message('Réinitilatisation de votre mot de passe'))
-  				->setFrom([YOUR_GMAIL_MAIL => 'OpenclassroomsBlog'])
-  				->setTo([$_POST['email']])
-  				->setBody('Voici le lien de réinitialisation de votre mot de passe : '.$url)
-  			;
+				$mailer = new Swift_Mailer($transport);
 
-  			$result = $mailer->send($message);
+				$message = (new Swift_Message('Réinitilatisation de votre mot de passe'))
+	  				->setFrom([YOUR_GMAIL_MAIL => 'OpenclassroomsBlog'])
+	  				->setTo([$_POST['email']])
+	  				->setBody('Voici le lien de réinitialisation de votre mot de passe : '.$url)
+	  			;
 
+	  			$result = $mailer->send($message);
 
-  			if(mail($_POST['email'], 'Réinitilatisation de votre mot de passe', 'Voici le lien de réinitialisation de votre mot de passe :' .$url)){
+	  			//Si le mail est envoyé
+	  			if(mail($_POST['email'], 'Réinitilatisation de votre mot de passe', 'Voici le lien de réinitialisation de votre mot de passe :' .$url)){
+	  					//On affiche le message
+	  					$_SESSION['message-valid'] = "Un lien de réinitilisation vient de vous être envoyer par mail.";
+	  			}
 
-  				$_SESSION['message'] = "Un lien de réinitilisation vient de vous être envoyer par mail.";
-  			}
+			}
+			//Sinon on affiche le message
+			else{
+				$_SESSION['message-error'] = "Oops ! Aucune adresse mail est enregistrée.";
+			}
 		}
 
 		require '../views/form-forgot-password.php';

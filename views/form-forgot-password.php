@@ -3,10 +3,17 @@
 		<div class="row">
 			<h2 class="text-center mb-4">Mot de passe oublié</h2>
 		</div>
-		<?php if (isset($_SESSION['message'])): ?>
+		<?php if (isset($_SESSION['message-valid'])): ?>
 			<div class="row mb-3">
 				<div class="col col-md-8 mx-auto p-3 bg-light text-valid border-valid">
-					<p class="m-0"><?php echo $_SESSION['message']; ?></p>
+					<p class="m-0"><?php echo $_SESSION['message-valid']; ?></p>
+				</div>
+			</div>
+		<?php endif; ?>
+		<?php if (isset($_SESSION['message-error'])): ?>
+			<div class="row mb-3">
+				<div class="col col-md-8 mx-auto p-3 bg-light text-error border-error">
+					<p class="m-0"><?php echo $_SESSION['message-error']; ?></p>
 				</div>
 			</div>
 		<?php endif; ?>
