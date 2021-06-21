@@ -5,6 +5,12 @@ namespace Src\Controllers;
 use Src\Models\UserManager;
 use Src\Models\User;
 
+require '../public/config.php';
+
+use Swift_SmtpTransport;
+use Swift_Mailer;
+use Swift_Message;
+
 /*
  * Class UserController
  *
@@ -99,6 +105,20 @@ class UserController extends Controller{
 		if(isset($_POST['email']) && ($_POST['email'] != '')) {
 
 			//$user = $userModel->sendMail(base64_encode($_POST['email']));
+			$transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
+  				->setUsername(YOUR_GMAIL_MAIL)
+  				->setPassword(YOUR_GMAIL_PASSWORD)
+			;
+
+			$mailer = new Swift_Mailer($transport);
+
+			$message = (new Swift_Message('Wonderful Subject'))
+  				->setFrom([YOUR_GMAIL_MAIL => 'Jane Doe'])
+  				->setTo([$_POST['email'] => 'A name'])
+  				->setBody('Here is the message itself')
+  			;
+
+  			$result = $mailer->send($message);
 
 		}
 
