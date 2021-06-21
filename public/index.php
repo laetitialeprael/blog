@@ -29,6 +29,11 @@ $router->map('GET', '/blog/', 'Src\Controllers\PostController#viewLast', 'home')
 $router->map('GET', '/blog/article', 'Src\Controllers\PostController#viewList');
 $router->map('GET', '/blog/article/[*:slug]-[i:id]', 'Src\Controllers\PostController#viewSingle');
 
+// Routes admin de la class PostController
+$router->map('GET|POST', '/blog/admin/nouvel-article', 'Src\Controllers\PostController#postCreate');
+$router->map('GET|POST', '/blog/admin/article/[*:slug]-[i:id]', 'Src\Controllers\PostController#postUpdate');
+$router->map('GET', '/blog/admin/mes-articles', 'Src\Controllers\PostController#postRead');
+
 // Routes publics de la class UserController
 $router->map('GET|POST', '/blog/connexion', 'Src\Controllers\UserController#viewLogin');
 $router->map('GET|POST','/blog/creer-un-compte', 'Src\Controllers\UserController#viewAccount');
@@ -37,10 +42,6 @@ $router->map('GET|POST','/blog/nouveau-mot-de-passe/[*:token]', 'Src\Controllers
 
 
 // Routes d'administration
-$router->map('GET|POST', '/blog/admin/nouvel-article', 'Src\Controllers\AdminController#postCreate');
-$router->map('GET|POST', '/blog/admin/article/[*:slug]-[i:id]', 'Src\Controllers\AdminController#postUpdate');
-$router->map('GET', '/blog/admin/mes-articles', 'Src\Controllers\AdminController#postRead');
-
 $router->map('GET','/blog/admin/mon-compte', 'Src\Controllers\AdminController#viewAccount');
 $router->map('GET', '/blog/admin/deconnexion', 'Src\Controllers\AdminController#logout');
 
