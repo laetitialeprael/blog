@@ -4,6 +4,13 @@
 			<div class="col">
 				<h1>Modifier un article</h1>
 			</div>
+			<?php if (isset($_SESSION['message'])): ?>
+			<div class="row mb-3">
+				<div class="col col-md-8 mx-auto p-3 bg-light text-error border-error">
+					<p class="m-0"><?php echo $_SESSION['message']; ?></p>
+				</div>
+			</div>
+			<?php endif; ?>
 		</div>
 
 		<form method="post">

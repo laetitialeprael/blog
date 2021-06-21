@@ -90,7 +90,6 @@ class UserController extends Controller{
 				// Sinon on affiche le message d'erreur
 				else{
 					$_SESSION['message'] = "Oops ! Le mot de passe n'est pas correcte.";
-					//var_dump($user);
 				}
 			}
 			// Si l'adresse mail de l'utilisateur n'est pas enregistrée

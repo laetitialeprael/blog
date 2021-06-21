@@ -28,9 +28,15 @@ class PostController extends Controller{
             
             $post = $postModel->create($_POST['title'], $_POST['introduction'], $_POST['content'], $slug, $_POST['category_id_category'], $_SESSION['user']['iduser']);
             
-            echo 'Article ajouté';
+            //On redirige l'utilisateur sur la page de ses articles
+			header('Location: /blog/admin/mes-articles');
         
         }
+        //Sinon on affiche le message d'erreur
+        else{
+        	$_SESSION['message'] = "Oops ! Une erreur est survenue, votre article n'a pas été enregistré.";
+        }
+
         require '../views/admin/create-post.php';
     }
 
