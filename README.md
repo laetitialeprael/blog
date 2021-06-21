@@ -28,3 +28,12 @@ We enter the command line below to start the installation of Font Awesome with C
 ```bash
 composer require components/font-awesome
 ```
+## Install Swiftmailer
+We enter the command below to access our project 'Blog' folder.
+```bash
+cd /Applications/MAMP/htdocs/blog/
+```
+We enter the command line below to start the installation of Swifmailer with Composer.
+```bash
+composer require "swiftmailer/swiftmailer:^6.0"
+```
