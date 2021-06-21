@@ -43,8 +43,6 @@ class PostController extends Controller{
         if(isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
 
             $slug = Post::viewSlug($_POST['title']);
-
-            //var_dump($_POST['title'], $_POST['introduction'], $_POST['content'], $slug, $_POST['category_id_category'], $params['id']);die;
             
             $post = $postModel->update($_POST['title'], $_POST['introduction'], $_POST['content'], $slug, $_POST['category_id_category'], (int)$params['id']);
             
