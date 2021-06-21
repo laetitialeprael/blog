@@ -55,7 +55,9 @@ class PostController extends Controller{
             
             $post = $postModel->update($_POST['title'], $_POST['introduction'], $_POST['content'], $slug, $_POST['category_id_category'], (int)$params['id']);
             
-            echo 'Modifications enregistrées';
+            $_SESSION['message'] = "Modifications enregistrées.";
+
+            $post = $postModel->read($params['slug'], $params['id']);
         
         }
         require '../views/admin/update-post.php';
