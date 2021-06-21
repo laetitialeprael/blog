@@ -88,8 +88,25 @@ class UserController extends Controller{
 		require '../views/create-account.php';
 		
 	}
+	
 	/*
 	 * Méthode pour réinitiliser le mot de passe de l'utilisateur
+	*/
+	public function updatePassword(){
+
+		//$userModel = new UserManager();
+
+		if(isset($_POST['email']) && ($_POST['email'] != '')) {
+
+			//$user = $userModel->sendMail(base64_encode($_POST['email']));
+
+		}
+
+		require '../views/form-forgot-password.php';
+	}
+
+	/*
+	 * Méthode pour mettre à jour le profil de l'utilisateur
 	*/
 	public function updateAccount(){
 		//$this->isAuth();

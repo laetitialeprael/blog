@@ -32,7 +32,7 @@ $router->map('GET', '/blog/article/[*:slug]-[i:id]', 'Src\Controllers\PostContro
 // Routes publics de la class UserController
 $router->map('GET|POST', '/blog/connexion', 'Src\Controllers\UserController#login');
 $router->map('GET|POST','/blog/creer-un-compte', 'Src\Controllers\UserController#formAccount');
-$router->map('GET|POST','/blog/mot-de-passe-oublie', 'Src\Controllers\UserController#updateAccount');
+$router->map('GET|POST','/blog/mot-de-passe-oublie', 'Src\Controllers\UserController#updatePassword');
 
 
 // Routes d'administration
