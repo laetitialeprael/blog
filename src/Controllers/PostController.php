@@ -63,6 +63,7 @@ class PostController extends Controller{
         $postDraft = $postModel->countPostDraft($_SESSION['user']['iduser']);
         $postPendingValidation = $postModel->countPostPendingValidation($_SESSION['user']['iduser']);
         $postPublished = $postModel->countPostPublished($_SESSION['user']['iduser']);
+        
         require '../views/admin/read-post.php';
     }
     
