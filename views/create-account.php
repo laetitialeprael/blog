@@ -27,7 +27,8 @@
 			    		<div class="invalid-feedback">Oops ! Vous devez confirmer votre mot de passe.</div>
 					</div>
 				</div>
-				<div class="col col-md-8 mx-auto">
+
+				<!--div class="col col-md-8 mx-auto">
 					<div class="mb-3 form-group">
 						<label class="form-label" for="inputPassword">Votre mot de passe</label>
 						<input required class="form-control" name="password" type="password" id="inputPassword">
@@ -40,7 +41,7 @@
 						<input required class="form-control" name="validpassword" type="password" id="inputValidPassword">
 			    		<div class="invalid-feedback">Oops ! Vous devez confirmer votre mot de passe.</div>
 					</div>
-				</div>
+				</div-->
 				<div class="col col-md-8 mx-auto text-center">
 					<div class="mb-3">
 						<button class="btn btn-primary rounded-0" type="submit">Créer mon compte</button>
