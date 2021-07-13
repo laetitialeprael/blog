@@ -23,7 +23,13 @@ class UserController extends Controller{
 	*/
 	public function isValid($data = [])
 	{
+		
+		/*
 		if(isset($data['name'], $data['firstname'], $data['email'], $data['password'], $data['validpassword']) && ($data['name'] != '') && ($data['firstname'] != '') && ($data['email'] != '' && $data['password'] !='' && $data['validpassword'] !='')) {
+			return $data;
+		}
+		*/
+		if(isset($data['name'], $data['firstname'], $data['email']) && ($data['name'] != '') && ($data['firstname'] != '') && ($data['email'] != '')) {
 			return $data;
 		}
 
