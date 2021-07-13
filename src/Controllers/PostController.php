@@ -45,22 +45,30 @@ class PostController extends Controller{
     */
     public function postUpdate($params)
     {
-        $postModel = new PostManager();
-        $post = $postModel->read($params['slug'], $params['id']);
-        $categories = $postModel->readCategories();
-
-        if(isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
-
-            $slug = Post::viewSlug($_POST['title']);
+        if ($_SESSION['user']['role'] >= 2){
             
-            $post = $postModel->update($_POST['title'], $_POST['introduction'], $_POST['content'], $slug, $_POST['category_id_category'], (int)$params['id']);
-            
-            $_SESSION['message'] = "Modifications enregistrées.";
-
+            $postModel = new PostManager();
             $post = $postModel->read($params['slug'], $params['id']);
+            $categories = $postModel->readCategories();
+
+            if(isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
+
+                $slug = Post::viewSlug($_POST['title']);
+            
+                $post = $postModel->update($_POST['title'], $_POST['introduction'], $_POST['content'], $slug, $_POST['category_id_category'], (int)$params['id']);
+            
+                $_SESSION['message'] = "Modifications enregistrées.";
+
+                $post = $postModel->read($params['slug'], $params['id']);
         
+            }
+            
+            require '../views/admin/update-post.php';
         }
-        require '../views/admin/update-post.php';
+        else{
+            //On redirige l'utilisateur vers la page de connexion
+            header('Location: /blog/connexion');
+        }
     }
 
     /*

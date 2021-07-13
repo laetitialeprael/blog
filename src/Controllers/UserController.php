@@ -81,7 +81,7 @@ class UserController extends Controller{
 					$_SESSION['user']['email'] = $user->getEmail();
 					$_SESSION['user']['creationDate'] = $user->getCreationDate();
 					$_SESSION['user']['iduser'] = $user->getId();
-					$_SESSION['user']['role'] = $user->viewRole();
+					$_SESSION['user']['role'] = $user->getRole();
 
 
 					// On redirige l'utilisateur sur son profil

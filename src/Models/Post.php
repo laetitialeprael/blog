@@ -174,6 +174,7 @@ class Post{
 		setlocale(LC_ALL, $oldLocale);
 		return $clean;
 	}
+
 	/*
 	 * Setter : permet d'accéder à une propriété private en dehors de la class et de modifier sa valeur. 
 	*/

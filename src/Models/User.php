@@ -45,14 +45,12 @@ class User{
 	*/
 	
 	/*
-	 * Getter qui permet d'accéder à la propriété private $id_user dans la class UserControler
 	 * @return l'identifiant de l'utilisateur sous forme de chaine de caractère
 	*/
 	public function getId(){
 		return $this->id_user;
 	}
 	/*
-	 * Getter qui permet d'accéder à la propriété private $user_name dans la class UserControler
 	 * @return le nom de l'utilisateur sous forme de chaine de caractère
 	*/
 	public function getName(){
@@ -60,35 +58,30 @@ class User{
 		return $this->user_name;
 	}
 	/*
-	 * Getter qui permet d'accéder à la propriété private $user_first_name dans la class UserControler
 	 * @return le prénom de l'utilisateur sous forme de chaine de caractère
 	*/
 	public function getFirstName(){
 		return $this->user_first_name;
 	}
 	/*
-	 * Getter qui permet d'accéder à la propriété private $user_email dans la class UserControler
 	 * @return l'email de l'utilisateur sous forme de chaine de caractère
 	*/
 	public function getEmail(){
 		return $this->user_email;
 	}
 	/*
-	 * Getter qui permet d'accéder à la propriété private $user_password dans la class UserControler
 	 * @return le mot de passe de l'utilisateur sous forme de chaine de caractère
 	*/
 	public function getPassword(){
 		return $this->user_password;
 	}
 	/*
-	 * Getter qui permet d'accéder à la propriété private $role dans la class UserControler
 	 * @return le rôle de l'utilisateur sous forme de chaine de caractère
 	*/
 	public function getRole(){
 		return $this->role;
 	}
 	/*
-	 * Getter qui permet d'accéder à la propriété private $user_creation_date dans la class UserControler
 	 * @return la date de création du compte de l'utilisateur sous forme de chaine de caractère
 	*/
 	public function getCreationDate(){
@@ -98,10 +91,11 @@ class User{
 	/*
 	 * Méthode pour afficher le rôle de l'utilisateur
 	 * @return le rôle de l'utlisateur sous forme de chaine de caractère
+	 * Passer par des constantes
 	*/
 	public function viewRole(){
 		if($this->getRole() == 0){
-			echo ('Contributeur en attente');
+			return 'Contributeur en attente';
 		}elseif($this->getRole() == 1){
 			echo ('Administrateur en attente');
 		}elseif($this->getRole() == 2){
