@@ -50,20 +50,40 @@ class UserController extends Controller{
 				
 				//On lance la méthode de création de l'utilisateur en hachant le mot de passe
 				//$user = $userModel->create($user['name'], $user['firstname'], $user['email'], password_hash($user['password'], PASSWORD_DEFAULT));
+
+				//On lance la méthode de création de l'utilisateur
 				$user = $userModel->create($user['name'], $user['firstname'], $user['email']);
+				$token = base64_encode($_POST['email']);
+				$url = 'http://localhost:8888/blog/creation-mot-de-passe/'.$token;
+
+				$transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
+	  				->setUsername(YOUR_GMAIL_MAIL)
+	  				->setPassword(YOUR_GMAIL_PASSWORD)
+				;
+
+				$mailer = new Swift_Mailer($transport);
+
+				$message = (new Swift_Message('Création de votre compte'))
+	  				->setFrom([YOUR_GMAIL_MAIL => 'OpenclassroomsBlog'])
+	  				->setTo([$_POST['email']])
+	  				->setBody('Voici le lien de création de votre mot de passe : '.$url)
+	  			;
+
+	  			$result = $mailer->send($message);
+
+	  			//Si le mail est envoyé
+	  			if(mail($_POST['email'], 'Création de votre compte', 'Voici le lien de création de votre mot de passe : '.$url)){
+	  					//On affiche le message
+	  					$_SESSION['message-valid'] = "Un lien vers le formulaire de création de mot de passe vient de vous être envoyer par mail.";
+	  			}
 				
 				//On redirige l'utilisateur sur la page de connexion
 				//header('Location: /blog/connexion');
 			
-			//Si les mot de passe sont différents
-			}else{
-				echo 'Les mots de passe sont différents';
-			}
 		}
 		//On affiche le formulaire de création
 		require '../views/create-account.php';
-		
-	}
+		}
 
 	/*
 	 * Méthode de connexion de l'utilisateur
