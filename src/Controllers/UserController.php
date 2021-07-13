@@ -46,13 +46,14 @@ class UserController extends Controller{
 		if($user = $this->isValid($_POST)){
 
 			//Si les champs mot de passe correspond
-			if($user['password'] === $user['validpassword']){
+			//if($user['password'] === $user['validpassword']){
 				
 				//On lance la méthode de création de l'utilisateur en hachant le mot de passe
-				$user = $userModel->create($user['name'], $user['firstname'], $user['email'], password_hash($user['password'], PASSWORD_DEFAULT));
+				//$user = $userModel->create($user['name'], $user['firstname'], $user['email'], password_hash($user['password'], PASSWORD_DEFAULT));
+				$user = $userModel->create($user['name'], $user['firstname'], $user['email']);
 				
 				//On redirige l'utilisateur sur la page de connexion
-				header('Location: /blog/connexion');
+				//header('Location: /blog/connexion');
 			
 			//Si les mot de passe sont différents
 			}else{
