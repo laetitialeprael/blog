@@ -191,8 +191,8 @@ class UserController extends Controller{
 				//On lance la méthode
 				$user = $userModel->createPassword(password_hash($_POST['password'], PASSWORD_DEFAULT), base64_decode($params['token']));
 				
-				//On redirige l'utilisateur sur le formulaire de connexion
-				header('Location: /blog/connexion');
+				//On affiche un message de succès
+				$_SESSION['message-valid'] = "Votre compte est bien enregistré ! Vous pouvez dès à présent vous <a href='/blog/connexion'>connecter.</a>";
 
 			}else{
 				//Sinon on affiche le message d'erreur
