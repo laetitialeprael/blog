@@ -30,6 +30,15 @@ class UserManager extends Manager{
 		return $user;
 	}
 
+	public function createPassword($password, $email){
+		$db = $this->getDatabase();
+		$user = $db->insert(
+		//$statement
+		'UPDATE user SET user_password = :user_password, role = "2" WHERE user.user_email = :user_email',
+		//$attributes
+		array(':user_password' => $password, ':user_email' => $email));		
+	}
+
 	public function updatePassword($password, $email){
 		$db = $this->getDatabase();
 		$user = $db->insert(

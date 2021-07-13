@@ -176,7 +176,31 @@ class UserController extends Controller{
 
 		require '../views/form-forgot-password.php';
 	}
+	/*
+	 * Méthode pour enregistrer le mot de passe de l'utilisateur
+	*/
+	public function viewCreatePassword($params)
+	{
+		$userModel = new UserManager();
 
+		//On vérifie que les champs sont remplis
+		if(isset($_POST['password'], $_POST['validpassword']) && ($_POST['password'] != '' && $_POST['validpassword'] !='')){
+			
+			//On vérifie que les champs password et validpassword sont identiques
+			if($_POST['password'] === $_POST['validpassword']){
+				//On lance la méthode
+				$user = $userModel->createPassword(password_hash($_POST['password'], PASSWORD_DEFAULT), base64_decode($params['token']));
+				
+				//On redirige l'utilisateur sur le formulaire de connexion
+				header('Location: /blog/connexion');
+
+			}else{
+				//Sinon on affiche le message d'erreur
+				$_SESSION['message'] = "Oops ! Le nouveau mot de passe et la confirmation du mot de passe ne sont pas identiques";
+			}
+		}
+		require '../views/form-create-password.php';
+	}
 	/*
 	 * Méthode pour réinitiliser le mot de passe de l'utilisateur
 	*/
