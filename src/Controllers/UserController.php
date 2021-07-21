@@ -111,8 +111,15 @@ class UserController extends Controller{
 					$_SESSION['user']['role'] = $user->getRole();
 
 
-					// On redirige l'utilisateur sur son profil
-					header('Location: /blog/admin/mon-compte');
+					//Si l'utilisateur est un administrateur
+					if($user->getRole() > 2){
+						//On le redirige sur le tableau de bord du blog
+						header('Location: /blog/admin/tableau-de-bord');	
+					}
+					else{
+						//On redirige l'utilisateur sur son profil
+						header('Location: /blog/admin/mon-compte');
+					}
 				}
 				// Sinon on affiche le message d'erreur
 				else{
