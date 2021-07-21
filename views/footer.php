@@ -95,4 +95,5 @@
 	</div>
 </footer>
 <script src="/blog/public/js/bootstrap-form.js"></script>
+<script src="/blog/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
