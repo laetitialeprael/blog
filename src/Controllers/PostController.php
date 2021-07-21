@@ -24,9 +24,9 @@ class PostController extends Controller{
 
         if(isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
 
-            $slug = Post::viewSlug($_POST['title']);
+            $slug = Post::viewSlug(htmlspecialchars($_POST['title']));
             
-            $post = $postModel->create($_POST['title'], $_POST['introduction'], $_POST['content'], $slug, $_POST['category_id_category'], $_SESSION['user']['iduser']);
+            $post = $postModel->create(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['introduction']), htmlspecialchars($_POST['content']), $slug, htmlspecialchars($_POST['category_id_category']), $_SESSION['user']['iduser']);
             
             //On redirige l'utilisateur sur la page de ses articles
 			header('Location: /blog/admin/mes-articles');
@@ -45,7 +45,7 @@ class PostController extends Controller{
     */
     public function postUpdate($params)
     {
-        if ($_SESSION['user']['role'] >= 2){
+        //if ($_SESSION['user']['role'] >= 2){
             
             $postModel = new PostManager();
             $post = $postModel->read($params['slug'], $params['id']);
@@ -53,9 +53,9 @@ class PostController extends Controller{
 
             if(isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
 
-                $slug = Post::viewSlug($_POST['title']);
+                $slug = Post::viewSlug(htmlspecialchars($_POST['title']));
             
-                $post = $postModel->update($_POST['title'], $_POST['introduction'], $_POST['content'], $slug, $_POST['category_id_category'], (int)$params['id']);
+                $post = $postModel->update(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['introduction']), htmlspecialchars($_POST['content']), $slug, $_POST['category_id_category'], (int)$params['id']);
             
                 $_SESSION['message'] = "Modifications enregistrées.";
 
@@ -64,11 +64,11 @@ class PostController extends Controller{
             }
             
             require '../views/admin/update-post.php';
-        }
-        else{
+        //}
+        //else{
             //On redirige l'utilisateur vers la page de connexion
-            header('Location: /blog/connexion');
-        }
+            //header('Location: /blog/connexion');
+        //}
     }
 
     /*

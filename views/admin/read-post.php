@@ -30,7 +30,7 @@
 								<p class="small mt-n1 mb-0 text-dark"><?php echo $post->getCreationDate(); ?></p>
 							</div>
 							<div class="mt-auto">
-								<a class="btn text-dark btn-sm btn-line position-relative" href="/blog/admin/article/<?php echo $post->viewUrl(); ?>">Modifier</a>
+								<a class="btn text-dark btn-sm btn-line position-relative" href="/blog/admin/mes-articles/<?php echo $post->viewUrl(); ?>">Modifier</a>
 							</div>
 						</div>
 					</div>

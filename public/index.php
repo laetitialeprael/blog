@@ -31,7 +31,7 @@ $router->map('GET', '/blog/article/[*:slug]-[i:id]', 'Src\Controllers\PostContro
 
 // Routes admin de la class PostController
 $router->map('GET|POST', '/blog/admin/nouvel-article', 'Src\Controllers\PostController#postCreate');
-$router->map('GET|POST', '/blog/admin/article/[*:slug]-[i:id]', 'Src\Controllers\PostController#postUpdate');
+$router->map('GET|POST', '/blog/admin/mes-articles/[*:slug]-[i:id]', 'Src\Controllers\PostController#postUpdate');
 $router->map('GET', '/blog/admin/mes-articles', 'Src\Controllers\PostController#postRead');
 
 // Routes publics de la class UserController

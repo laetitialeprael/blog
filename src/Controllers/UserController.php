@@ -52,7 +52,7 @@ class UserController extends Controller{
 				//$user = $userModel->create($user['name'], $user['firstname'], $user['email'], password_hash($user['password'], PASSWORD_DEFAULT));
 
 				//On lance la méthode de création de l'utilisateur
-				$user = $userModel->create($user['name'], $user['firstname'], $user['email']);
+				$user = $userModel->create(htmlspecialchars($user['name']), htmlspecialchars($user['firstname']), htmlspecialchars($user['email']));
 				$token = base64_encode($_POST['email']);
 				$url = 'http://localhost:8888/blog/creation-mot-de-passe/'.$token;
 
@@ -193,6 +193,8 @@ class UserController extends Controller{
 				
 				//On affiche un message de succès
 				$_SESSION['message-valid'] = "Votre compte est bien enregistré ! Vous pouvez dès à présent vous <a href='/blog/connexion'>connecter.</a>";
+
+				//On envoit une notification de création de compte à l'utilisateur
 
 			}else{
 				//Sinon on affiche le message d'erreur
