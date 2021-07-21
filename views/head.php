@@ -10,8 +10,4 @@
 		<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
     </head>
 
-<?php if($_SESSION['user']['iduser'] = 3): ?>
-    <body class="admin">
-<?php else: ?>
-    <body>
-<?php endif; ?>
+<body>
