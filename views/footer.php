@@ -95,3 +95,4 @@
 	</div>
 </footer>
 <script src="/blog/public/js/bootstrap-form.js"></script>
+</body>

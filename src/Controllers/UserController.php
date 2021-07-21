@@ -110,7 +110,6 @@ class UserController extends Controller{
 					$_SESSION['user']['iduser'] = $user->getId();
 					$_SESSION['user']['role'] = $user->getRole();
 
-
 					// On redirige l'utilisateur sur son profil
 					header('Location: /blog/admin/mon-compte');
 				}
