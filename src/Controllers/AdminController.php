@@ -30,5 +30,13 @@ class AdminController extends Controller{
         session_destroy();
         header('Location: /blog/');
     }
+
+    /*
+     * Methode pour afficher le dashboard de l'utilisateur
+    */
+    public function dashboard()
+    {
+        require '../views/admin/dashboard.php';
+    }
     
 }
