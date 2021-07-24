@@ -7,6 +7,8 @@ use Src\Models\User;
 use Src\Models\PostManager;
 use Src\Models\Post;
 
+use Src\Models\AdminManager;
+
 /*
  * Class AdminController
  *
@@ -36,6 +38,8 @@ class AdminController extends Controller{
     */
     public function dashboard()
     {
+        $adminModel = new AdminManager();
+        $result = $adminModel->readPostPending();
         require '../views/admin/dashboard.php';
     }
     

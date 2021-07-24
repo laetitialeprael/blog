@@ -94,6 +94,25 @@
 		</div>
 	</div>
 </footer>
+<script src="/blog/public/js/jquery-3-6.js"></script>
+<script src="/blog/public/js/owl.carousel.min.js"></script>
 <script src="/blog/public/js/bootstrap-form.js"></script>
 <script src="/blog/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+	$('.loop').owlCarousel({
+    center: true,
+    items:2,
+    loop:true,
+    nav:true,
+    margin:10,
+    dots:true,
+    autoplay:false,
+    autoplayTimeout:5000,
+    responsive:{
+        600:{
+            items:4
+        }
+    }
+});
+</script>
 </body>
