@@ -34,7 +34,7 @@ class AdminController extends Controller{
     }
 
     /*
-     * Methode pour afficher le dashboard de l'utilisateur
+     * Methode pour afficher les articles et commentaire sur le dashboard de l'administrateur
     */
     public function dashboardPost()
     {
@@ -43,6 +43,14 @@ class AdminController extends Controller{
         $count = $adminModel->countPostPending();
         //echo ($count);
         require '../views/admin/dashboard-post.php';
+    }
+
+    /*
+     * Methode pour afficher les utilisateur sur le dashboard de l'administrateur
+    */
+    public function dashboardUser()
+    {
+        require '../views/admin/dashboard-user.php';
     }
     
 }
