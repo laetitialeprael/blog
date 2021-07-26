@@ -1,3 +1,27 @@
+<div class="d-flex flex-column flex-md-row">
+<div class="col col-md-2 text-center flex-column p-4 bg-dark-theme">
+	<div class="card p-3 shadow-sm nav-admin position-fixed">
+		<div class="card-img card-profil rounded-circle border border-mustard border-4 overflow-hidden m-auto position-relative">
+			<img src="/blog/public/images/men-01.jpg" class="card-img-top img-profil position-absolute" alt="Photo de l'utilisateur">
+		</div>
+  		<div class="card-body px-0">
+    		<h5 class="card-title text-center mb-5">Bob B.</h5>
+    		<div class="h6 py-3 border rounded-pill mb-3 pointer mustard border-mustard">Tableau de bord</div>
+			<div class="h6 py-3 border rounded-pill mb-3 pointer">
+				<a href="/blog/admin/mon-compte" class="text-dark hover-mustard">Profil</a>
+			</div>
+			<div class="h6 py-3 border rounded-pill mb-3 pointer">
+				<a href="/blog/admin/mes-articles" class="text-dark hover-mustard">Articles</a>
+			</div>
+  		</div>
+  		<div class="card-footer">
+  			<div class="py-3 pointer m-0">
+				<a href="/blog/admin/deconnexion" class="text-dark hover-mustard h6"><i class="fas fa-sign-out-alt me-2"></i>Déconnexion</a>
+			</div>
+  		</div>
+	</div>
+</div>
+<div class="col px-4 bg-dark-theme">
 <section class="bg-dark-theme">
 	<div class="container">
 		<div class="row">
@@ -83,3 +107,5 @@
 		</div>
 	</div>	
 </section>
+</div>
+</div>
