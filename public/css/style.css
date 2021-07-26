@@ -17,8 +17,9 @@ a{cursor:pointer;text-decoration:none;color:#dab602;}/*a:hover{color:#a8851b;}*/
 .input-group .form-control{border:solid 1px #fff;}.form-control{font-size:0.875rem;}
 .pointer{cursor:pointer;}
 .hover-mustard:hover{color:#dab602 !important;}
+.mustard{color:#dab602;}
 /*TEXT*/
-h1,h2,h3,h4,h5,h6,.navbar-brand{font-family: 'Nunito', sans-serif;}
+h1,h2,h3,h4,h5,h6,.navbar-brand,.h4{font-family: 'Nunito', sans-serif;}
 .fab{font-size:1.2em;}.current-text{font-size:0.875rem;}
 .smaller{font-size:60%;}
 .text-white{color:#fff;}.text-dark{color:#212529;}.text-gray{color:#a1a1a8;}.text-mustard{color:#dab602;}.text-error{color:#dc3545;}.border-error{border-left: solid 5px;border-color:#dc3545;}.text-valid{color:#198754;}.border-valid{border-left: solid 5px;border-color:#198754;}
@@ -36,3 +37,7 @@ section.bg-dark-theme{background-color:#f5f9fd;}
 .owl-theme .owl-nav span{width:50px;height:50px;display:block;background-color:RED;-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;}
 .owl-prev{position:absolute;top:50%;left:0}.owl-next{position:absolute;top:50%;right:0}
 {background:initial;color:inherit;}
+/*TABLE*/
+.mw-70{max-width:70vw;}
+/*BORDER*/
+.border-mustard{border-color:#dab602 !important;}

@@ -45,7 +45,8 @@ $router->map('GET|POST','/blog/nouveau-mot-de-passe/[*:token]', 'Src\Controllers
 // Routes d'administration
 $router->map('GET','/blog/admin/mon-compte', 'Src\Controllers\AdminController#viewAccount');
 $router->map('GET', '/blog/admin/deconnexion', 'Src\Controllers\AdminController#logout');
-$router->map('GET', '/blog/admin/tableau-de-bord', 'Src\Controllers\AdminController#dashboard');
+$router->map('GET', '/blog/admin/tableau-de-bord', 'Src\Controllers\AdminController#dashboardPost');
+$router->map('GET', '/blog/admin/tableau-de-bord/utilisateurs', 'Src\Controllers\AdminController#dashboardUser');
 
 /*
  * @var target qui contient les closures ?

@@ -36,11 +36,13 @@ class AdminController extends Controller{
     /*
      * Methode pour afficher le dashboard de l'utilisateur
     */
-    public function dashboard()
+    public function dashboardPost()
     {
         $adminModel = new AdminManager();
         $result = $adminModel->readPostPending();
-        require '../views/admin/dashboard.php';
+        $count = $adminModel->countPostPending();
+        //echo ($count);
+        require '../views/admin/dashboard-post.php';
     }
     
 }
