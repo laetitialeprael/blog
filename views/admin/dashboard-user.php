@@ -2,10 +2,10 @@
 <div class="col col-md-2 text-center flex-column p-4 bg-dark-theme">
 	<div class="card p-3 shadow-sm nav-admin position-fixed">
 		<div class="card-img card-profil rounded-circle border border-mustard border-4 overflow-hidden m-auto position-relative">
-			<img src="/blog/public/images/men-01.jpg" class="card-img-top img-profil position-absolute" alt="Photo de l'utilisateur">
+			<img src="/blog/public/images/men-02.jpg" class="card-img-top img-profil position-absolute" alt="Photo de l'utilisateur">
 		</div>
   		<div class="card-body px-0">
-    		<h5 class="card-title text-center mb-5">Bob B.</h5>
+    		<h5 class="card-title text-center mb-5"><?php echo ($_SESSION['user']['name']); ?> <?php echo ($_SESSION['user']['firstname']); ?></h5>
     		<div class="h6 py-3 border rounded-pill mb-3 pointer mustard border-mustard">
     			<a href="/blog/admin/tableau-de-bord" class="text-mustard hover-mustard">Tableau de bord</a>
     		</div>
