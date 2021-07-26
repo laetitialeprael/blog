@@ -5,15 +5,15 @@
 			<img src="/blog/public/images/men-02.jpg" class="card-img-top img-profil position-absolute" alt="Photo de l'utilisateur">
 		</div>
   		<div class="card-body px-0">
-    		<h5 class="card-title text-center mb-5">Bob B.</h5>
+    		<h5 class="card-title text-center mb-5"><?php echo ($_SESSION['user']['name']); ?> <?php echo (substr($_SESSION['user']['firstname'], 0, 1) . '.'); ?></h5>
     		<div class="h6 py-3 border rounded-pill mb-3 pointer hover-mustard">
     			<a href="/blog/admin/tableau-de-bord" class="text-dark hover-mustard">Tableau de bord</a>
     		</div>
 			<div class="h6 py-3 border rounded-pill mb-3 pointer hover-mustard">
-				<a href="/blog/admin/mon-compte" class="text-dark hover-mustard">Profil</a>
+				<a href="/blog/admin/mon-compte" class="text-dark hover-mustard">Mon profil</a>
 			</div>
 			<div class="h6 py-3 border rounded-pill mb-3 pointer border-mustard">
-				<a href="/blog/admin/mes-articles" class="text-mustard hover-mustard">Articles</a>
+				<a href="/blog/admin/mes-articles" class="text-mustard hover-mustard">Mes articles</a>
 			</div>
   		</div>
   		<div class="card-footer">
