@@ -6,7 +6,9 @@
 		</div>
   		<div class="card-body px-0">
     		<h5 class="card-title text-center mb-5">Bob B.</h5>
-    		<div class="h6 py-3 border rounded-pill mb-3 pointer mustard border-mustard">Tableau de bord</div>
+    		<div class="h6 py-3 border rounded-pill mb-3 pointer mustard border-mustard">
+    			<a href="/blog/admin/tableau-de-bord" class="text-mustard hover-mustard">Tableau de bord</a>
+    		</div>
 			<div class="h6 py-3 border rounded-pill mb-3 pointer">
 				<a href="/blog/admin/mon-compte" class="text-dark hover-mustard">Profil</a>
 			</div>
@@ -29,7 +31,7 @@
 		</div>
 		<div class="d-flex flex-row border-bottom">
 			<a href="/blog/admin/tableau-de-bord" class="text-dark hover-mustard">
-				<div class="h4 py-4 pointer hover-mustard">Articles</div>
+				<div class="h4 py-4 pointer hover-mustard mb-0">Articles</div>
 			</a>
 			<div class="h4 border-bottom border-mustard border-4 ms-4 py-4 mb-0 pointer">Utilisateurs</div>
 		</div>
@@ -118,7 +120,7 @@
 					<img src="/blog/public/images/men-01.jpg" class="blur card-img-top img-profil position-absolute" alt="Photo de l'utilisateur">
 				</div>
   				<div class="card-body text-center">
-  					<button type="button" class="btn border border-alert bg-alert text-white rounded-pill mb-3"><i class="far fa-trash-alt me-2"></i>Supprimer</button>
+  					<button type="button" class="btn border border-alert bg-alert text-white rounded mb-3"><i class="far fa-trash-alt me-2"></i>Supprimer</button>
     				<p class="card-text small text-center">Inscrit depuis le<br/>2021-02-24 13:39:30</p>
     				<p class="text-center small mb-0 text-gray"><i class="far fa-hourglass me-2"></i>En attente</p>
   				</div>
@@ -129,7 +131,7 @@
 					<img src="/blog/public/images/lady-01.jpg" class="blur card-img-top img-profil position-absolute" alt="Photo de l'utilisateur">
 				</div>
   				<div class="card-body text-center">
-  					<button type="button" class="btn border border-alert bg-alert text-white rounded-pill mb-3"><i class="far fa-trash-alt me-2"></i>Supprimer</button>
+  					<button type="button" class="btn border border-alert bg-alert text-white rounded mb-3"><i class="far fa-trash-alt me-2"></i>Supprimer</button>
     				<p class="card-text small text-center">Inscrit depuis le<br/>2021-02-24 13:39:30</p>
     				<p class="text-center small mb-0 text-gray"><i class="far fa-hourglass me-2"></i>En attente</p>
   				</div>
@@ -146,7 +148,7 @@
 					<h4 class="mb-4 h1">Newsletter</h4>
 					<p class="h1">8</p>
 					<p>Nombre d'abonnés</p>
-					<button type="button" class="btn border border-mustard mustard hover-mustard rounded-pill mb-3"><i class="fas fa-file-download me-2"></i>Exporter</button>
+					<button type="button" class="btn border border-mustard mustard hover-mustard rounded mb-3"><i class="fas fa-file-download me-2"></i>Exporter</button>
 				</div>
 				<div class="col col-md-5">
 					<img src="/blog/public/images/newsletter.svg" class="card-img-top" alt="...">

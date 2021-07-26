@@ -6,7 +6,9 @@
 		</div>
   		<div class="card-body px-0">
     		<h5 class="card-title text-center mb-5">Bob B.</h5>
-    		<div class="h6 py-3 border rounded-pill mb-3 pointer mustard border-mustard">Tableau de bord</div>
+    		<div class="h6 py-3 border rounded-pill mb-3 pointer mustard border-mustard">
+    			<a href="/blog/admin/tableau-de-bord" class="text-mustard hover-mustard">Tableau de bord</a>
+    		</div>
 			<div class="h6 py-3 border rounded-pill mb-3 pointer">
 				<a href="/blog/admin/mon-compte" class="text-dark hover-mustard">Profil</a>
 			</div>

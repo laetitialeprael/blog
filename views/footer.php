@@ -1,23 +1,3 @@
-<?php if(isset($_SESSION['user']['iduser'])): ?>
-<section class="fixed-bottom bg-light py-3">
-	<div class="container">
-		<div class="row">
-			<a class="col-4 pointer hover-mustard text-dark" href="/blog/admin/mon-compte">
-				<i class="far fa-user me-2 d-block text-center"></i>
-				<span class="d-block text-center current-text">Mon compte</span>
-			</a>
-			<a class="col-4 pointer hover-mustard text-dark" href="/blog/admin/nouvel-article">
-				<i class="far fa-edit me-2 d-block text-center"></i>
-				<span class="d-block text-center current-text">Nouvel article</span>
-			</a>
-			<a class="col-4 pointer hover-mustard text-dark" href="/blog/admin/mes-articles">
-				<i class="far fa-user me-2 d-block text-center"></i>
-				<span class="d-block text-center current-text">Mes articles</span>
-			</a>
-		</div>
-	</div>
-</section>
-<?php endif; ?>
 <section class="newsletter pt-5 pb-4">
 	<div class="container">
 		<div class="row">
