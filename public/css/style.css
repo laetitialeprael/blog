@@ -51,6 +51,7 @@ p{margin-top:0;margin-bottom:1rem;}
 .card-footer{background-color:#fff;}
 .card-profil{width:110px;height:110px;}.img-profil{height:100%;max-width:initial;width:auto;left:-25%}
 .blur{filter:blur(4px);-webkit-filter: blur(4px);}
+.card-message{width:300px;}
 /*ICON*/
 .section-icon{width:60px;height:60px;background-color:#dab602;color:#fff;top:-30px;left:calc(50% - 30px);}
 

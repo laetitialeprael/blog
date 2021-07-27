@@ -75,8 +75,11 @@
 				<?php endforeach; ?>				
 			
 			<?php else: ?>
-
-				<p>Aucun article à la corbeille pour le moment.</p>
+				
+				<div class="col text-center">
+					<img src="/blog/public/images/no-result.svg" class="card-img-top card-message" alt="Illustration">
+					<h4 class="mb-4">Aucun article à la corbeille pour le moment.</h4>
+				</div>
 
 			<?php endif; ?>
 
