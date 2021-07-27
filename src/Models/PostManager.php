@@ -216,7 +216,7 @@ class PostManager extends Manager{
 	{
 		$db = $this->getDatabase();
 		$results = $db->prepare(
-			'SELECT COUNT(*) AS published from post WHERE post.state = "1" AND post.user_id_user = :user_id_user',
+			'SELECT COUNT(*) AS published from post WHERE post.state = "3" AND post.user_id_user = :user_id_user',
 			array(':user_id_user' => $iduserpost), true);
 
 		return $results;
