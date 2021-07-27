@@ -33,6 +33,8 @@ $router->map('GET', '/blog/article/[*:slug]-[i:id]', 'Src\Controllers\PostContro
 $router->map('GET|POST', '/blog/admin/nouvel-article', 'Src\Controllers\PostController#postCreate');
 $router->map('GET|POST', '/blog/admin/mes-articles/[*:slug]-[i:id]', 'Src\Controllers\PostController#postUpdate');
 $router->map('GET', '/blog/admin/mes-articles', 'Src\Controllers\PostController#postRead');
+$router->map('GET', '/blog/admin/mes-articles/publies', 'Src\Controllers\PostController#postPublish');
+$router->map('GET', '/blog/admin/mes-articles/corbeille', 'Src\Controllers\PostController#postDelete');
 
 // Routes publics de la class UserController
 $router->map('GET|POST', '/blog/connexion', 'Src\Controllers\UserController#viewLogin');

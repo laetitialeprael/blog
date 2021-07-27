@@ -31,16 +31,13 @@
 			<a href="/blog/admin/nouvel-article"><div class="btn border border-mustard">Ajouter un article</div></a>
 		</div>
 		<div class="d-flex flex-row border-bottom">
-				<a href="" class="text-mustard hover-mustard">
-					<div class="h4 py-4 mb-0 border-bottom border-mustard border-4 pointer hover-mustard">Tous</div>
-				</a>
-				<a href="" class="text-dark hover-mustard ms-4">
+				<a href="/blog/admin/mes-articles" class="text-dark hover-mustard">
 					<div class="h4 py-4 mb-0 pointer hover-mustard">En attente de validation (<?php echo implode($postPendingValidation); ?>)</div>
 				</a>
-				<a href="" class="text-dark hover-mustard ms-4">
-					<div class="h4 py-4 mb-0 pointer hover-mustard">Publié (<?php echo implode($postPublished); ?>)</div>
+				<a href="/blog/admin/mes-articles/publies" class="text-mustard hover-mustard ms-4">
+					<div class="h4 py-4 mb-0 border-bottom border-mustard border-4 pointer hover-mustard">Publié (<?php echo implode($postPublished); ?>)</div>
 				</a>
-				<a href="" class="text-dark hover-mustard ms-4">
+				<a href="/blog/admin/mes-articles/corbeille" class="text-dark hover-mustard ms-4">
 					<div class="h4 py-4 mb-0 pointer hover-mustard">Corbeille (<?php echo implode($postDraft); ?>)</div>
 				</a>
 		</div>

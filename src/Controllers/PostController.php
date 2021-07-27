@@ -72,26 +72,49 @@ class PostController extends Controller{
     }
 
     /*
-     * Méthode pour afficher les articles de l'utilisateur
+     * Méthode pour afficher les articles sur le statut "en attente de validation" dans l'administration de l'utilisateur
     */
     public function postRead()
     {
         $postModel = new PostManager();
 
-        $result = $postModel->readUserPost($_SESSION['user']['iduser']);
+        $result = $postModel->readUserPostPending($_SESSION['user']['iduser']);
         $postDraft = $postModel->countPostDraft($_SESSION['user']['iduser']);
         $postPendingValidation = $postModel->countPostPendingValidation($_SESSION['user']['iduser']);
         $postPublished = $postModel->countPostPublished($_SESSION['user']['iduser']);
         
-        require '../views/admin/read-post.php';
+        require '../views/admin/dashboard-read-post.php';
     }
-    
+
     /*
-     * Méthode pour supprimer un article
-    */
+     * Méthode pour afficher les articles sur le statut "publiés" dans l'administration de l'utilisateur
+     */
+    public function postPublish()
+    {
+        $postModel = new PostManager();
+
+        $result = $postModel->readUserPostPublished($_SESSION['user']['iduser']);
+        $postDraft = $postModel->countPostDraft($_SESSION['user']['iduser']);
+        $postPendingValidation = $postModel->countPostPendingValidation($_SESSION['user']['iduser']);
+        $postPublished = $postModel->countPostPublished($_SESSION['user']['iduser']);
+
+        require '../views/admin/dashboard-published-post.php';
+    }
+
+    /*
+     * Méthode pour afficher les articles sur le statut "corbeille" dans l'administration de l'utilisateur
+     *
+     */
     public function postDelete()
     {
-        require '../views/admin/delete-post.php';
+        $postModel = new PostManager();
+
+        $result = $postModel->readUserPostDelete($_SESSION['user']['iduser']);
+        $postDraft = $postModel->countPostDraft($_SESSION['user']['iduser']);
+        $postPendingValidation = $postModel->countPostPendingValidation($_SESSION['user']['iduser']);
+        $postPublished = $postModel->countPostPublished($_SESSION['user']['iduser']);
+
+        require '../views/admin/dashboard-delete-post.php';
     }
 
 	/*
