@@ -42,13 +42,17 @@
 		<div class="row">
 			<div class="col-6">
 				<div class="bg-white px-5 py-4">
-					<p class="h1">10</p>
+					<p class="h1">
+						<?php echo $countPendingAdmin['role']+$countPendingUser['role']+$countActiveAdmin['role']+$countActiveUser['role']; ?>
+					</p>
 					<p>Total</p>
 				</div>
 			</div>
 			<div class="col-6">
 				<div class="bg-white px-5 py-4">
-					<p class="h1">2</p>
+					<p class="h1">
+						<?php echo $countPendingAdmin['role']+$countPendingUser['role']; ?>
+					</p>
 					<p>En attente</p>
 				</div>
 			</div>

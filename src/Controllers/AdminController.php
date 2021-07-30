@@ -51,6 +51,12 @@ class AdminController extends Controller{
     */
     public function dashboardUser()
     {
+        $adminModel = new AdminManager();
+        $countPendingAdmin = $adminModel->countUser(0);
+        $countPendingUser = $adminModel->countUser(1);
+        $countActiveAdmin = $adminModel->countUser(2);
+        $countActiveUser = $adminModel->countUser(3);
+
         require '../views/admin/dashboard-user.php';
     }
     

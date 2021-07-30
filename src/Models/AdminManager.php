@@ -44,4 +44,18 @@ class AdminManager extends Manager{
 
         return $results;
     }
+
+    /*
+     * Méthode pour compter le nombre d'utilisateur
+     * @param le role de l'utilisateur
+    */
+    public function countUser($role)
+    {
+        $db = $this->getDatabase();
+        $results = $db->prepare(
+            'SELECT COUNT(*) AS role from user WHERE user.role = :user_role',
+            array(':user_role' => $role), true);
+
+        return $results;
+    }
 }
