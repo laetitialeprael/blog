@@ -41,6 +41,7 @@ class AdminController extends Controller{
         $adminModel = new AdminManager();
         $result = $adminModel->readPostPending();
         $count = $adminModel->countPostPending();
+        
         //echo ($count);
         require '../views/admin/dashboard-post.php';
     }
