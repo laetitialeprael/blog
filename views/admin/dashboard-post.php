@@ -40,7 +40,7 @@
 <section class="content pt-0 pb-4 bg-dark-theme">
 	<div class="container">
 		<div class="row">		
-			<h4 class="mb-4">Articles en attente de validation ()</h4>
+			<h4 class="mb-4">Articles en attente de validation (<?php echo ($count['pending']); ?>)</h4>
 		</div>
 		<div class="row flex-row overflow-hidden overflow-scroll">
 			

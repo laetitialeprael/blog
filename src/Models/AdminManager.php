@@ -30,16 +30,18 @@ class AdminManager extends Manager{
         }
         return $posts;
     }
+
     /*
-     * Méthode pour compter le nombre d'article en attente
-     * @return int
-     */
-    public function countPostPending()
+     * Méthode pour compter le nombre d'article
+     * @param le statut de l'article
+    */
+    public function countPostPending($statut)
     {
         $db = $this->getDatabase();
-        $results = $db->query(
-            'SELECT COUNT(*) AS pending from post WHERE post.state = "2"');
-        //var_dump($results); die;
+        $results = $db->prepare(
+            'SELECT COUNT(*) AS pending from post WHERE post.state = :post_satut',
+            array(':post_satut' => $statut), true);
+
         return $results;
     }
 }

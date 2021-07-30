@@ -40,9 +40,9 @@ class AdminController extends Controller{
     {
         $adminModel = new AdminManager();
         $result = $adminModel->readPostPending();
-        $count = $adminModel->countPostPending();
-        
-        //echo ($count);
+        $count = $adminModel->countPostPending(2);
+        //il reste à afficher le nombre de commentaire et la liste des commentaire 'en attente de validation'
+
         require '../views/admin/dashboard-post.php';
     }
 
