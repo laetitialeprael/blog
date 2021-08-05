@@ -39,6 +39,7 @@ class AdminController extends Controller{
     public function dashboardPost()
     {
         $adminModel = new AdminManager();
+        
         $result = $adminModel->readPostPending();
         $count = $adminModel->countPostPending(2);
         //il reste à afficher le nombre de commentaire et la liste des commentaire 'en attente de validation'
@@ -47,7 +48,7 @@ class AdminController extends Controller{
     }
 
     /*
-     * Methode pour afficher les utilisateur sur le dashboard de l'administrateur
+     * Méthode pour afficher les utilisateur sur le dashboard de l'administrateur
     */
     public function dashboardUser()
     {
@@ -56,6 +57,11 @@ class AdminController extends Controller{
         $countPendingUser = $adminModel->countUser(1);
         $countActiveAdmin = $adminModel->countUser(2);
         $countActiveUser = $adminModel->countUser(3);
+
+        $users = $adminModel->readUserCreation();
+        var_dump($users);
+
+        $firstname = $users->getName();
 
         require '../views/admin/dashboard-user.php';
     }

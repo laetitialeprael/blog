@@ -46,6 +46,19 @@ class AdminManager extends Manager{
     }
 
     /*
+     * Méthode pour afficher les utilisateurs en fonction de leur date de création
+    */
+    public function readUserCreation()
+    {
+        $db = $this->getDatabase();
+        $results = $db->query(
+            'SELECT user.id_user, user.user_name, user.user_first_name, user.role, user.user_creation_date, user.gdpr_consent FROM user WHERE user.user_creation_date BETWEEN DATE_SUB(NOW(), INTERVAL 7 DAY) AND NOW() ORDER BY user.user_creation_date DESC');
+        
+        return $results;
+    }
+    /*SELECT * FROM user WHERE user_creation_date BETWEEN DATE_SUB(NOW(), INTERVAL 7 DAY) AND NOW()
+
+    /*
      * Méthode pour compter le nombre d'utilisateur
      * @param le role de l'utilisateur
     */

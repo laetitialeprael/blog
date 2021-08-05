@@ -64,39 +64,24 @@
 		<h4 class="mb-4">Nouveaux utilisateurs</h4>
 
 		<div class="row justify-content-around mb-4">
-			
-			<div class="card p-3 shadow-sm" style="width: 18rem;">
-				<div class="card-img card-profil rounded-circle border border-mustard border-4 overflow-hidden m-auto position-relative">
-					<img src="/blog/public/images/men-01.jpg" class="card-img-top img-profil position-absolute" alt="Photo de l'utilisateur">
-				</div>
-  				<div class="card-body">
-    				<h5 class="card-title text-center">Bob B.</h5>
-    				<p class="card-text small text-center">Inscrit depuis le<br/>2021-02-24 13:39:30</p>
-    				<p class="text-center small mb-0 text-gray"><i class="far fa-hourglass me-2"></i>En attente</p>
-  				</div>
-			</div>
 
-			<div class="card p-3 shadow-sm" style="width: 18rem;">
-				<div class="card-img card-profil rounded-circle border border-mustard border-4 overflow-hidden m-auto position-relative">
-					<img src="/blog/public/images/lady-01.jpg" class="card-img-top img-profil position-absolute" alt="Photo de l'utilisateur">
+			<?php if($users > 0): ?>
+			<p>Il y a au moins 1 nouvel utilisateur</p>
+			<?php else: ?>
+				<p>Il n'y a pas de nouvel utilisateur</p>
+			<?php endif; ?>
+				<?php foreach ($users as $user): ?>
+				<div class="card p-3 shadow-sm" style="width: 18rem;">
+					<div class="card-img card-profil rounded-circle border border-mustard border-4 overflow-hidden m-auto position-relative">
+						<img src="/blog/public/images/men-01.jpg" class="card-img-top img-profil position-absolute" alt="Photo de l'utilisateur">
+					</div>
+	  				<div class="card-body">
+	    				<h5 class="card-title text-center"><?php echo $firstname; ?> </h5>
+	    				<p class="card-text small text-center">Inscrit depuis le<br/><?php echo $user->getCreationDate(); ?></p>
+	    				<p class="text-center small mb-0 text-gray"><i class="far fa-hourglass me-2"></i><?php echo $user->viewRole(); ?></p>
+	  				</div>
 				</div>
-  				<div class="card-body">
-    				<h5 class="card-title text-center">Linda B.</h5>
-    				<p class="card-text small text-center">Inscrit depuis le<br/>2021-02-24 13:39:30</p>
-    				<p class="text-center small mb-0 text-gray"><i class="far fa-hourglass me-2"></i>En attente</p>
-  				</div>
-			</div>
-
-			<div class="card p-3 shadow-sm" style="width: 18rem;">
-				<div class="card-img card-profil rounded-circle border border-mustard border-4 overflow-hidden m-auto position-relative">
-					<img src="/blog/public/images/lady-02.jpg" class="card-img-top img-profil position-absolute" alt="Photo de l'utilisateur">
-				</div>
-  				<div class="card-body">
-    				<h5 class="card-title text-center">Tina B.</h5>
-    				<p class="card-text small text-center">Inscrit depuis le<br/>2021-02-24 13:39:30</p>
-    				<p class="text-center small mb-0 text-gray"><i class="far fa-thumbs-up me-2"></i>Validé</p>
-  				</div>
-			</div>
+				<?php endforeach; ?>
 
 		</div>
 
