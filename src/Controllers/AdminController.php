@@ -61,7 +61,7 @@ class AdminController extends Controller{
         $users = $adminModel->readUserCreation();
         var_dump($users);
 
-        $firstname = $users->getName();
+        //$firstname = $users->getName();
 
         require '../views/admin/dashboard-user.php';
     }
