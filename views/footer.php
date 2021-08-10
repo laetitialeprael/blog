@@ -40,7 +40,7 @@
 			<div class="col mb-5">
 				<h3 class="mb-4">Liens utiles</h3>
 				<ul class="nav current-text">
-					<li class="nav-item"><a class="nav-link text-white hover-mustard pt-0 ps-0">Télécharger mon CV</a></li>
+					<li class="nav-item"><a href="/blog/public/uploads/profil-linkedin.pdf" class="nav-link text-white hover-mustard pt-0 ps-0" download="profil-linkedin.pdf">Télécharger mon CV</a></li>
 					<li class="nav-item">
 						<a class="nav-link text-white hover-mustard pt-0 ps-0" href="/blog/contact">Contact</a>
 					</li>
