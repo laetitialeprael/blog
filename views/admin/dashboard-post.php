@@ -48,7 +48,7 @@
 				<div class="col-md-6 col-lg-4 mb-4">
 					<div class="card p-3 shadow-sm">
 						<div class="card-img position-relative card-element-hover">
-							<img src="/blog/public/images/exemple-blog.jpg">
+							<!--img src="/blog/public/images/exemple-blog.jpg"-->
 							<div class="card-body d-flex align-items-start flex-column">
 								<div class="card-meta mb-3 d-flex flex-row align-items-center text-gray current-text">
 									<span class="text-capitalize"><?php echo $post->getCategory(); ?></span>
@@ -57,12 +57,12 @@
 								<h5 class="mb-0"><?php echo $post->getTitle(); ?></h5>
 								<p class="small mb-3 text-gray"><?php echo $post->getCreationDate(); ?></p>
 								<a href="/blog/admin/mes-articles/<?php echo $post->viewUrl(); ?>">
-									<button type="button" class="btn border border-mustard text-mustard rounded mb-3">Lire la suite</button>
+									<button type="button" class="btn border border-mustard text-mustard rounded mb-3">Modifier</button>
 								</a>
 							</div>
 							<div class="card-footer">
 
-								<p class="text-center small mb-0 m-auto text-gray"><i class="fas fa-check me-2"></i><?php echo $post->viewState(); ?></p>
+								<p class="text-center small mb-0 m-auto text-gray"><i class="far fa-hourglass me-2"></i><?php echo $post->viewState(); ?></p>
 							</div>
 						</div>
 					</div>
