@@ -28,9 +28,6 @@
 				</div>
 				<div class="col col-md-8 mx-auto text-center">
 					<div class="mb-3">
-						<p>Le token de session : <?php echo $token; ?></p>
-						<p>Le token stocké dans le formulaire : <?php echo $token; ?></p>
-						<p>Le token time stocké dans le formulaire : <?php echo $_SESSION['token_time']; ?></p>
 						<input type="hidden" name="token" id="token" value="<?php echo $_SESSION['token']; ?>">
 						<button class="btn btn-primary rounded-0" type="submit">Connexion</button>
 					</div>

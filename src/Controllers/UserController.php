@@ -92,95 +92,61 @@ class UserController extends Controller{
 	{
 
 		//On génère un token unique
-		if(!isset($_SESSION['token']) ){
+		if(!isset($_SESSION['token']) )
+		{
 			
 			$token = md5(uniqid(rand(), true));
+			
 			//On le stock en session
 			$_SESSION['token'] = $token;
 		}
 
-		//On enregistre le timestamp correspondant au moment de la création du token
-		//$_SESSION['token_time'] = time();
-
 		$userModel = new UserManager();
 
-		if(isset($_POST['token']))
+		if(isset($_POST['email'], $_POST['password'], $_POST['token']) && ($_POST['email'] != '' && $_POST['password'] !=''))
 		{
 			
 			//Si le jeton de la session correspond à celui du formulaire
 			if($_POST['token'] == $_SESSION['token'])
 			{
 		
-				//On stock le timestamp qu'il était il y a 15 minutes
-				//$timestamp_ancien = time() - (15*60);
-				//Si le jeton n'est pas expiré
-				//if($_SESSION['token_time'] >= $timestamp_ancien)
-				//{
-					//ON FAIT TOUS LES TRAITEMENTS ICI
-					echo ('Succès');
-					unset ($_SESSION['token']);
-
-					//...
-					//...
-			}
-			else{
-				//SINON, ON RAJOUTE DES ELSE ET DES MESSAGES D'ERREUR
-				echo ('Erreur');
-				echo ('token dans la'.$_SESSION['token']);
-				echo $_POST['token'];
-			}
-		}
-
-		//if(isset($_POST['email'], $_POST['password'], $_SESSION['token'], $_SESSION['token_time'], $_POST['token'])  && ($_POST['email'] != '' && $_POST['password'] !='')) {
-
 				// Si l'adresse mail de l'utilisateur est enregistrée
-				//if($user = $userModel->connexion($_POST['email'])){
-				
-				//	$password = $user->getPassword();
+				if($user = $userModel->connexion($_POST['email']))
+				{
+					$password = $user->getPassword();
 
 					// Si le mot de passe saisie par l'utilisateur est enregistré
-				//	if(password_verify($_POST['password'], $password)){
-					
+					if(password_verify($_POST['password'], $password))
+					{
+
 						// On enregistre les variables de la table user dans $_SESSION
-				//		$_SESSION['user']['name'] = $user->getName();
-				//		$_SESSION['user']['firstname'] = $user->getFirstName();
-				//		$_SESSION['user']['email'] = $user->getEmail();
-				//		$_SESSION['user']['creationDate'] = $user->getCreationDate();
-				//		$_SESSION['user']['iduser'] = $user->getId();
-				//		$_SESSION['user']['role'] = $user->getRole();
+						$_SESSION['user']['name'] = $user->getName();
+						$_SESSION['user']['firstname'] = $user->getFirstName();
+						$_SESSION['user']['email'] = $user->getEmail();
+						$_SESSION['user']['creationDate'] = $user->getCreationDate();
+						$_SESSION['user']['iduser'] = $user->getId();
+						$_SESSION['user']['role'] = $user->getRole();
+						// On vide le token de $_SESSION
+						unset ($_SESSION['token']);
 
-
-						//Si l'utilisateur est un administrateur
-				//		if($user->getRole() > 2){
-							//On le redirige sur le tableau de bord du blog
-				//			header('Location: /blog/admin/tableau-de-bord');	
-				//		}
-				//		else{
-							//On redirige l'utilisateur sur son profil
-				//			header('Location: /blog/admin/mon-compte');
-				//		}
-				//	}
+						// Si l'utilisateur est un administrateur
+						if($user->getRole() > 2)
+						{
+							
+							// On le redirige sur le tableau de bord du blog
+							header('Location: /blog/admin/tableau-de-bord');
+						}else{
+							// On redirige l'utilisateur sur son profil
+							header('Location: /blog/admin/mon-compte');
+						}
+					}
 					// Sinon on affiche le message d'erreur
-				//	else{
-				//		$_SESSION['message'] = "Oops ! Le mot de passe n'est pas correcte.";
-				//	}
-				//}
-				// Si l'adresse mail de l'utilisateur n'est pas enregistrée
-				//else{
-				//	$_SESSION['message'] = "Oops ! L'adresse mail n'est pas enregistrée.";
-				//}		
-
-				//On stocke le timestamp qu'il était il y a 15 minutes
-				//$timestamp_old = time() - (15*60);
-
-				//Si le jeton n'est pas expiré
-				//if($_SESSION['token_time'] >= $timestamp_old){
-
-					//On lance le traitement du formulaire
-				//}
-			//}
-			
-		//}
+					else{
+						$_SESSION['message'] = "Oops ! Le mot de passe n'est pas correcte.";
+					}
+				}
+			}
+		}
 
 		require '../views/login.php';
 	}
