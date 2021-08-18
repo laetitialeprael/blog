@@ -43,13 +43,13 @@
 			<div class="row">
 				<div class="col col-md-8">
 					<div class="mb-3">
-						<label for="title" class="form-label">Titre de l'article</label>
+						<label for="title" class="form-label">Modifier le titre de l'article</label>
 			    		<input name="title" type="text" class="form-control" id="title" required value="<?php echo $post->getTitle(); ?>">
 					</div>
 				</div>
 				<div class="col col-md-4">
 					<div class="mb-3">
-						<label for="category" class="form-label">Sélectionner la catégorie de l'article</label>
+						<label for="category" class="form-label">Modifier la catégorie de l'article</label>
 						<select class="form-select text-capitalize" name="category_id_category" id="category">
 							<?php foreach ($categories as $category): ?>
 									<option <?php if($post->getCategory()): ?>selected<?php endif; ?> value="<?php echo $category->getIdCategory(); ?>"><?php echo $category->getCategory(); ?></option>
@@ -61,18 +61,27 @@
 			<div class="row">
 				<div class="col col-md-8">
 					<div class="mb-3">
-	  					<label for="introduction" class="form-label">Introduction de l'article</label>
+	  					<label for="introduction" class="form-label">Modifier l'introduction de l'article</label>
 	  					<textarea name="introduction" class="form-control" id="introduction" rows="3"><?php echo $post->getIntroduction(); ?></textarea>
 					</div>
 					<div class="mb-3">
-	  					<label for="content" class="form-label">Contenu de l'article</label>
+	  					<label for="content" class="form-label">Modifier le contenu de l'article</label>
 	  					<textarea name="content" class="form-control" id="content" rows="9"><?php echo $post->getContent(); ?></textarea>
 					</div>
 				</div>
 				<div class="col col-md-4">
-					<div class="mb-3">
+					<!--div class="mb-3">
 						<label for="formFile" class="form-label">Définir l'image mise en avant</label>
   						<input class="form-control" type="file" id="formFile">
+					</div-->
+					<div class="mb-3">
+						<?php echo $post->viewState(); ?>
+						<label for="state" class="form-label">Modifier le statut de l'article</label>
+						<select class="form-select text-capitalize" name="category_id_category" id="state">
+							<?php foreach ($posts as $post): ?>
+									<option <?php if($post->viewState()): ?>selected<?php endif; ?> value=""><?php echo $post->viewState(); ?></option>
+							<?php endforeach; ?>
+						</select>
 					</div>
 					<div class="mb-3">
 						<input type="submit" value="Mettre à jour" class="btn btn-primary rounded-0" />

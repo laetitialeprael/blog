@@ -92,7 +92,7 @@ class PostManager extends Manager{
 	{
 		$db = $this->getDatabase();
 		$results = $db->prepare(
-			'SELECT post.id_post, post.title, post.introduction, post.content, post.post_creation_date, post.slug, post.category_id_category, user.user_first_name, user.user_name, category.category_name FROM user INNER JOIN post ON user.id_user = post.user_id_user INNER JOIN category ON post.category_id_category = category.id_category WHERE post.id_post = :id_post AND post.slug = :slug',
+			'SELECT post.id_post, post.title, post.introduction, post.content, post.state, post.post_creation_date, post.slug, post.category_id_category, user.user_first_name, user.user_name, category.category_name FROM user INNER JOIN post ON user.id_user = post.user_id_user INNER JOIN category ON post.category_id_category = category.id_category WHERE post.id_post = :id_post AND post.slug = :slug',
 			array(':id_post' => $idpost, ':slug' => $slug), true);
 		
 		if($results){
