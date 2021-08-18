@@ -75,17 +75,17 @@
   						<input class="form-control" type="file" id="formFile">
 					</div-->
 					<div class="mb-3">
-						<?php echo $post->viewState(); ?>
-						<label for="state" class="form-label">Test Modifier le statut de l'article</label>
-						<select class="form-select text-capitalize" name="category_id_category" id="state">
-							<?php foreach ($posts as $post): ?>
-									<option <?php if($post->viewState()): ?>selected<?php endif; ?> value=""><?php echo $post->viewState(); ?></option>
-							<?php endforeach; ?>
-						</select>
+						<p>Statut : <?php echo $post->viewState(); ?></p>
 					</div>
+					<?php if($_SESSION['user']['role'] == 3): ?>
+					<div class="mb-3">
+						<input type="submit" value="Publié" class="btn btn-primary rounded-0" />
+					</div>
+					<?php else: ?>
 					<div class="mb-3">
 						<input type="submit" value="Mettre à jour" class="btn btn-primary rounded-0" />
 					</div>
+					<?php endif; ?>	
 				</div>
 			</div>
 		</form>
