@@ -76,7 +76,7 @@
 					</div-->
 					<div class="mb-3">
 						<?php echo $post->viewState(); ?>
-						<label for="state" class="form-label">Modifier le statut de l'article</label>
+						<label for="state" class="form-label">Test Modifier le statut de l'article</label>
 						<select class="form-select text-capitalize" name="category_id_category" id="state">
 							<?php foreach ($posts as $post): ?>
 									<option <?php if($post->viewState()): ?>selected<?php endif; ?> value=""><?php echo $post->viewState(); ?></option>
