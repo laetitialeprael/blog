@@ -48,7 +48,7 @@ $router->map('GET|POST','/blog/nouveau-mot-de-passe/[*:token]', 'Src\Controllers
 $router->map('GET','/blog/admin/mon-compte', 'Src\Controllers\AdminController#viewAccount');
 $router->map('GET', '/blog/admin/deconnexion', 'Src\Controllers\AdminController#logout');
 $router->map('GET', '/blog/admin/tableau-de-bord', 'Src\Controllers\AdminController#dashboardPost');
-$router->map('GET', '/blog/admin/tableau-de-bord/articles-en-attente-validation/[*:token]', 'Src\Controllers\AdminController#dashboardUpdatePost');
+$router->map('GET|POST', '/blog/admin/tableau-de-bord/articles-en-attente-validation/[*:slug]-[i:id]', 'Src\Controllers\AdminController#dashboardUpdatePost');
 $router->map('GET', '/blog/admin/tableau-de-bord/utilisateurs', 'Src\Controllers\AdminController#dashboardUser');
 
 /*

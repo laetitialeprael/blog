@@ -48,6 +48,32 @@ class AdminController extends Controller{
     }
 
     /*
+     * Méthode pour afficher le formulaire de modification d'un article
+    */
+    public function dashboardUpdatePost($params)
+    {
+        $adminModel = new AdminManager();
+
+        $postModel = new PostManager();
+        $post = $postModel->read($params['slug'], $params['id']);
+        $categories = $postModel->readCategories();
+
+
+        if(isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
+
+            $slug = Post::viewSlug(htmlspecialchars($_POST['title']));
+            
+            $post = $adminModel->updatePostPublished(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['introduction']), htmlspecialchars($_POST['content']), $slug, $_POST['category_id_category'], (int)$params['id']);
+            
+            $_SESSION['message'] = "Article publié !";
+
+            $post = $postModel->read($params['slug'], $params['id']);
+        
+        }
+        require '../views/admin/dashboard-update-post.php'; 
+    }
+
+    /*
      * Méthode pour afficher les utilisateur sur le dashboard de l'administrateur
     */
     public function dashboardUser()
@@ -65,5 +91,4 @@ class AdminController extends Controller{
 
         require '../views/admin/dashboard-user.php';
     }
-    
 }
