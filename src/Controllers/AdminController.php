@@ -75,23 +75,4 @@ class AdminController extends Controller{
         }
         require '../views/admin/dashboard-update-post.php'; 
     }
-
-    /*
-     * Méthode pour afficher les utilisateur sur le dashboard de l'administrateur
-    */
-    public function dashboardUser()
-    {
-        $adminModel = new AdminManager();
-        $countPendingAdmin = $adminModel->countUser(0);
-        $countPendingUser = $adminModel->countUser(1);
-        $countActiveAdmin = $adminModel->countUser(2);
-        $countActiveUser = $adminModel->countUser(3);
-
-        $users = $adminModel->readUserCreation();
-        var_dump($users);
-
-        //$firstname = $users->getName();
-
-        require '../views/admin/dashboard-user.php';
-    }
 }
