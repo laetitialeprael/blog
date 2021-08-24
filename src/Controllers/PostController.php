@@ -151,14 +151,6 @@ class PostController extends Controller{
 	}
 
     /*
-     * Méthode pour afficher la page "Contact"
-    */
-    public function viewContact()
-    {
-        require '../views/contact.php';
-    }
-
-    /*
      * Méthode pour afficher la page "Mentions légales"
     */
     public function viewMentions()

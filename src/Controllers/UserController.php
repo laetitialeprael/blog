@@ -252,4 +252,12 @@ class UserController extends Controller{
 		}
 		require '../views/form-password.php';
 	}
+
+	/*
+     * Méthode pour afficher la page "Contact"
+    */
+    public function viewContact()
+    {
+        require '../views/contact.php';
+    }
 }
