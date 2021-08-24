@@ -1,5 +1,6 @@
 section.banner{position:fixed;top:0;left:0;width:100vw;height:70vh;z-index:-1;background-image:url('/blog/public/images/openclassroomsblog-home.jpg');background-size:cover;}
 section.introduce{height:55vh;}
+section.content{background-color:#fff;}
 section{padding-top:6rem;padding-bottom:4.8rem;}
 .opacity-1{opacity:0.1;}
 .divider-light{height:1px;background:#fff;display:block;width:100%;margin:0 auto;}
@@ -10,10 +11,10 @@ img{max-width:100%;height:auto;}
 a{cursor:pointer;text-decoration:none;color:#dab602;}/*a:hover{color:#a8851b;}*/
 .btn-primary{background:#dab602;border-color:#dab602;}.btn-primary:hover{background:#a8851b;border-color:#a8851b;}
 .btn-outline-secondary{color:#dab602;border-color:#dab602;}.btn-outline-secondary:hover{color:#fff;background:#dab602;border-color:#dab602;}
-.btn-line.text-dark{padding:0.5rem 0rem 0.5rem 1.3rem;}
-.btn-line.text-dark:hover{padding:0.5rem 1.3rem 0.5rem 0rem;}
-.btn-line.text-dark:before{bottom:12px;background:#19191c;left:0;content:'';width:16px;height:2px;display:block;position:absolute;transition:all 0.3s ease-in-out;}
-.btn-line.text-dark:after{bottom:12px;background:#19191c;right:-16px;content:'';width:16px;height:2px;display:block;position:absolute;transition:all 0.3s ease-in-out;}
+/*.btn-line.text-dark{padding:0.5rem 0rem 0.5rem 1.3rem;}*/
+/*.btn-line.text-dark:hover{padding:0.5rem 1.3rem 0.5rem 0rem;}*/
+/*.btn-line.text-dark:before{bottom:12px;background:#19191c;left:0;content:'';width:16px;height:2px;display:block;position:absolute;transition:all 0.3s ease-in-out;}*/
+/*.btn-line.text-dark:after{bottom:12px;background:#19191c;right:-16px;content:'';width:16px;height:2px;display:block;position:absolute;transition:all 0.3s ease-in-out;}*/
 .input-group .form-control{border:solid 1px #fff;}.form-control{font-size:0.875rem;}
 .pointer{cursor:pointer;}
 .hover-mustard:hover{color:#dab602 !important;}
