@@ -68,6 +68,9 @@ class AdminController extends Controller{
             $_SESSION['message'] = "Article publié !";
 
             $post = $postModel->read($params['slug'], $params['id']);
+
+            //À terme on redirige l'utilisateur vers les articles publiés.
+            //header('Location: /blog/admin/tableau-de-bord');
         
         }
         require '../views/admin/dashboard-update-post.php'; 

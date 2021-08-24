@@ -148,6 +148,8 @@ class UserController extends Controller{
 			}
 		}
 
+		require '../views/login.php';
+
 	}
 	
 	/*
