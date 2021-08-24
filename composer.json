@@ -16,5 +16,8 @@
         "psr-4" : {
             "Src\\": "src/"
         }
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "*"
     }
 }
