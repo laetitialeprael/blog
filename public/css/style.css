@@ -2,6 +2,8 @@ section.banner{position:fixed;top:0;left:0;width:100vw;height:70vh;z-index:-1;ba
 section.introduce{height:55vh;}
 section.content{background-color:#fff;}
 section{padding-top:6rem;padding-bottom:4.8rem;}
+section.newsletter{background-color:#0f0f11;color:#fff;}
+section.content{background-color:#fff;}
 .opacity-1{opacity:0.1;}
 .divider-light{height:1px;background:#fff;display:block;width:100%;margin:0 auto;}
 img{max-width:100%;height:auto;}
@@ -25,7 +27,6 @@ h1,h2,h3,h4,h5,h6,.navbar-brand,.h1,.h4,.h6{font-family: 'Nunito', sans-serif;}
 .smaller{font-size:60%;}
 .text-white{color:#fff;}.text-dark{color:#212529;}.text-gray{color:#a1a1a8;}.text-mustard{color:#dab602;}.text-error{color:#dc3545;}.border-error{border-left: solid 5px;border-color:#dc3545;}.text-valid{color:#198754;}.border-valid{border-left: solid 5px;border-color:#198754;}
 .state{color:#fff;padding:.25rem .75rem;}.state[data-state='published']{background-color:#dab602;}.state[data-state='pending']{background-color:#be914c;}.state[data-state='revised']{background-color:#509151;}.state[data-state='draft']{background-color:#ed692f;}
-section.newsletter{background-color:#0f0f11;color:#fff;}
 footer{background-color:#19191c;color:#fff;}
 p{margin-top:0;margin-bottom:1rem;}
 /*COLOR*/

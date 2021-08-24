@@ -56,7 +56,7 @@
 								</div>
 								<h5 class="mb-0"><?php echo $post->getTitle(); ?></h5>
 								<p class="small mb-3 text-gray"><?php echo $post->getCreationDate(); ?></p>
-								<a href="/blog/admin/mes-articles/<?php echo $post->viewUrl(); ?>">
+								<a href="/blog/admin/tableau-de-bord/articles-en-attente-validation/<?php echo $post->viewUrl(); ?>">
 									<button type="button" class="btn border border-mustard text-mustard rounded mb-3">Modifier</button>
 								</a>
 							</div>
