@@ -9,33 +9,42 @@ use Src\Models\Post;
 
 use Src\Models\AdminManager;
 
-/*
+/**
  * Class AdminController
  *
  * @package Src
-*/
-class AdminController extends Controller{
+ */
+class AdminController extends Controller
+{
 
-    /*
+    /**
      * Méthode pour afficher la page d'administration d'un utilisateur
-    */
-    public function viewAccount(){
-        require '../views/admin/account.php';
-
+     * 
+     * @return void
+     */
+    public function viewAccount()
+    {
+        include '../views/admin/account.php';
     }
     
-    /*
+    /**
      * Méthode pour déconnecter l'utilisateur
-    */
+     * 
+     * La méthode doit être déplacer chez UserController.php
+     * 
+     * @return void
+     */
     public function logout()
     {
         session_destroy();
         header('Location: /blog/');
     }
 
-    /*
+    /**
      * Methode pour afficher les articles et commentaire sur le dashboard de l'administrateur
-    */
+     * 
+     * @return void
+     */
     public function dashboardPost()
     {
         $adminModel = new AdminManager();
@@ -44,12 +53,16 @@ class AdminController extends Controller{
         $count = $adminModel->countPostPending(2);
         //il reste à afficher le nombre de commentaire et la liste des commentaire 'en attente de validation'
 
-        require '../views/admin/dashboard-post.php';
+        include '../views/admin/dashboard-post.php';
     }
 
-    /*
+    /**
      * Méthode pour afficher le formulaire de modification d'un article
-    */
+     * 
+     * @param string|int $params
+     * 
+     * @return void
+     */
     public function dashboardUpdatePost($params)
     {
         $adminModel = new AdminManager();
@@ -59,7 +72,7 @@ class AdminController extends Controller{
         $categories = $postModel->readCategories();
 
 
-        if(isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
+        if (isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
 
             $slug = Post::viewSlug(htmlspecialchars($_POST['title']));
             
@@ -67,12 +80,8 @@ class AdminController extends Controller{
             
             $_SESSION['message'] = "Article publié !";
 
-            $post = $postModel->read($params['slug'], $params['id']);
-
-            //À terme on redirige l'utilisateur vers les articles publiés.
-            //header('Location: /blog/admin/tableau-de-bord');
-        
+            $post = $postModel->read($params['slug'], $params['id']);        
         }
-        require '../views/admin/dashboard-update-post.php'; 
+        include '../views/admin/dashboard-update-post.php'; 
     }
 }
