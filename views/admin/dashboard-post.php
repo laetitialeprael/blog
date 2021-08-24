@@ -31,8 +31,8 @@
 		</div>
 		<div class="d-flex flex-row border-bottom">
 			<div class="h4 border-bottom border-mustard border-4 py-4 mb-0 pointer hover-mustard">Articles</div>
-			<a href="/blog/admin/tableau-de-bord/utilisateurs" class="text-dark hover-mustard">
-				<div class="h4 ms-4 py-4 mb-0 pointer">Utilisateurs</div>
+			<a href="#" class="text-dark hover-mustard">
+				<div class="h4 ms-4 py-4 mb-0 pointer">Commentaire</div>
 			</a>
 		</div>
 	</div>
