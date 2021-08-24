@@ -150,4 +150,28 @@ class PostController extends Controller{
 		require '../views/single-post.php';
 	}
 
+    /*
+     * Méthode pour afficher la page "Mentions légales"
+    */
+    public function viewMentions()
+    {
+        require '../views/mention-legal.php';
+    }
+
+    /*
+     * Méthode pour afficher la page "Politique de confidentialité"
+    */
+    public function viewPolitique()
+    {
+        require '../views/politique-confidentialite.php';
+    }
+
+    /*
+     * Méthode pour afficher la page "Cookies"
+    */
+    public function viewCookies()
+    {
+        require '../views/cookies.php';
+    }
+
 }

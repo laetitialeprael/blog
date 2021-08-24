@@ -25,9 +25,10 @@ $router = new AltoRouter();
 */
 
 // Routes publics
-$router->map('GET', '/blog/mentions-legales/', 'Src\Controllers\PostController#viewMentions');
-$router->map('GET', '/blog/politique-de-confidentialite/', 'Src\Controllers\PostController#viewPolitique');
-$router->map('GET|POST', '/blog/contact/', 'Src\Controllers\PostController#viewContact');
+$router->map('GET', '/blog/mentions-legales', 'Src\Controllers\PostController#viewMentions');
+$router->map('GET', '/blog/politique-de-confidentialite', 'Src\Controllers\PostController#viewPolitique');
+$router->map('GET', '/blog/cookies', 'Src\Controllers\PostController#viewCookies');
+$router->map('GET|POST', '/blog/contact', 'Src\Controllers\PostController#viewContact');
 
 // Routes publics de la class PostController
 $router->map('GET', '/blog/', 'Src\Controllers\PostController#viewLast', 'home');
