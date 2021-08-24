@@ -31,7 +31,7 @@
 				<div class="col col-md-8 mx-auto">
 					<div class="mb-3 form-group">
 						<label class="form-label" for="inputTextarea">Votre message</label>
-						<textarea required class="form-control" id="inputTextarea" rows="3"></textarea>
+						<textarea required class="form-control" name="message" id="inputTextarea" rows="3"></textarea>
 			    		<div class="invalid-feedback">Oops ! Vous devez saisir un message.</div>
 					</div>
 				</div>

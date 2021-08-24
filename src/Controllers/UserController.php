@@ -258,6 +258,27 @@ class UserController extends Controller{
     */
     public function viewContact()
     {
+    	$userModel = new UserManager();
+
+    	// On vérifie que les champs sont remplis
+    	if(isset($_POST['name'], $_POST['firstname'], $_POST['email'], $_POST['message']) && ($_POST['name'] != '' && $_POST['firstname'] !='' && $_POST['email'] != '' && $_POST['message'] != '')){
+
+    		// On lance la méthode qui envoie le formulaire de contact
+    		$transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
+	  				->setUsername(YOUR_GMAIL_MAIL)
+	  				->setPassword(YOUR_GMAIL_PASSWORD)
+			;
+
+			$mailer = new Swift_Mailer($transport);
+
+			$message = (new Swift_Message('Nouveau formulaire de contact'))
+	  				->setFrom([YOUR_GMAIL_MAIL => 'OpenclassroomsBlog'])
+	  				->setTo(YOUR_GMAIL_MAIL)
+	  				->setBody('Nom : ' .$_POST['name']. '<br/>Prénom : ' .$_POST['firstname']. '<br/>Email : ' .$_POST['email']. '<br/>Message : ' .$_POST['message'],'text/html');
+
+	  		$result = $mailer->send($message);
+
+    	}
         require '../views/contact.php';
     }
 }
