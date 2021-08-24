@@ -18,19 +18,23 @@ class AdminController extends Controller
 {
 
     /**
-     * Méthode pour afficher la page d'administration d'un utilisateur
+     * Méthode pour afficher le profil d'un utilisateur
+     * 
+     * La méthode doit être déplacer chez UserController.php
+     * elle est générale à tous les utilisateurs.
      * 
      * @return void
      */
     public function viewAccount()
     {
-        include '../views/admin/account.php';
+        include '../views/admin/dashboard-account.php';
     }
     
     /**
      * Méthode pour déconnecter l'utilisateur
      * 
      * La méthode doit être déplacer chez UserController.php
+     * elle est générale à tous les utilisateurs.
      * 
      * @return void
      */
@@ -41,7 +45,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Methode pour afficher les articles et commentaire sur le dashboard de l'administrateur
+     * Methode pour afficher les articles et commentaires sur le dashboard de l'administrateur
      * 
      * @return void
      */
