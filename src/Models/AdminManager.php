@@ -30,7 +30,18 @@ class AdminManager extends Manager{
         }
         return $posts;
     }
-
+    /*
+     * Méthode pour mettre à jour un article
+    */
+    public function updatePostPublished($title, $introduction, $content, $slug, $category, $idpost)
+    {
+        $db = $this->getDatabase();
+        $post = $db->insert(
+        //$statement
+        "UPDATE post SET title = :title, introduction = :introduction, content = :content, slug = :slug, category_id_category = :category, state = 3 WHERE post.id_post = :id_post",
+        //$attributes
+        array(':title' => $title, ':introduction' => $introduction, ':content' => $content, ':slug' => $slug, ':category' => $category, 'id_post' => $idpost));
+    }
     /*
      * Méthode pour compter le nombre d'article
      * @param le statut de l'article
@@ -56,7 +67,6 @@ class AdminManager extends Manager{
         
         return $results;
     }
-    /*SELECT * FROM user WHERE user_creation_date BETWEEN DATE_SUB(NOW(), INTERVAL 7 DAY) AND NOW()
 
     /*
      * Méthode pour compter le nombre d'utilisateur

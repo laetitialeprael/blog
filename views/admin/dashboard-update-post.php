@@ -6,14 +6,14 @@
 		</div>
   		<div class="card-body px-0">
     		<h5 class="card-title text-center mb-5"><?php echo ($_SESSION['user']['name']); ?> <?php echo (substr($_SESSION['user']['firstname'], 0, 1) . '.'); ?></h5>
-    		<div class="h6 py-3 border rounded-pill mb-3 pointer hover-mustard">
-    			<a href="/blog/admin/tableau-de-bord" class="text-dark hover-mustard">Tableau de bord</a>
+    		<div class="h6 py-3 border rounded-pill mb-3 pointer border-mustard">
+    			<a href="/blog/admin/tableau-de-bord" class="text-mustard hover-mustard">Tableau de bord</a>
     		</div>
 			<div class="h6 py-3 border rounded-pill mb-3 pointer hover-mustard">
 				<a href="/blog/admin/mon-compte" class="text-dark hover-mustard">Mon profil</a>
 			</div>
-			<div class="h6 py-3 border rounded-pill mb-3 pointer border-mustard">
-				<a href="/blog/admin/mes-articles" class="text-mustard hover-mustard">Mes articles</a>
+			<div class="h6 py-3 border rounded-pill mb-3 pointer hover-mustard">
+				<a href="/blog/admin/mes-articles" class="text-dark hover-mustard">Mes articles</a>
 			</div>
   		</div>
   		<div class="card-footer">
@@ -76,16 +76,11 @@
 					</div-->
 					<div class="mb-3">
 						<p>Statut : <?php echo $post->viewState(); ?></p>
+						<input type="hidden" name="state" id="state" value="<?php echo $post->getSate(); ?>">
 					</div>
-					<?php if($_SESSION['user']['role'] == 3): ?>
 					<div class="mb-3">
 						<input type="submit" value="Publié" class="btn btn-primary rounded-0" />
 					</div>
-					<?php else: ?>
-					<div class="mb-3">
-						<input type="submit" value="Mettre à jour" class="btn btn-primary rounded-0" />
-					</div>
-					<?php endif; ?>	
 				</div>
 			</div>
 		</form>
