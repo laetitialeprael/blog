@@ -12,10 +12,15 @@ class User
     /**
      * Définition des propriétés de User.
      *
-     * @var int $id_post
-     * @var string $title
-     * @var string $introduction
-     * @var string $content
+     * @var int $id_user
+     * @var string $user_name
+     * @var string $user_first_name
+     * @var string $user_email
+     * @var string $user_password
+     * @var int $role
+     * @var string $user_creation_date
+     * @var string $gdpr_consent
+     * @var string $last_visit_date
      */
     private $id_user;
     private $user_name;
