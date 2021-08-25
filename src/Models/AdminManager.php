@@ -11,10 +11,9 @@ use Src\Database;
  */
 class AdminManager extends Manager
 {
-
     /**
      * Méthode pour afficher tous les articles en attente
-     * 
+     *
      * @return int|string $post
      */
     public function readPostPending()
@@ -33,14 +32,14 @@ class AdminManager extends Manager
     }
     /**
      * Méthode pour mettre à jour un article
-     * 
+     *
      * @param string $title
      * @param string $introduction
      * @param string $content
      * @param string $slug
      * @param int    $category
      * @param int    $idpost
-     * 
+     *
      * @return void
      */
     public function updatePostPublished($title, $introduction, $content, $slug, $category, $idpost)
@@ -50,14 +49,14 @@ class AdminManager extends Manager
         //$statement
             "UPDATE post SET title = :title, introduction = :introduction, content = :content, slug = :slug, category_id_category = :category, state = 3 WHERE post.id_post = :id_post",
             //$attributes
-            array(':title' => $title, ':introduction' => $introduction, ':content' => $content, ':slug' => $slug, ':category' => $category, 'id_post' => $idpost)
+            [':title' => $title, ':introduction' => $introduction, ':content' => $content, ':slug' => $slug, ':category' => $category, 'id_post' => $idpost]
         );
     }
     /**
      * Méthode pour compter le nombre d'article
-     * 
+     *
      * @param int $statut
-     * 
+     *
      * @return int $results
      */
     public function countPostPending($statut)
@@ -65,16 +64,17 @@ class AdminManager extends Manager
         $db = $this->getDatabase();
         $results = $db->prepare(
             'SELECT COUNT(*) AS pending from post WHERE post.state = :post_satut',
-            array(':post_satut' => $statut), true
+            [':post_satut' => $statut],
+            true
         );
 
         return $results;
     }
     /**
      * Méthode pour compter le nombre d'utilisateur
-     * 
+     *
      * @param int $role
-     * 
+     *
      * @return int $results
      */
     public function countUser($role)
@@ -82,7 +82,8 @@ class AdminManager extends Manager
         $db = $this->getDatabase();
         $results = $db->prepare(
             'SELECT COUNT(*) AS role from user WHERE user.role = :user_role',
-            array(':user_role' => $role), true
+            [':user_role' => $role],
+            true
         );
 
         return $results;

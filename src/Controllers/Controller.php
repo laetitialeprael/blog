@@ -9,27 +9,27 @@ use Src\Database;
  *
  * @package Src
 */
-class Controller{
+class Controller
+{
+    public const DB_NAME = 'openclassroomsblog';
+    public const DB_USER = 'root';
+    public const DB_PASS = 'root';
+    public const DB_HOST = 'localhost';
 
-	const DB_NAME = 'openclassroomsblog';
-	const DB_USER = 'root';
-	const DB_PASS = 'root';
-	const DB_HOST = 'localhost';
 
+    private static $database;
 
-	private static $database;
-
-	public function getDatabase(){
-
-		if(self::$database === null){
-			self::$database = new Database(self::DB_NAME, self::DB_USER, self::DB_PASS, self::DB_HOST);
-		}
-		return self::$database;
-
-	}
-	public function isAuth(){
-		if(!isset($_SESSION['email'])){
-			header('Location: /blog/connexion');
-		}
-	}
+    public function getDatabase()
+    {
+        if (self::$database === null) {
+            self::$database = new Database(self::DB_NAME, self::DB_USER, self::DB_PASS, self::DB_HOST);
+        }
+        return self::$database;
+    }
+    public function isAuth()
+    {
+        if (!isset($_SESSION['email'])) {
+            header('Location: /blog/connexion');
+        }
+    }
 }
