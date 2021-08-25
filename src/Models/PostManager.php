@@ -15,7 +15,7 @@ use Src\Database;
 */
 class PostManager extends Manager
 {
-    /*
+    /**
      * Méthode pour créer un article
      * @return Post 
     */
