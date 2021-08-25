@@ -10,10 +10,9 @@ use Src\Models\Post;
  *
  * @package Src
 */
-class PostController extends Controller{
-
-
-	/*
+class PostController extends Controller
+{
+    /*
      * Méthode pour créer un article
     */
     public function postCreate()
@@ -22,19 +21,17 @@ class PostController extends Controller{
 
         $categories = $postModel->readCategories();
 
-        if(isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
-
+        if (isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
             $slug = Post::viewSlug(htmlspecialchars($_POST['title']));
-            
+
             $post = $postModel->create(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['introduction']), htmlspecialchars($_POST['content']), $slug, htmlspecialchars($_POST['category_id_category']), $_SESSION['user']['iduser']);
-            
+
             //On redirige l'utilisateur sur la page de ses articles
-			header('Location: /blog/admin/mes-articles');
-        
+            header('Location: /blog/admin/mes-articles');
         }
         //Sinon on affiche le message d'erreur
-        else{
-        	$_SESSION['message'] = "Oops ! Une erreur est survenue, votre article n'a pas été enregistré.";
+        else {
+            $_SESSION['message'] = "Oops ! Une erreur est survenue, votre article n'a pas été enregistré.";
         }
 
         require '../views/admin/create-post.php';
@@ -46,24 +43,22 @@ class PostController extends Controller{
     public function postUpdate($params)
     {
         //if ($_SESSION['user']['role'] >= 2){
-            
-            $postModel = new PostManager();
+
+        $postModel = new PostManager();
+        $post = $postModel->read($params['slug'], $params['id']);
+        $categories = $postModel->readCategories();
+
+        if (isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
+            $slug = Post::viewSlug(htmlspecialchars($_POST['title']));
+
+            $post = $postModel->update(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['introduction']), htmlspecialchars($_POST['content']), $slug, $_POST['category_id_category'], (int)$params['id']);
+
+            $_SESSION['message'] = "Modifications enregistrées.";
+
             $post = $postModel->read($params['slug'], $params['id']);
-            $categories = $postModel->readCategories();
+        }
 
-            if(isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
-
-                $slug = Post::viewSlug(htmlspecialchars($_POST['title']));
-            
-                $post = $postModel->update(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['introduction']), htmlspecialchars($_POST['content']), $slug, $_POST['category_id_category'], (int)$params['id']);
-            
-                $_SESSION['message'] = "Modifications enregistrées.";
-
-                $post = $postModel->read($params['slug'], $params['id']);
-        
-            }
-            
-            require '../views/admin/update-post.php';
+        require '../views/admin/update-post.php';
         //}
         //else{
             //On redirige l'utilisateur vers la page de connexion
@@ -82,7 +77,7 @@ class PostController extends Controller{
         $postDraft = $postModel->countPostDraft($_SESSION['user']['iduser']);
         $postPendingValidation = $postModel->countPostPendingValidation($_SESSION['user']['iduser']);
         $postPublished = $postModel->countPostPublished($_SESSION['user']['iduser']);
-        
+
         require '../views/admin/dashboard-read-post.php';
     }
 
@@ -117,38 +112,39 @@ class PostController extends Controller{
         require '../views/admin/dashboard-delete-post.php';
     }
 
-	/*
-	 * Méthode qui permet d'afficher sur la page d'accueil les derniers articles du blog
-	*/
-	public function viewLast()
-	{
-		// Appel à la méthode du model qui affiche les 3 derniers post
-		$postModel = new PostManager();
-		$result = $postModel->readLast();
-	
-		require '../views/home.php';
-	}
+    /*
+     * Méthode qui permet d'afficher sur la page d'accueil les derniers articles du blog
+    */
+    public function viewLast()
+    {
+        // Appel à la méthode du model qui affiche les 3 derniers post
+        $postModel = new PostManager();
+        $result = $postModel->readLast();
 
-	/*
-	 * Méthode pour afficher tous les articles du blog
-	*/
-	public function viewList(){
-		// Appelle à la méthode du model qui affiche la liste des articles
-		$postModel = new PostManager();
-		$result = $postModel->readAll();
-		require '../views/archive.php';
-	}
+        require '../views/home.php';
+    }
 
-	/*
-	 * Méthode pour afficher un article
-	*/
-	public function viewSingle($params)
-	{
-		$postModel = new PostManager();
-		$post = $postModel->read($params['slug'], $params['id']);
-		// Appelle à la méthode qui affiche l'article en fonction de son id
-		require '../views/single-post.php';
-	}
+    /*
+     * Méthode pour afficher tous les articles du blog
+    */
+    public function viewList()
+    {
+        // Appelle à la méthode du model qui affiche la liste des articles
+        $postModel = new PostManager();
+        $result = $postModel->readAll();
+        require '../views/archive.php';
+    }
+
+    /*
+     * Méthode pour afficher un article
+    */
+    public function viewSingle($params)
+    {
+        $postModel = new PostManager();
+        $post = $postModel->read($params['slug'], $params['id']);
+        // Appelle à la méthode qui affiche l'article en fonction de son id
+        require '../views/single-post.php';
+    }
 
     /*
      * Méthode pour afficher la page "Mentions légales"
@@ -173,5 +169,4 @@ class PostController extends Controller{
     {
         require '../views/cookies.php';
     }
-
 }

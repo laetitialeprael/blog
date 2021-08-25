@@ -3,6 +3,7 @@
 namespace Src\Models;
 
 use Src\Database;
+
 /**
  * Class Manager
  *
@@ -10,28 +11,24 @@ use Src\Database;
  */
 class Manager
 {
-
-    const DB_NAME = 'openclassroomsblog';
-    const DB_USER = 'root';
-    const DB_PASS = 'root';
-    const DB_HOST = 'localhost';
+    public const DB_NAME = 'openclassroomsblog';
+    public const DB_USER = 'root';
+    public const DB_PASS = 'root';
+    public const DB_HOST = 'localhost';
 
 
     private static $_database;
 
     /**
      * Méthode pour se connecter à la base de donnée
-     * 
+     *
      * @return string $_database
      */
     public static function getDatabase()
     {
-
         if (self::$_database === null) {
             self::$_database = new Database(self::DB_NAME, self::DB_USER, self::DB_PASS, self::DB_HOST);
         }
         return self::$_database;
-
     }
-
 }
