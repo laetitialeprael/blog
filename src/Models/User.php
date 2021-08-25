@@ -12,10 +12,10 @@ class User
     /**
      * Définition des propriétés de User.
      *
-     * @var $id_post int
-     * @var $title string
-     * @var $introduction string
-     * @var $content string
+     * @var int $id_post
+     * @var string $title
+     * @var string $introduction
+     * @var string $content
      */
     private $id_user;
     private $user_name;
@@ -30,7 +30,7 @@ class User
     /**
      * Méthode pour hydrater les données
      * 
-     * @param $datas array
+     * @param array $datas
      * 
      * @return void
      */
