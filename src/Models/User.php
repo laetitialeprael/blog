@@ -12,10 +12,10 @@ class User
     /**
      * Définition des propriétés de User.
      *
-     * @var $id_post int id de l'article
-     * @var $title string titre de l'article
-     * @var $introduction string introduction de l'article
-     * @var $content string contenu de l'article
+     * @var $id_post int
+     * @var $title string
+     * @var $introduction string
+     * @var $content string
      */
     private $id_user;
     private $user_name;
