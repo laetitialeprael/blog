@@ -26,7 +26,6 @@ h1,h2,h3,h4,h5,h6,.navbar-brand,.h1,.h4,.h6{font-family: 'Nunito', sans-serif;}
 footer{background-color:#19191c;color:#fff;}
 p{margin-top:0;margin-bottom:1rem;}
 /*COLOR*/
-.bg-dark-theme{background-color:#f5f9fd;}
 .bg-alert{background-color:#f23322;}
 .demo{
   background: linear-gradient(45deg, #fff 5%, #f5f9fd 5%, #f5f9fd 45%, #fff 45%, #fff 55%, #f5f9fd 55%, #f5f9fd 95%, #fff 95%);

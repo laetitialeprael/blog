@@ -1,5 +1,5 @@
 <div class="d-flex flex-column flex-md-row">
-<div class="col col-md-2 text-center flex-column p-4 bg-dark-theme">
+<div class="col col-md-2 text-center flex-column p-4">
 	<div class="card p-3 shadow-sm nav-admin position-fixed">
 		<div class="card-img card-profil rounded-circle border border-mustard border-4 overflow-hidden m-auto position-relative">
 			<img src="/blog/public/images/men-02.jpg" class="card-img-top img-profil position-absolute" alt="Photo de l'utilisateur">
@@ -23,7 +23,7 @@
   		</div>
 	</div>
 </div>
-<div class="col px-4 bg-dark-theme">
+<div class="col px-4">
 <section>
 	<div class="container">
 		<div class="row">
@@ -37,7 +37,7 @@
 		</div>
 	</div>
 </section>
-<section class="content pt-0 pb-4 bg-dark-theme">
+<section class="content pt-0 pb-4">
 	<div class="container">
 		<div class="row">		
 			<h4 class="mb-4">Articles en attente de validation (<?php echo ($count['pending']); ?>)</h4>
@@ -72,7 +72,7 @@
 		</div>
 	</div>
 </section>
-<section class="content pt-0 pb-4 bg-dark-theme">
+<section class="content pt-0 pb-4">
 	<div class="container">
 		<div class="row">
 			<h4 class="mb-4">Commentaires en attente de validation (0)</h4>
