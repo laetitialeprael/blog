@@ -16,7 +16,7 @@
 							<p class="text-gray current-text"><?php echo $post->viewExtract(); ?></p>
 						</div>
 						<div class="mt-auto">
-							<a class="btn btn-primary rounded-0 position-relative" href="#">Lire la suite</a>
+							<a class="btn btn-primary rounded-0 position-relative" href="/blog/article/<?php echo $post->viewUrl(); ?>">Lire la suite</a>
 						</div>
 					</div>
 				</div>
