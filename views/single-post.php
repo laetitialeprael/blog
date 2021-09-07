@@ -11,11 +11,11 @@
                 </nav>
                 <h1 class="display-6"><?php echo $post->getTitle(); ?></h1>
                 <ul class="list-unstyled list-inline current-text text-gray">
-                    <li class="list-inline-item">Par Auteur de l'article</li>
+                    <li class="list-inline-item">Par <?php echo $post->viewAuthor(); ?></li>
                     <li class="list-inline-item"><i class="fas fa-circle smaller mx-1 fw-bold"></i></li>
-                    <li class="list-inline-item text-capitalize">Catégorie de l'article</li>
+                    <li class="list-inline-item text-capitalize"><?php echo $post->getCategory(); ?></li>
                     <li class="list-inline-item"><i class="fas fa-circle smaller mx-1 fw-bold"></i></li>
-                    <li class="list-inline-item">Date</li>
+                    <li class="list-inline-item"><?php echo $post->getCreationDate(); ?></li>
                     <li class="list-inline-item"><i class="fas fa-circle smaller mx-1 fw-bold"></i></li>
                     <li class="list-inline-item">Nombre de commentaire</li>
                 </ul>
@@ -28,7 +28,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <p class="current-text text-gray">Contenu de l'article</p>
+                <p class="current-text text-gray"><?php echo $post->getIntroduction(); ?></p>
+                <p class="current-text text-gray"><?php echo $post->getContent(); ?></p>
             </div>
         </div>
     </div>

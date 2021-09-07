@@ -185,6 +185,24 @@ class Post
     }
 
     /**
+     * Méthode qui permet d'afficher tout le contenu de l'article
+     * 
+     * @return string $html
+     */
+    public function viewContent()
+    {
+        //Si le texte d'introduction est vide
+        if (empty($this->getIntroduction())) {
+            // On affiche seulement le contenu
+            $html = $this->getContent();
+        } else {
+            // Sinon on affiche le texte d'introduction et le contenu
+            $html = $this->getIntroduction();
+        }
+        return $html;
+    }
+
+    /**
      * Méthode qui permet d'afficher le prénom et la première lettre du nom de l'auteur de l'article
      * 
      * @return string $html

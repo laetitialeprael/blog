@@ -14,7 +14,7 @@ class PostController extends Controller
 {
     /*
      * Méthode pour créer un article
-    */
+     */
     public function postCreate()
     {
         $postModel = new PostManager();
@@ -39,10 +39,9 @@ class PostController extends Controller
 
     /*
      * Méthode pour afficher le formulaire de modification d'un article
-    */
+     */
     public function postUpdate($params)
     {
-        //if ($_SESSION['user']['role'] >= 2){
 
         $postModel = new PostManager();
         $post = $postModel->read($params['slug'], $params['id']);
@@ -59,11 +58,6 @@ class PostController extends Controller
         }
 
         require '../views/admin/update-post.php';
-        //}
-        //else{
-            //On redirige l'utilisateur vers la page de connexion
-            //header('Location: /blog/connexion');
-        //}
     }
 
     /*
