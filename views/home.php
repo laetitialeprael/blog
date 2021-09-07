@@ -18,7 +18,7 @@
 			<h2 class="text-center mb-4">Les derniers articles du blog</h2>
 			<?php foreach ($result as $post): ?>
 			<div class="col-md-6 col-lg-4">
-				<div class="card shadow-sm p-3 h-100 overflow-hidden">
+				<div class="card shadow-sm p-3 h-100">
 					<div class="card-body d-flex align-items-start flex-column">
 						<div class="mb-auto">
 							<div class="card-meta mb-3 d-flex flex-row align-items-center text-gray current-text">
