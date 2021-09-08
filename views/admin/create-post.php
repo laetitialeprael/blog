@@ -31,6 +31,13 @@
 				<h1>Formulaire de création d'un article</h1>
 			</div>
 		</div>
+		<?php if (isset($_SESSION['message'])): ?>
+			<div class="row mb-3">
+				<div class="col col-md-8 mx-auto p-3 bg-light text-error border-error">
+					<p class="m-0"><?php echo $_SESSION['message']; ?></p>
+				</div>
+			</div>
+		<?php endif; ?>
 
 		<form class="needs-validation" method="post" novalidate>
 			<div class="row">
@@ -66,10 +73,6 @@
 					</div>
 				</div>
 				<div class="col col-md-4">
-					<div class="mb-3">
-						<label for="formFile" class="form-label">Définir l'image mise en avant</label>
-  						<input class="form-control" type="file" id="formFile">
-					</div>
 					<div class="mb-3">
 						<input type="submit" value="Publier" class="btn btn-primary rounded-0" />
 					</div>

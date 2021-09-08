@@ -9,7 +9,7 @@ use Src\Models\Post;
  * Class PostController
  *
  * @package Src
-*/
+ */
 class PostController extends Controller
 {
     /*
@@ -21,7 +21,7 @@ class PostController extends Controller
 
         $categories = $postModel->readCategories();
 
-        if (isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
+        if (isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
             $slug = Post::viewSlug(htmlspecialchars($_POST['title']));
 
             $post = $postModel->create(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['introduction']), htmlspecialchars($_POST['content']), $slug, htmlspecialchars($_POST['category_id_category']), $_SESSION['user']['iduser']);
@@ -33,7 +33,6 @@ class PostController extends Controller
         else {
             $_SESSION['message'] = "Oops ! Une erreur est survenue, votre article n'a pas été enregistré.";
         }
-
         require '../views/admin/create-post.php';
     }
 
