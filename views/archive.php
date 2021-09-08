@@ -12,7 +12,7 @@
 							</div>
 							<h5><?php echo $post->getTitle(); ?></h5>
 							<p class="mb-0">Par <?php echo $post->viewAuthor(); ?></p>
-							<p class="small mt-n1 mb-0"><?php echo $post->getCreationDate(); ?></p>
+							<p class="small mt-n1 mb-0"><?php echo $post->getPublishedDate(); ?></p>
 							<p class="text-gray current-text"><?php echo $post->viewExtract(); ?></p>
 						</div>
 						<div class="mt-auto">

@@ -59,7 +59,7 @@ class PostManager extends Manager
     public function readAll()
     {
         $db = $this->getDatabase();
-        $results = $db->query('SELECT post.id_post, post.title, post.introduction, post.content, post.post_creation_date, post.slug, post.category_id_category, user.user_first_name, user.user_name, category.category_name FROM user INNER JOIN post ON user.id_user = post.user_id_user INNER JOIN category ON post.category_id_category = category.id_category WHERE post.state = 3 ORDER BY post.post_creation_date DESC');
+        $results = $db->query('SELECT post.id_post, post.title, post.introduction, post.content, post.post_date_published, post.slug, post.category_id_category, user.user_first_name, user.user_name, category.category_name FROM user INNER JOIN post ON user.id_user = post.user_id_user INNER JOIN category ON post.category_id_category = category.id_category WHERE post.state = 3 ORDER BY post.post_date_published DESC');
         // transforme le retour en class Post()
         $posts = [];
         foreach ($results as $result) {
@@ -77,7 +77,7 @@ class PostManager extends Manager
     public function readLast()
     {
         $db = $this->getDatabase();
-        $results = $db->query('SELECT post.id_post, post.title, post.introduction, post.content, post.post_creation_date, post.slug, post.category_id_category, user.user_first_name, user.user_name, category.category_name FROM user INNER JOIN post ON user.id_user = post.user_id_user INNER JOIN category ON post.category_id_category = category.id_category WHERE post.state = 3 ORDER BY post.post_creation_date DESC LIMIT 3');
+        $results = $db->query('SELECT post.id_post, post.title, post.introduction, post.content, post.post_date_published, post.slug, post.category_id_category, user.user_first_name, user.user_name, category.category_name FROM user INNER JOIN post ON user.id_user = post.user_id_user INNER JOIN category ON post.category_id_category = category.id_category WHERE post.state = 3 ORDER BY post.post_date_published DESC LIMIT 3');
         // transforme le retour en class Post()
         $posts = [];
         foreach ($results as $result) {
@@ -96,7 +96,7 @@ class PostManager extends Manager
     {
         $db = $this->getDatabase();
         $results = $db->prepare(
-            'SELECT post.id_post, post.title, post.introduction, post.content, post.state, post.post_creation_date, post.slug, post.category_id_category, user.user_first_name, user.user_name, category.category_name FROM user INNER JOIN post ON user.id_user = post.user_id_user INNER JOIN category ON post.category_id_category = category.id_category WHERE post.id_post = :id_post AND post.slug = :slug',
+            'SELECT post.id_post, post.title, post.introduction, post.content, post.state, post.post_date_published, post.slug, post.category_id_category, user.user_first_name, user.user_name, category.category_name FROM user INNER JOIN post ON user.id_user = post.user_id_user INNER JOIN category ON post.category_id_category = category.id_category WHERE post.id_post = :id_post AND post.slug = :slug',
             [':id_post' => $idpost, ':slug' => $slug],
             true
         );

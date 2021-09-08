@@ -125,6 +125,16 @@ class Post
     {
         return $this->slug;
     }
+
+    /**
+     * Getter qui permet d'accéder à la propriété privée $post_date_published
+     * 
+     * @return string
+     */
+    public function getPublishedDate()
+    {
+        return $this->post_date_published;
+    }
     
     /**
      * Getter qui permet d'accéder à la propriété privée $id_category
