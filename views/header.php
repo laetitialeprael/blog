@@ -21,9 +21,6 @@
 							<?php else: ?>
 							
 								<a class="current-text hover-mustard d-flex flex-row align-items-center" href="/blog/admin/tableau-de-bord">
-									<div class="card-img card-profil-thumbnail rounded-circle border border-mustard border-2 overflow-hidden m-auto position-relative">
-										<img src="/blog/public/images/men-02.jpg" class="card-img-top img-profil position-absolute" alt="Photo de l'utilisateur">
-									</div>
 									<span class="text-dark h6 mb-0 ms-2 hover-mustard"><?php echo ($_SESSION['user']['name']); ?> <?php echo (substr($_SESSION['user']['firstname'], 0, 1) . '.'); ?></span>
 								</a>
 							
