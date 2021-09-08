@@ -74,7 +74,7 @@
 				</div>
 				<div class="col col-md-4">
 					<div class="mb-3">
-						<input type="submit" value="Publier" class="btn btn-primary rounded-0" />
+						<input type="submit" value="Enregistrer" class="btn btn-primary rounded-0" />
 					</div>
 				</div>
 			</div>
