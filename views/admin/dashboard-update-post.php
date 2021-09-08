@@ -70,10 +70,6 @@
 					</div>
 				</div>
 				<div class="col col-md-4">
-					<!--div class="mb-3">
-						<label for="formFile" class="form-label">Définir l'image mise en avant</label>
-  						<input class="form-control" type="file" id="formFile">
-					</div-->
 					<div class="mb-3">
 						<p>Statut : <?php echo $post->viewState(); ?></p>
 						<input type="hidden" name="state" id="state" value="<?php echo $post->getSate(); ?>">
