@@ -3,9 +3,11 @@
 	<div class="card p-3 shadow-sm nav-admin position-fixed">
   		<div class="card-body px-0">
     		<h5 class="card-title text-center mb-5"><?php echo ($_SESSION['user']['name']); ?> <?php echo (substr($_SESSION['user']['firstname'], 0, 1) . '.'); ?></h5>
+    		<?php if ($_SESSION['user']['role'] > 2) : ?>
     		<div class="h6 py-3 border rounded-pill mb-3 pointer hover-mustard">
     			<a href="/blog/admin/tableau-de-bord" class="text-dark hover-mustard">Tableau de bord</a>
     		</div>
+    		<?php endif; ?>
 			<div class="h6 py-3 border rounded-pill mb-3 pointer border-mustard">
 				<a href="/blog/admin/mon-compte" class="text-mustard hover-mustard">Mon profil</a>
 			</div>
@@ -42,7 +44,7 @@
 				</div>
 				<div class="mb-3 border-bottom">
   					<p class="text-gray current-text m-0">Rôle</p>
-  					<p class="text-dark"><?php echo ($_SESSION['user']['role']); ?><?php echo $user->viewRole(); ?></p>
+  					<p class="text-dark"><?php echo ($_SESSION['user']['role']); ?></p>
 				</div>
 				<div class="mb-3 border-bottom">
   					<p class="text-gray current-text m-0">Email</p>

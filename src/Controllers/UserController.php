@@ -109,7 +109,7 @@ class UserController extends Controller
                         $_SESSION['user']['email'] = $user->getEmail();
                         $_SESSION['user']['creationDate'] = $user->getCreationDate();
                         $_SESSION['user']['iduser'] = $user->getId();
-                        $_SESSION['user']['role'] = $user->viewRole();
+                        $_SESSION['user']['role'] = $user->getRole();
                         // On vide le token de $_SESSION
                         unset($_SESSION['token']);
 
