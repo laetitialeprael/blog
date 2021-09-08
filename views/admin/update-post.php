@@ -31,8 +31,14 @@
 			</div>
 			<?php if (isset($_SESSION['message'])): ?>
 			<div class="row mb-3">
-				<div class="col col-md-8 mx-auto p-3 bg-light text-valid border-valid">
+				<div class="col mx-auto p-3 bg-light text-valid border-valid">
 					<p class="m-0"><?php echo $_SESSION['message']; ?></p>
+				</div>
+			</div>
+			<?php else: ?>
+			<div class="row mb-3">
+				<div class="col mx-auto p-3 bg-light text-valid border-valid">
+					<p class="m-0">L'article que vous souhaitez modifier est actuellement en ligne, en cliquant sur le bouton "Enregistrer" votre article ne sera plus visible en ligne jusqu'a la validation de votre administrateur.</p>
 				</div>
 			</div>
 			<?php endif; ?>
@@ -69,22 +75,12 @@
 					</div>
 				</div>
 				<div class="col col-md-4">
-					<!--div class="mb-3">
-						<label for="formFile" class="form-label">Définir l'image mise en avant</label>
-  						<input class="form-control" type="file" id="formFile">
-					</div-->
 					<div class="mb-3">
 						<p>Statut : <?php echo $post->viewState(); ?></p>
 					</div>
-					<?php if($_SESSION['user']['role'] == 3): ?>
 					<div class="mb-3">
-						<input type="submit" value="Publié" class="btn btn-primary rounded-0" />
+						<input type="submit" value="Enregistrer" class="btn btn-primary rounded-0" />
 					</div>
-					<?php else: ?>
-					<div class="mb-3">
-						<input type="submit" value="Mettre à jour" class="btn btn-primary rounded-0" />
-					</div>
-					<?php endif; ?>	
 				</div>
 			</div>
 		</form>

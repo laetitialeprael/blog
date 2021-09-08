@@ -46,7 +46,7 @@ class PostController extends Controller
         $post = $postModel->read($params['slug'], $params['id']);
         $categories = $postModel->readCategories();
 
-        if (isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['introduction'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
+        if (isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
             $slug = Post::viewSlug(htmlspecialchars($_POST['title']));
 
             $post = $postModel->update(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['introduction']), htmlspecialchars($_POST['content']), $slug, $_POST['category_id_category'], (int)$params['id']);
