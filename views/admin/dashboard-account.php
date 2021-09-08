@@ -1,9 +1,6 @@
 <div class="d-flex flex-column flex-md-row">
 <div class="col col-md-2 text-center flex-column p-4">
 	<div class="card p-3 shadow-sm nav-admin position-fixed">
-		<div class="card-img card-profil rounded-circle border border-mustard border-4 overflow-hidden m-auto position-relative">
-			<img src="/blog/public/images/men-02.jpg" class="card-img-top img-profil position-absolute" alt="Photo de l'utilisateur">
-		</div>
   		<div class="card-body px-0">
     		<h5 class="card-title text-center mb-5"><?php echo ($_SESSION['user']['name']); ?> <?php echo (substr($_SESSION['user']['firstname'], 0, 1) . '.'); ?></h5>
     		<div class="h6 py-3 border rounded-pill mb-3 pointer hover-mustard">
@@ -45,7 +42,7 @@
 				</div>
 				<div class="mb-3 border-bottom">
   					<p class="text-gray current-text m-0">Rôle</p>
-  					<p class="text-dark"><?php echo ($_SESSION['user']['role']); ?></p>
+  					<p class="text-dark"><?php echo ($_SESSION['user']['role']); ?><?php echo $user->viewRole(); ?></p>
 				</div>
 				<div class="mb-3 border-bottom">
   					<p class="text-gray current-text m-0">Email</p>

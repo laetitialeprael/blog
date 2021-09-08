@@ -1,9 +1,6 @@
 <div class="d-flex flex-column flex-md-row">
 <div class="col col-md-2 text-center flex-column p-4">
 	<div class="card p-3 shadow-sm nav-admin position-fixed">
-		<div class="card-img card-profil rounded-circle border border-mustard border-4 overflow-hidden m-auto position-relative">
-			<img src="/blog/public/images/men-02.jpg" class="card-img-top img-profil position-absolute" alt="Photo de l'utilisateur">
-		</div>
   		<div class="card-body px-0">
     		<h5 class="card-title text-center mb-5"><?php echo ($_SESSION['user']['name']); ?> <?php echo (substr($_SESSION['user']['firstname'], 0, 1) . '.'); ?></h5>
     		<div class="h6 py-3 border rounded-pill mb-3 pointer hover-mustard">
@@ -23,6 +20,7 @@
   		</div>
 	</div>
 </div>
+<?php if ($_SESSION['user']['role'] > 1) : ?>
 <div class="col px-4">
 <section class="content pt-5 pb-4">
 	<div class="container">
@@ -83,3 +81,16 @@
 </section>
 </div>
 </div>
+<?php else: ?>
+<section class="content pt-5 pb-4">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h1>Votre profil ne vous permet pas de créer un article</h1>
+				<p>Votre inscription est toujours en attente...</p>
+			</div>
+		</div>
+	</div>
+</section>
+</div>
+<?php endif; ?>
