@@ -36,6 +36,7 @@
 				</div>
 			</div>
 			<?php else: ?>
+			<!-- Ajouter une condition en fonction du statut du post -->
 			<div class="row mb-3">
 				<div class="col mx-auto p-3 bg-light text-valid border-valid">
 					<p class="m-0">L'article que vous souhaitez modifier est actuellement en ligne, en cliquant sur le bouton "Enregistrer" votre article ne sera plus visible en ligne jusqu'a la validation de votre administrateur.</p>

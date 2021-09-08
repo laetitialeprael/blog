@@ -47,7 +47,7 @@ class AdminManager extends Manager
         $db = $this->getDatabase();
         $post = $db->insert(
         //$statement
-            "UPDATE post SET title = :title, introduction = :introduction, content = :content, slug = :slug, category_id_category = :category, state = 3 WHERE post.id_post = :id_post",
+            "UPDATE post SET title = :title, introduction = :introduction, content = :content, slug = :slug, category_id_category = :category, state = 3, post_date_published = now() WHERE post.id_post = :id_post",
             //$attributes
             [':title' => $title, ':introduction' => $introduction, ':content' => $content, ':slug' => $slug, ':category' => $category, 'id_post' => $idpost]
         );
