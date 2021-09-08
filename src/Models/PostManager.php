@@ -24,7 +24,7 @@ class PostManager extends Manager
         $db = $this->getDatabase();
         $results = $db->insert(
         //$statement
-        'INSERT INTO post (title, introduction, content, slug, category_id_category, user_id_user) VALUES (:title, :introduction, :content, :slug, :category_id_category, :user_id_user)',
+        'INSERT INTO post (title, introduction, content, state, slug, category_id_category, user_id_user) VALUES (:title, :introduction, :content, 2, :slug, :category_id_category, :user_id_user)',
         //$attributes
         [':title' => $title, ':introduction' => $introduction, ':content' => $content, ':slug' => $slug, ':category_id_category' => $category, ':user_id_user' => $user]
         );
