@@ -55,13 +55,12 @@ class PostController extends Controller
 
             $post = $postModel->read($params['slug'], $params['id']);
         }
-
         require '../views/admin/update-post.php';
     }
 
     /*
      * Méthode pour afficher les articles sur le statut "en attente de validation" dans l'administration de l'utilisateur
-    */
+     */
     public function postRead()
     {
         $postModel = new PostManager();
