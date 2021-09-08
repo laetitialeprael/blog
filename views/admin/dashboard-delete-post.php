@@ -53,7 +53,6 @@
 				<div class="col-md-6 col-lg-4 mb-4">
 					<div class="card p-3 shadow-sm">
 						<div class="card-img position-relative card-element-hover">
-							<img src="/blog/public/images/exemple-blog.jpg">
 							<div class="card-body d-flex align-items-start flex-column">
 								<div class="card-meta mb-3 d-flex flex-row align-items-center text-gray current-text">
 									<span class="text-capitalize"><?php echo $post->getCategory(); ?></span>
