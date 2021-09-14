@@ -6,6 +6,7 @@ use Src\Models\UserManager;
 use Src\Models\User;
 use Src\Models\PostManager;
 use Src\Models\Post;
+use Src\Models\Comment;
 
 use Src\Models\AdminManager;
 
@@ -66,8 +67,8 @@ class AdminController extends Controller
     public function dashboardComment()
     {
         $adminModel = new AdminManager();
-        //$result = $adminModel->readCommentPending();
-        //$count = $adminModel->countCommentPending(0);
+        $result = $adminModel->readCommentPending();
+        $count = $adminModel->countCommentPending(0);
 
         include '../views/admin/dashboard-comment.php';
     }

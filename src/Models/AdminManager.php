@@ -14,7 +14,7 @@ class AdminManager extends Manager
     /**
      * Méthode pour afficher tous les articles en attente
      *
-     * @return int|string $post
+     * @return Post
      */
     public function readPostPending()
     {
@@ -30,6 +30,27 @@ class AdminManager extends Manager
         }
         return $posts;
     }
+
+    /**
+     * Méthode pour afficher tous les commentaires en attente
+     * 
+     * @return Comment
+     */
+    public function readCommentPending()
+    {
+        $db = $this->getDatabase();
+        $results = $db->query(
+            'SELECT comment.id_comment, comment.message, comment.status, comment.comment_date_creation FROM comment INNER JOIN user ON user.id_user = comment.user_id_user WHERE  comment.status = "0" ORDER BY comment.comment_date_creation DESC'
+        );
+        $comments = [];
+        foreach ($results as $result) {
+            $comment = new Comment();
+            $comment->hydrate($result);
+            $comments[] = $comment;
+        }
+        return $comments;
+    }
+
     /**
      * Méthode pour mettre à jour un article
      *
@@ -71,18 +92,18 @@ class AdminManager extends Manager
         return $results;
     }
     /**
-     * Méthode pour compter le nombre d'utilisateur
+     * Méthode pour compter le nombre de commentaire
      *
-     * @param int $role
+     * @param int $status
      *
      * @return int $results
      */
-    public function countUser($role)
+    public function countCommentPending($status)
     {
         $db = $this->getDatabase();
         $results = $db->prepare(
-            'SELECT COUNT(*) AS role from user WHERE user.role = :user_role',
-            [':user_role' => $role],
+            'SELECT COUNT(*) AS pending from comment WHERE comment.status = :comment_status',
+            [':comment_status' => $status],
             true
         );
 
