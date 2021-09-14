@@ -117,7 +117,7 @@ class UserController extends Controller
                         if ($user->getRole() > 2) {
 
                             // On le redirige sur le tableau de bord du blog
-                            header('Location: /blog/admin/tableau-de-bord');
+                            header('Location: /blog/admin/tableau-de-bord/articles');
                         } else {
                             // On redirige l'utilisateur sur son profil
                             header('Location: /blog/admin/mon-compte');

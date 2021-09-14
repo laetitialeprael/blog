@@ -44,7 +44,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Methode pour afficher les articles et commentaires sur le dashboard de l'administrateur
+     * Methode pour afficher les articles sur le dashboard de l'administrateur
      *
      * @return void
      */
@@ -54,9 +54,22 @@ class AdminController extends Controller
 
         $result = $adminModel->readPostPending();
         $count = $adminModel->countPostPending(2);
-        //il reste à afficher le nombre de commentaire et la liste des commentaire 'en attente de validation'
 
         include '../views/admin/dashboard-post.php';
+    }
+
+    /**
+     * Méthode pour afficher les commentaire sur le dashboard de l'administrateur
+     * 
+     * @return void
+     */
+    public function dashboardComment()
+    {
+        $adminModel = new AdminManager();
+        //$result = $adminModel->readCommentPending();
+        //$count = $adminModel->countCommentPending(0);
+
+        include '../views/admin/dashboard-comment.php';
     }
 
     /**
