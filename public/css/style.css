@@ -18,7 +18,7 @@ a{cursor:pointer;text-decoration:none;color:#dab602;}/*a:hover{color:#a8851b;}*/
 .hover-mustard:hover{color:#dab602 !important;}
 .mustard{color:#dab602;}
 /*TEXT*/
-h1,h2,h3,h4,h5,h6,.navbar-brand,.h1,.h4,.h6{font-family: 'Nunito', sans-serif;}
+h1,h2,h3,h4,h5,h6,.navbar-brand,.h1,.h3,.h4,.h6{font-family: 'Nunito', sans-serif;}
 .fab{font-size:1.2em;}.current-text{font-size:0.875rem;}
 .smaller{font-size:60%;}
 .text-white{color:#fff;}.text-dark{color:#212529;}.text-gray{color:#a1a1a8;}.text-mustard{color:#dab602;}.text-error{color:#dc3545;}.border-error{border-left: solid 5px;border-color:#dc3545;}.text-valid{color:#198754;}.border-valid{border-left: solid 5px;border-color:#198754;}

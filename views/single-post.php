@@ -27,9 +27,52 @@
 <section class="pt-0">
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col">
                 <p class="current-text text-gray"><?php echo $post->getIntroduction(); ?></p>
                 <p class="current-text text-gray"><?php echo $post->getContent(); ?></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Commentaire</h2>
+                <p class="current-text">Il n'y a pas de commentaire, rédigez le premier !</p>
+                <div class="comment-container border-top border-light pt-3">
+                    <div class="comment-text">
+                        <p class="current-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    </div>
+                    <div class="comment-author">
+                        <p class="current-text mb-0 fw-bold">Prénom N.</p>
+                        <p class="current-text text-gray">Date</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+               <form class="needs-validation" method="post" novalidate>
+                    <div class="mb-3">
+                        <label for="comment" class="form-label h3">Votre commentaire sur l'article</label>
+                        <textarea required name="comment" class="form-control" id="comment" rows="9"></textarea>
+                        <div class="invalid-feedback"><p>Oops ! Vous devez rédiger un commentaire.</p></div>
+                    </div>
+                    <div class="mb-3">
+                        <input type="submit" value="Enregistrer" class="btn btn-primary rounded-0" />
+                    </div>
+                </form> 
+                <p class="h3 text-center mb-3">Vous souhaitez écrire un commentaire sur l'article ?</p>
+                <div class="text-center">
+                    <a href="blog/connexion" class="btn btn-primary rounded-0 mb-3">Connexion</a>
+                    <p class="current-text">Vous n'avez pas de compte, <a href="blog/creer-un-compte">créez-en un</a>.</p>
+                </div>
             </div>
         </div>
     </div>
