@@ -18,7 +18,7 @@ class PostManager extends Manager
     /**
      * Méthode pour créer un article
      * @return Post 
-    */
+     */
     public function create($title, $introduction, $content, $slug, $category, $user)
     {
         $db = $this->getDatabase();
@@ -37,10 +37,30 @@ class PostManager extends Manager
         return false;
     }
 
-    /*
+    /**
+     * Méthode pour créer un commentaire sur un article
+     * @return Post
+     */
+    public function createComment($message, $post, $user)
+    {
+       $db = $this->getDatabase();
+        $results = $db->insert(
+        'INSERT INTO comment (message, status, post_id_post, user_id_user) VALUES (:message, 0, :post_id_user, :user_id_user)',
+        [':message' => $message, ':post_id_user' => $post, ':user_id_user' => $user]
+        );
+
+        if ($results) {
+            $post = new Post();
+            $post->hydrate($results);
+            return $post;
+        }
+        return false;
+    }
+
+    /**
      * Méthode pour mettre à jour un article
      * @return string
-    */
+     */
     public function update($title, $introduction, $content, $slug, $category, $idpost)
     {
         $db = $this->getDatabase();
@@ -52,10 +72,10 @@ class PostManager extends Manager
         );
     }
 
-    /*
+    /**
      * Méthode pour afficher tous les articles du blog
      * @return string
-    */
+     */
     public function readAll()
     {
         $db = $this->getDatabase();
@@ -70,10 +90,10 @@ class PostManager extends Manager
         return $posts;
     }
 
-    /*
+    /**
      * Méthode pour afficher les 3 derniers articles du blog
      * @return string
-    */
+     */
     public function readLast()
     {
         $db = $this->getDatabase();
@@ -88,10 +108,10 @@ class PostManager extends Manager
         return $posts;
     }
 
-    /*
+    /**
      * Méthode pour afficher un article
      * @return string
-    */
+     */
     public function read($slug, $idpost)
     {
         $db = $this->getDatabase();
@@ -109,10 +129,10 @@ class PostManager extends Manager
         return false;
     }
 
-    /*
+    /**
      * Méthode pour afficher les articles "en attente de validation" par un utilisateur connecté à son profil
      * @return string
-    */
+     */
     public function readUserPostPending($iduserpost)
     {
         $db = $this->getDatabase();
@@ -130,7 +150,7 @@ class PostManager extends Manager
         return $posts;
     }
 
-    /*
+    /**
      * Méthode pour afficher les articles "publiés" par un utilisateur connecté à son profil
      * @return string
     */
@@ -151,10 +171,10 @@ class PostManager extends Manager
         return $posts;
     }
 
-    /*
+    /**
      * Méthode pour afficher les articles mis à la "corbeille" par un utilisateur connecté à son profil
      * @return string
-    */
+     */
     public function readUserPostDelete($iduserpost)
     {
         $db = $this->getDatabase();
@@ -172,9 +192,9 @@ class PostManager extends Manager
         return $posts;
     }
 
-    /*
+    /**
      * Méthode pour afficher les catégories d'article
-    */
+     */
     public function readCategories()
     {
         $db = $this->getDatabase();
@@ -191,10 +211,10 @@ class PostManager extends Manager
         return $categories;
     }
 
-    /*
+    /**
      * Méthode pour compter le nombre d'article sur le statut 'corbeille'
      * @return int
-    */
+     */
     public function countPostDraft($iduserpost)
     {
         $db = $this->getDatabase();
@@ -207,10 +227,10 @@ class PostManager extends Manager
         return $results;
     }
 
-    /*
+    /**
      * Méthode pour compter le nombre d'article sur le statut 'en attente de validation'
      * @return int
-    */
+     */
     public function countPostPendingValidation($iduserpost)
     {
         $db = $this->getDatabase();
@@ -223,10 +243,10 @@ class PostManager extends Manager
         return $results;
     }
 
-    /*
+    /**
      * Méthode pour compter le nombre d'article sur le statut 'publié'
      * @return int
-    */
+     */
     public function countPostPublished($iduserpost)
     {
         $db = $this->getDatabase();

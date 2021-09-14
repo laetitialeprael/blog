@@ -127,13 +127,17 @@ class PostController extends Controller
         require '../views/archive.php';
     }
 
-    /*
-     * Méthode pour afficher un article
-    */
+    /**
+     * Méthode pour afficher un article et enregistrer un commentaire
+     */
     public function viewSingle($params)
     {
         $postModel = new PostManager();
         $post = $postModel->read($params['slug'], $params['id']);
+        if (isset($_POST['message']) && ($_POST['message'] != '')) {
+            $post = $postModel->createComment(htmlspecialchars($_POST['message']), $params['id'], $_SESSION['user']['iduser']);
+            $post = $postModel->read($params['slug'], $params['id']);
+        }
         // Appelle à la méthode qui affiche l'article en fonction de son id
         require '../views/single-post.php';
     }

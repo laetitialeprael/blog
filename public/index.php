@@ -33,7 +33,7 @@ $router->map('GET|POST', '/blog/contact', 'Src\Controllers\UserController#viewCo
 // Routes publics de la class PostController
 $router->map('GET', '/blog/', 'Src\Controllers\PostController#viewLast', 'home');
 $router->map('GET', '/blog/article', 'Src\Controllers\PostController#viewList');
-$router->map('GET', '/blog/article/[*:slug]-[i:id]', 'Src\Controllers\PostController#viewSingle');
+$router->map('GET|POST', '/blog/article/[*:slug]-[i:id]', 'Src\Controllers\PostController#viewSingle');
 
 // Routes admin de la class PostController
 $router->map('GET|POST', '/blog/admin/nouvel-article', 'Src\Controllers\PostController#postCreate');

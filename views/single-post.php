@@ -58,16 +58,16 @@
     <div class="container">
         <div class="row">
             <div class="col">
-               <form class="needs-validation" method="post" novalidate>
+                <form class="needs-validation" method="post" novalidate>
                     <div class="mb-3">
-                        <label for="comment" class="form-label h3">Votre commentaire sur l'article</label>
-                        <textarea required name="comment" class="form-control" id="comment" rows="9"></textarea>
+                        <label for="message" class="form-label h3">Votre commentaire sur l'article</label>
+                        <textarea required name="message" class="form-control" id="message" rows="9"></textarea>
                         <div class="invalid-feedback"><p>Oops ! Vous devez rédiger un commentaire.</p></div>
                     </div>
                     <div class="mb-3">
                         <input type="submit" value="Enregistrer" class="btn btn-primary rounded-0" />
                     </div>
-                </form> 
+                </form>
                 <p class="h3 text-center mb-3">Vous souhaitez écrire un commentaire sur l'article ?</p>
                 <div class="text-center">
                     <a href="blog/connexion" class="btn btn-primary rounded-0 mb-3">Connexion</a>
