@@ -1,23 +1,22 @@
 <?php
-/*
- * Créer la class global Manager qui se chargera de se connecter à la db
- * Vérifier si c'est le controller ou le model qui se connecte.
-*/
 
 namespace Src\Models;
 
 use Src\Database;
 
-/*
+/**
  * Class CommentManager
  *
  * @package Src
-*/
+ */
 class CommentManager extends Manager
 {
     
     /**
      * Méthode pour afficher un commentaire
+     * 
+     * @param int $idcomment
+     *
      * @return string
      */
     public function read($idcomment)
@@ -39,6 +38,11 @@ class CommentManager extends Manager
 
     /**
      * Méthode pour mettre à jour un commentaire
+     * 
+     * @param string $message
+     * @param int    $status
+     * @param int    $idcomment
+     *
      * @return string
      */
     public function update($message, $status, $idcomment)
@@ -46,9 +50,9 @@ class CommentManager extends Manager
         $db = $this->getDatabase();
         $comment = $db->insert(
         //$statement
-        "UPDATE comment SET message = :message, status = :status WHERE comment.id_comment = :id_comment",
-        //$attributes
-        [':message' => $message, ':status' => $status, ':id_comment' => $idcomment]
+            "UPDATE comment SET message = :message, status = :status WHERE comment.id_comment = :id_comment",
+            //$attributes
+            [':message' => $message, ':status' => $status, ':id_comment' => $idcomment]
         );
     }
 }
