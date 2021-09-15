@@ -26,6 +26,7 @@ class Post
      * @var int $user_id_user
      * @var string $user_name
      * @var string $user_first_name
+     * @var int $role
      * @var string $message
      * @var string $comment_date_creation
      */
@@ -43,6 +44,7 @@ class Post
     private $user_id_user;
     private $user_name;
     private $user_first_name;
+    private $role;
     private $message;
     private $comment_date_creation;
     
@@ -58,6 +60,14 @@ class Post
         foreach ($datas as $key => $value) {
             $this->$key = $value;
         }
+    }
+
+    /**
+     * @return int
+     */
+    public function getRole()
+    {
+        return $this->role;
     }
 
     /**

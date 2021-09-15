@@ -20,7 +20,7 @@
 							
 							<?php else: ?>
 							
-								<a class="current-text hover-mustard d-flex flex-row align-items-center" href="/blog/admin/tableau-de-bord">
+								<a class="current-text hover-mustard d-flex flex-row align-items-center" href="/blog/admin/tableau-de-bord/articles">
 									<span class="text-dark h6 mb-0 ms-2 hover-mustard"><?php echo ($_SESSION['user']['name']); ?> <?php echo (substr($_SESSION['user']['firstname'], 0, 1) . '.'); ?></span>
 								</a>
 							

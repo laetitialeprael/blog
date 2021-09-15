@@ -40,7 +40,9 @@
         <div class="row">
             <div class="col">
                 <h2>Commentaire</h2>
-                <p class="current-text">Il n'y a pas de commentaire, rédigez le premier !</p>
+                <?php if ( empty($comments) ): ?>
+                    <p class="current-text">Il n'y a pas de commentaire, rédigez le premier !</p>
+                <?php endif; ?>
                 <?php foreach ($comments as $comment): ?>
                     <div class="comment-container border-top border-light pt-3">
                         <div class="comment-text">
@@ -60,21 +62,24 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <form class="needs-validation" method="post" novalidate>
-                    <div class="mb-3">
-                        <label for="message" class="form-label h3">Votre commentaire sur l'article</label>
-                        <textarea required name="message" class="form-control" id="message" rows="9"></textarea>
-                        <div class="invalid-feedback"><p>Oops ! Vous devez rédiger un commentaire.</p></div>
+                <?php if(isset($_SESSION['user']['role'])): ?>
+                    <form class="needs-validation" method="post" novalidate>
+                        <div class="mb-3">
+                            <label for="message" class="form-label h3">Votre commentaire sur l'article</label>
+                            <textarea required name="message" class="form-control" id="message" rows="9"></textarea>
+                            <div class="invalid-feedback"><p>Oops ! Vous devez rédiger un commentaire.</p></div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="submit" value="Enregistrer" class="btn btn-primary rounded-0" />
+                        </div>
+                    </form>
+                <?php else: ?>
+                    <p class="h3 text-center mb-3">Vous souhaitez écrire un commentaire sur l'article ?</p>
+                    <div class="text-center">
+                        <a href="/blog/connexion" class="btn btn-primary rounded-0 mb-3">Connexion</a>
+                        <p class="current-text">Vous n'avez pas de compte, <a href="/blog/creer-un-compte">créez-en un</a>.</p>
                     </div>
-                    <div class="mb-3">
-                        <input type="submit" value="Enregistrer" class="btn btn-primary rounded-0" />
-                    </div>
-                </form>
-                <p class="h3 text-center mb-3">Vous souhaitez écrire un commentaire sur l'article ?</p>
-                <div class="text-center">
-                    <a href="blog/connexion" class="btn btn-primary rounded-0 mb-3">Connexion</a>
-                    <p class="current-text">Vous n'avez pas de compte, <a href="blog/creer-un-compte">créez-en un</a>.</p>
-                </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
