@@ -76,7 +76,7 @@ class PostManager extends Manager
      * @param int    $category
      * @param int    $idpost
      *
-     * @return string
+     * @return void
      */
     public function update($title, $introduction, $content, $slug, $category, $idpost)
     {
