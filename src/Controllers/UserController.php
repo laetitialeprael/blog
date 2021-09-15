@@ -70,7 +70,7 @@ class UserController extends Controller
             }
         }
         // On affiche le formulaire de création
-        require '../views/create-account.php';
+        include '../views/create-account.php';
     }
 
     /**
@@ -131,7 +131,7 @@ class UserController extends Controller
             }
         }
 
-        require '../views/login.php';
+        include '../views/login.php';
     }
 
     /**
@@ -179,7 +179,7 @@ class UserController extends Controller
             }
         }
 
-        require '../views/form-forgot-password.php';
+        include '../views/form-forgot-password.php';
     }
 
     /**
@@ -209,7 +209,7 @@ class UserController extends Controller
                 $_SESSION['message'] = "Oops ! Le nouveau mot de passe et la confirmation du mot de passe ne sont pas identiques";
             }
         }
-        require '../views/form-create-password.php';
+        include '../views/form-create-password.php';
     }
 
     /**
@@ -238,7 +238,7 @@ class UserController extends Controller
                 $_SESSION['message'] = "Oops ! Le nouveau mot de passe et la confirmation du mot de passe ne sont pas identiques";
             }
         }
-        require '../views/form-password.php';
+        include '../views/form-password.php';
     }
 
     /**
@@ -267,6 +267,6 @@ class UserController extends Controller
 
             $result = $mailer->send($message);
         }
-        require '../views/contact.php';
+        include '../views/contact.php';
     }
 }
