@@ -7,6 +7,7 @@ use Src\Models\User;
 use Src\Models\PostManager;
 use Src\Models\Post;
 use Src\Models\Comment;
+use Src\Models\CommentManager;
 
 use Src\Models\AdminManager;
 
@@ -99,5 +100,19 @@ class AdminController extends Controller
             $post = $postModel->read($params['slug'], $params['id']);
         }
         include '../views/admin/dashboard-update-post.php';
+    }
+
+    /**
+     * Méthode pour afficher le formulaire de modification d'un commentaire
+     * 
+     * @param int $params
+     * @return void
+     */
+    public function dashboardUpdateComment($params)
+    {
+        $commentModel = new CommentManager();
+        $comment = $commentModel->read($params['id']);
+
+        include '../views/admin/dashboard-update-comment.php';
     }
 }

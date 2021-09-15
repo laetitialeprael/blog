@@ -7,7 +7,7 @@ namespace Src\Models;
  *
  * @package Src
  */
-class Comment
+class Comment extends User
 {
     /**
      * On définit des proporiété de Comment.
