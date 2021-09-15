@@ -1,21 +1,3 @@
-<section class="newsletter pt-5 pb-4">
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				<h2>Recevez les derniers articles dans votre boite mail</h2>
-			</div>
-			<div class="col">
-				<p class="current-text">Pour recevoir les derniers articles publiés sur OpenclassroomsBlog, il vous suffit simplement de nous laisser votre adresse mail.</p>
-				<form>
-					<div class="input-group mb-3">
-  						<input type="text" class="form-control rounded-0" placeholder="Votre adresse mail" aria-label="Recipient's username" aria-describedby="registration-newsletter">
-  						<button class="btn btn-outline-secondary rounded-0" type="button" id="registration-newsletter">S'inscrire</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-</section>
 <footer class="pt-5">
 	<div class="container">
 		<div class="row">
