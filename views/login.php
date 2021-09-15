@@ -7,6 +7,7 @@
 			<div class="row mb-3">
 				<div class="col col-md-8 mx-auto p-3 bg-light text-error border-error">
 					<p class="m-0"><?php echo $_SESSION['message']; ?></p>
+					<?php unset($_SESSION['message']); ?> 
 				</div>
 			</div>
 		<?php endif; ?>

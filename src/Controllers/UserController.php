@@ -114,7 +114,7 @@ class UserController extends Controller
                         unset($_SESSION['token']);
 
                         // Si l'utilisateur est un administrateur
-                        if ($user->getRole() > 2) {
+                        if ($user->getRole() == 3) {
 
                             // On le redirige sur le tableau de bord du blog
                             header('Location: /blog/admin/tableau-de-bord/articles');
