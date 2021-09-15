@@ -130,6 +130,27 @@ class PostManager extends Manager
     }
 
     /**
+     * Méthode pour afficher les commentaires approuvés liés à un article
+     * @return Post
+     */
+    public function readComment($idpost)
+    {
+        $db = $this->getDatabase();
+        $results = $db->prepare(
+            'SELECT comment.message, comment.status, comment.comment_date_creation, comment.post_id_post, user.user_first_name, user.user_name FROM comment INNER JOIN user ON user.id_user = comment.user_id_user WHERE comment.post_id_post = :id_post AND comment.status = 1',
+            [':id_post' => $idpost]
+        );
+
+        $comments = [];
+        foreach ($results as $result) {
+            $comment = new Post();
+            $comment->hydrate($result);
+            $comments[] = $comment;
+        }
+        return $comments;
+    }
+
+    /**
      * Méthode pour afficher les articles "en attente de validation" par un utilisateur connecté à son profil
      * @return string
      */

@@ -134,9 +134,11 @@ class PostController extends Controller
     {
         $postModel = new PostManager();
         $post = $postModel->read($params['slug'], $params['id']);
+        $comments = $postModel->readComment($params['id']);
+
         if (isset($_POST['message']) && ($_POST['message'] != '')) {
             $post = $postModel->createComment(htmlspecialchars($_POST['message']), $params['id'], $_SESSION['user']['iduser']);
-            $post = $postModel->read($params['slug'], $params['id']);
+            header("Location:/blog/article/".$params['slug']."-".$params['id']."");
         }
         // Appelle à la méthode qui affiche l'article en fonction de son id
         require '../views/single-post.php';

@@ -26,6 +26,8 @@ class Post
      * @var int $user_id_user
      * @var string $user_name
      * @var string $user_first_name
+     * @var string $message
+     * @var string $comment_date_creation
      */
     private $id_post;
     private $title;
@@ -41,6 +43,8 @@ class Post
     private $user_id_user;
     private $user_name;
     private $user_first_name;
+    private $message;
+    private $comment_date_creation;
     
     /**
      * Méthode pour hydrater les données
@@ -174,6 +178,26 @@ class Post
     public function getFirstName()
     {
         return $this->user_first_name;
+    }
+
+    /**
+     * Getter qui permet d'accéder à la propriété privée $message
+     * 
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    /**
+     * Getter qui permet d'accéder à la propriété privée $comment_date_creation
+     * 
+     * @return string
+     */
+    public function getDate()
+    {
+        return $this->comment_date_creation;
     }
 
     /**

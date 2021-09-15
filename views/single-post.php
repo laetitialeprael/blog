@@ -41,15 +41,17 @@
             <div class="col">
                 <h2>Commentaire</h2>
                 <p class="current-text">Il n'y a pas de commentaire, rédigez le premier !</p>
-                <div class="comment-container border-top border-light pt-3">
-                    <div class="comment-text">
-                        <p class="current-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <?php foreach ($comments as $comment): ?>
+                    <div class="comment-container border-top border-light pt-3">
+                        <div class="comment-text">
+                            <p class="current-text"><?php echo $comment->getMessage(); ?></p>
+                        </div>
+                        <div class="comment-author">
+                            <p class="current-text mb-0 fw-bold"><?php echo $comment->viewAuthor(); ?></p>
+                            <p class="current-text text-gray"><?php echo $comment->getDate(); ?></p>
+                        </div>
                     </div>
-                    <div class="comment-author">
-                        <p class="current-text mb-0 fw-bold">Prénom N.</p>
-                        <p class="current-text text-gray">Date</p>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
