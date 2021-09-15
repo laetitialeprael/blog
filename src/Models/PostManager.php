@@ -1,22 +1,26 @@
 <?php
-/*
- * Créer la class global Manager qui se chargera de se connecter à la db
- * Vérifier si c'est le controller ou le model qui se connecte.
-*/
 
 namespace Src\Models;
 
 use Src\Database;
 
-/*
+/**
  * Class PostManager
  *
  * @package Src
-*/
+ */
 class PostManager extends Manager
 {
     /**
      * Méthode pour créer un article
+     * 
+     * @param string $title
+     * @param string $introduction
+     * @param string $content
+     * @param string $slug
+     * @param int    $category
+     * @param int    $user
+     *
      * @return Post 
      */
     public function create($title, $introduction, $content, $slug, $category, $user)
@@ -24,9 +28,9 @@ class PostManager extends Manager
         $db = $this->getDatabase();
         $results = $db->insert(
         //$statement
-        'INSERT INTO post (title, introduction, content, state, slug, category_id_category, user_id_user) VALUES (:title, :introduction, :content, 2, :slug, :category_id_category, :user_id_user)',
-        //$attributes
-        [':title' => $title, ':introduction' => $introduction, ':content' => $content, ':slug' => $slug, ':category_id_category' => $category, ':user_id_user' => $user]
+            'INSERT INTO post (title, introduction, content, state, slug, category_id_category, user_id_user) VALUES (:title, :introduction, :content, 2, :slug, :category_id_category, :user_id_user)',
+            //$attributes
+            [':title' => $title, ':introduction' => $introduction, ':content' => $content, ':slug' => $slug, ':category_id_category' => $category, ':user_id_user' => $user]
         );
 
         if ($results) {
@@ -39,14 +43,19 @@ class PostManager extends Manager
 
     /**
      * Méthode pour créer un commentaire sur un article
+     * 
+     * @param string $message
+     * @param int    $post
+     * @param int    $user
+     *
      * @return Post
      */
     public function createComment($message, $post, $user)
     {
-       $db = $this->getDatabase();
+        $db = $this->getDatabase();
         $results = $db->insert(
-        'INSERT INTO comment (message, status, post_id_post, user_id_user) VALUES (:message, 0, :post_id_user, :user_id_user)',
-        [':message' => $message, ':post_id_user' => $post, ':user_id_user' => $user]
+            'INSERT INTO comment (message, status, post_id_post, user_id_user) VALUES (:message, 0, :post_id_user, :user_id_user)',
+            [':message' => $message, ':post_id_user' => $post, ':user_id_user' => $user]
         );
 
         if ($results) {
@@ -59,6 +68,14 @@ class PostManager extends Manager
 
     /**
      * Méthode pour mettre à jour un article
+     * 
+     * @param string $title
+     * @param string $introduction
+     * @param string $content
+     * @param string $slug
+     * @param int    $category
+     * @param int    $idpost
+     *
      * @return string
      */
     public function update($title, $introduction, $content, $slug, $category, $idpost)
@@ -66,15 +83,16 @@ class PostManager extends Manager
         $db = $this->getDatabase();
         $post = $db->insert(
         //$statement
-        "UPDATE post SET title = :title, introduction = :introduction, content = :content, slug = :slug, category_id_category = :category, state = 2, post_date_update = now() WHERE post.id_post = :id_post",
-        //$attributes
-        [':title' => $title, ':introduction' => $introduction, ':content' => $content, ':slug' => $slug, ':category' => $category, 'id_post' => $idpost]
+            "UPDATE post SET title = :title, introduction = :introduction, content = :content, slug = :slug, category_id_category = :category, state = 2, post_date_update = now() WHERE post.id_post = :id_post",
+            //$attributes
+            [':title' => $title, ':introduction' => $introduction, ':content' => $content, ':slug' => $slug, ':category' => $category, 'id_post' => $idpost]
         );
     }
 
     /**
      * Méthode pour afficher tous les articles du blog
-     * @return string
+     *
+     * @return Post
      */
     public function readAll()
     {
@@ -92,7 +110,8 @@ class PostManager extends Manager
 
     /**
      * Méthode pour afficher les 3 derniers articles du blog
-     * @return string
+     *
+     * @return Post
      */
     public function readLast()
     {
@@ -110,7 +129,11 @@ class PostManager extends Manager
 
     /**
      * Méthode pour afficher un article
-     * @return string
+     * 
+     * @param string $slug
+     * @param int    $idpost
+     *
+     * @return Post
      */
     public function read($slug, $idpost)
     {
@@ -131,6 +154,9 @@ class PostManager extends Manager
 
     /**
      * Méthode pour afficher les commentaires approuvés liés à un article
+     * 
+     * @param int $idpost
+     *
      * @return Post
      */
     public function readComment($idpost)
@@ -152,7 +178,10 @@ class PostManager extends Manager
 
     /**
      * Méthode pour afficher les articles "en attente de validation" par un utilisateur connecté à son profil
-     * @return string
+     * 
+     * @param int $iduserpost
+     *
+     * @return Post
      */
     public function readUserPostPending($iduserpost)
     {
@@ -173,8 +202,11 @@ class PostManager extends Manager
 
     /**
      * Méthode pour afficher les articles "publiés" par un utilisateur connecté à son profil
-     * @return string
-    */
+     * 
+     * @param int $iduserpost
+     *
+     * @return Post
+     */
     public function readUserPostPublished($iduserpost)
     {
         $db = $this->getDatabase();
@@ -194,7 +226,10 @@ class PostManager extends Manager
 
     /**
      * Méthode pour afficher les articles mis à la "corbeille" par un utilisateur connecté à son profil
-     * @return string
+     * 
+     * @param int $iduserpost
+     *
+     * @return Post
      */
     public function readUserPostDelete($iduserpost)
     {
@@ -215,6 +250,8 @@ class PostManager extends Manager
 
     /**
      * Méthode pour afficher les catégories d'article
+     * 
+     * @return Post
      */
     public function readCategories()
     {
@@ -234,6 +271,9 @@ class PostManager extends Manager
 
     /**
      * Méthode pour compter le nombre d'article sur le statut 'corbeille'
+     * 
+     * @param int $iduserpost
+     *
      * @return int
      */
     public function countPostDraft($iduserpost)
@@ -250,6 +290,9 @@ class PostManager extends Manager
 
     /**
      * Méthode pour compter le nombre d'article sur le statut 'en attente de validation'
+     * 
+     * @param int $iduserpost
+     *
      * @return int
      */
     public function countPostPendingValidation($iduserpost)
@@ -266,6 +309,9 @@ class PostManager extends Manager
 
     /**
      * Méthode pour compter le nombre d'article sur le statut 'publié'
+     * 
+     * @param int $iduserpost
+     *
      * @return int
      */
     public function countPostPublished($iduserpost)
