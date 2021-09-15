@@ -105,7 +105,8 @@ class AdminController extends Controller
     /**
      * Méthode pour afficher le formulaire de modification d'un commentaire
      * 
-     * @param int $params
+     * @param  int $params
+     * 
      * @return void
      */
     public function dashboardUpdateComment($params)
