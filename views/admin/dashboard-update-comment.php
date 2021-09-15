@@ -33,6 +33,7 @@
 			<div class="row mb-3">
 				<div class="col mx-auto p-3 bg-light text-valid border-valid">
 					<p class="m-0"><?php echo $_SESSION['message-valid']; ?></p>
+					<?php unset($_SESSION['message-valid']); ?>
 				</div>
 			</div>
 			<?php endif; ?>
