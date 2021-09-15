@@ -21,9 +21,6 @@ class AdminController extends Controller
     /**
      * Méthode pour afficher le profil d'un utilisateur
      *
-     * La méthode doit être déplacer chez UserController.php
-     * elle est générale à tous les utilisateurs.
-     *
      * @return void
      */
     public function viewAccount()
@@ -33,9 +30,6 @@ class AdminController extends Controller
 
     /**
      * Méthode pour déconnecter l'utilisateur
-     *
-     * La méthode doit être déplacer chez UserController.php
-     * elle est générale à tous les utilisateurs.
      *
      * @return void
      */
