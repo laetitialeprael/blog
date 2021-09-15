@@ -29,6 +29,22 @@
 			<h1>Mes articles</h1>
 			<a href="/blog/admin/nouvel-article"><div class="btn border border-mustard">Ajouter un article</div></a>
 		</div>
+		<?php if (isset($_SESSION['message-valid'])): ?>
+			<div class="row mb-3 mt-3">
+				<div class="col mx-auto p-3 bg-light text-valid border-valid">
+					<p class="m-0"><?php echo $_SESSION['message-valid']; ?></p>
+					<?php unset($_SESSION['message-valid']); ?>
+				</div>
+			</div>
+		<?php endif; ?>
+		<?php if (isset($_SESSION['message-valid-update'])): ?>
+			<div class="row mb-3 mt-3">
+				<div class="col mx-auto p-3 bg-light text-valid border-valid">
+					<p class="m-0"><?php echo $_SESSION['message-valid-update']; ?></p>
+					<?php unset($_SESSION['message-valid-update']); ?>
+				</div>
+			</div>
+		<?php endif; ?>
 		<div class="d-flex flex-row border-bottom">
 				<a href="/blog/admin/mes-articles" class="text-mustard hover-mustard">
 					<div class="h4 py-4 mb-0 border-bottom border-mustard border-4 pointer hover-mustard">En attente de validation (<?php echo implode($postPendingValidation); ?>)</div>

@@ -23,16 +23,17 @@
 	</div>
 </div>
 <div class="col px-4">
-<section class="content pt-5 pb-4">
+<section>
 	<div class="container">
 		<div class="row">
 			<div class="col">
 				<h1>Modifier un article</h1>
 			</div>
-			<?php if (isset($_SESSION['message'])): ?>
+			<?php if (isset($_SESSION['message-valid'])): ?>
 			<div class="row mb-3">
 				<div class="col mx-auto p-3 bg-light text-valid border-valid">
-					<p class="m-0"><?php echo $_SESSION['message']; ?></p>
+					<p class="m-0"><?php echo $_SESSION['message-valid']; ?></p>
+					<?php unset($_SESSION['message-valid']); ?>
 				</div>
 			</div>
 			<?php endif; ?>
@@ -70,11 +71,22 @@
 				</div>
 				<div class="col col-md-4">
 					<div class="mb-3">
-						<p>Statut : <?php echo $post->viewState(); ?></p>
-						<input type="hidden" name="state" id="state" value="<?php echo $post->getSate(); ?>">
+						<p class="form-label">Modifier le statut</p>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="state" value="3" id="online" <?php if($post->getSate() == 3): ?>checked<?php endif; ?>>
+							<label class="form-check-label" for="online">Publier</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="state" value="2" id="pending" <?php if($post->getSate() == 2): ?>checked<?php endif; ?>>
+							<label class="form-check-label" for="pending">En attente de validation</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="state" value="0" id="delete" <?php if($post->getSate() == 0): ?>checked<?php endif; ?>>
+							<label class="form-check-label" for="delete">Corbeille</label>
+						</div>
 					</div>
 					<div class="mb-3">
-						<input type="submit" value="Publié" class="btn btn-primary rounded-0" />
+						<input type="submit" value="Mettre à jour" class="btn btn-primary rounded-0" />
 					</div>
 				</div>
 			</div>

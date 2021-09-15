@@ -30,10 +30,7 @@ class PostController extends Controller
 
             //On redirige l'utilisateur sur la page de ses articles
             header('Location: /blog/admin/mes-articles');
-        }
-        //Sinon on affiche le message d'erreur
-        else {
-            $_SESSION['message'] = "Oops ! Une erreur est survenue, votre article n'a pas été enregistré.";
+            $_SESSION['message-valid'] = "Article enregistré.";
         }
         include '../views/admin/create-post.php';
     }
@@ -57,9 +54,9 @@ class PostController extends Controller
 
             $post = $postModel->update(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['introduction']), htmlspecialchars($_POST['content']), $slug, $_POST['category_id_category'], (int)$params['id']);
 
-            $_SESSION['message'] = "Modifications enregistrées.";
+            header('Location: /blog/admin/mes-articles');
+            $_SESSION['message-valid-update'] = "Modifications enregistrées.";
 
-            $post = $postModel->read($params['slug'], $params['id']);
         }
         include '../views/admin/update-post.php';
     }

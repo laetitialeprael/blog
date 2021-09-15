@@ -62,6 +62,7 @@ class AdminController extends Controller
     public function dashboardComment()
     {
         $adminModel = new AdminManager();
+        
         $result = $adminModel->readCommentPending();
         $count = $adminModel->countCommentPending(0);
 
@@ -84,12 +85,12 @@ class AdminController extends Controller
         $categories = $postModel->readCategories();
 
 
-        if (isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category']) && ($_POST['title'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='')) {
+        if (isset($_POST['title'], $_POST['introduction'], $_POST['content'], $_POST['category_id_category'], $_POST['state']) && ($_POST['title'] != '') && ($_POST['content'] != '') && ($_POST['category_id_category'] !='') && ($_POST['state'] !='')) {
             $slug = Post::viewSlug(htmlspecialchars($_POST['title']));
 
-            $post = $adminModel->updatePostPublished(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['introduction']), htmlspecialchars($_POST['content']), $slug, $_POST['category_id_category'], (int)$params['id']);
+            $post = $adminModel->updatePostPublished(htmlspecialchars($_POST['title']), htmlspecialchars($_POST['introduction']), htmlspecialchars($_POST['content']), $slug, $_POST['category_id_category'], $_POST['state'], (int)$params['id']);
 
-            $_SESSION['message'] = "Article publié !";
+            $_SESSION['message-valid'] = "Modifications enregistrées.";
 
             $post = $postModel->read($params['slug'], $params['id']);
         }

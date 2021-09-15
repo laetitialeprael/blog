@@ -54,7 +54,10 @@
 	  				<?php foreach ($result as $comment): ?>
 		    			<tr>
 		    				<th scope="row"><?php echo $comment->getIdComment(); ?></th>
-		    				<td class="mw-70"><p><?php echo $comment->getMessage(); ?></p><a href="/blog/admin/tableau-de-bord/commentaires/<?php echo $comment->getIdComment(); ?>" class="mustard fst-italic text-decoration-underline pointer">Modifier</a></td>
+		    				<td class="mw-70">
+		    					<p><?php echo $comment->getMessage(); ?></p>
+		    					<a href="/blog/admin/tableau-de-bord/commentaires/<?php echo $comment->getIdComment(); ?>" class="mustard fst-italic text-decoration-underline pointer">Modifier</a>
+		    				</td>
 		    				<td><?php echo $comment->getDate(); ?></td>
 		    			</tr>
 	    			<?php endforeach; ?>

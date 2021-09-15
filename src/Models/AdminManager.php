@@ -59,18 +59,19 @@ class AdminManager extends Manager
      * @param string $content
      * @param string $slug
      * @param int    $category
+     * @param int    $state
      * @param int    $idpost
      *
      * @return void
      */
-    public function updatePostPublished($title, $introduction, $content, $slug, $category, $idpost)
+    public function updatePostPublished($title, $introduction, $content, $slug, $category, $state, $idpost)
     {
         $db = $this->getDatabase();
         $post = $db->insert(
         //$statement
-            "UPDATE post SET title = :title, introduction = :introduction, content = :content, slug = :slug, category_id_category = :category, state = 3, post_date_published = now() WHERE post.id_post = :id_post",
+            "UPDATE post SET title = :title, introduction = :introduction, content = :content, slug = :slug, category_id_category = :category, state = :state, post_date_published = now() WHERE post.id_post = :id_post",
             //$attributes
-            [':title' => $title, ':introduction' => $introduction, ':content' => $content, ':slug' => $slug, ':category' => $category, 'id_post' => $idpost]
+            [':title' => $title, ':introduction' => $introduction, ':content' => $content, ':slug' => $slug, ':category' => $category, 'state' => $state, 'id_post' => $idpost]
         );
     }
     /**

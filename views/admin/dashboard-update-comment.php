@@ -23,7 +23,7 @@
 	</div>
 </div>
 <div class="col px-4">
-<section class="content pt-5 pb-4">
+<section>
 	<div class="container">
 		<div class="row">
 			<div class="col">
@@ -73,7 +73,7 @@
 				<div class="col">
 					<div class="mb-3">
 						<p>Auteur.rice</p>
-						<p class="current-text mb-0 fw-bold"><?php echo $comment->getFirstName(); ?></p>
+						<p class="current-text mb-0 fw-bold"><?php echo $comment->viewAuthor(); ?></p>
 						<p class="current-text text-gray"><?php echo $comment->getDate(); ?></p>
 					</div>
 				</div>

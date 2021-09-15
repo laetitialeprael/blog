@@ -24,7 +24,7 @@
 </div>
 <?php if ($_SESSION['user']['role'] > 1) : ?>
 <div class="col px-4">
-<section class="content pt-5 pb-4">
+<section>
 	<div class="container">
 		<div class="row">
 			<div class="col">
@@ -33,8 +33,9 @@
 		</div>
 		<?php if (isset($_SESSION['message'])): ?>
 			<div class="row mb-3">
-				<div class="col col-md-8 mx-auto p-3 bg-light text-error border-error">
+				<div class="col mx-auto p-3 bg-light text-error border-error">
 					<p class="m-0"><?php echo $_SESSION['message']; ?></p>
+					<?php unset($_SESSION['message']); ?>
 				</div>
 			</div>
 		<?php endif; ?>

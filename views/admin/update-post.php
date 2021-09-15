@@ -23,23 +23,17 @@
 	</div>
 </div>
 <div class="col px-4">
-<section class="content pt-5 pb-4">
+<section>
 	<div class="container">
 		<div class="row">
 			<div class="col">
 				<h1>Modifier un article</h1>
 			</div>
-			<?php if (isset($_SESSION['message'])): ?>
+			<?php if (isset($_SESSION['message-valid'])): ?>
 			<div class="row mb-3">
 				<div class="col mx-auto p-3 bg-light text-valid border-valid">
-					<p class="m-0"><?php echo $_SESSION['message']; ?></p>
-				</div>
-			</div>
-			<?php else: ?>
-			<!-- Ajouter une condition en fonction du statut du post -->
-			<div class="row mb-3">
-				<div class="col mx-auto p-3 bg-light text-valid border-valid">
-					<p class="m-0">L'article que vous souhaitez modifier est actuellement en ligne, en cliquant sur le bouton "Enregistrer" votre article ne sera plus visible en ligne jusqu'a la validation de votre administrateur.</p>
+					<p class="m-0"><?php echo $_SESSION['message-valid']; ?></p>
+					<?php unset($_SESSION['message-valid']); ?>
 				</div>
 			</div>
 			<?php endif; ?>

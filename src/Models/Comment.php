@@ -7,7 +7,7 @@ namespace Src\Models;
  *
  * @package Src
  */
-class Comment extends User
+class Comment
 {
     /**
      * On définit des proporiété de Comment.
@@ -18,6 +18,8 @@ class Comment extends User
      * @var string $comment_date_creation
      * @var int $post_id_post
      * @var int $user_id_user
+     * @var string $user_name
+     * @var string $user_first_name
      */
     private $id_comment;
     private $message;
@@ -25,6 +27,8 @@ class Comment extends User
     private $comment_date_creation;
     private $post_id_post;
     private $user_id_user;
+    private $user_name;
+    private $user_first_name;
     
     /**
      * Méthode pour hydrater les données
@@ -99,4 +103,35 @@ class Comment extends User
     {
         return $this->user_id_user;
     }
+
+    /**
+     * Getter qui permet d'accéder à la propriété privée $user_name
+     * 
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->user_name;
+    }
+
+    /**
+     * Getter qui permet d'accéder à la propriété privée $user_first_name
+     * 
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->user_first_name;
+    }
+    /**
+     * Méthode qui permet d'afficher le prénom et la première lettre du nom de l'auteur de l'article
+     * 
+     * @return string $html
+     */
+    public function viewAuthor()
+    {
+        $html = substr($this->getName(), 0, 1) . '. ' . $this->getFirstName();
+        return $html;
+    }
+
 }

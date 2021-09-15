@@ -70,35 +70,5 @@
 		</div>
 	</div>
 </section>
-<section class="content pt-0 pb-4">
-	<div class="container">
-		<div class="row">
-			<h4 class="mb-4">Commentaires en attente de validation (0)</h4>
-			<div class="table-responsive">
-				<table class="table">
-	  				<thead class="table-light">
-	    				<tr>
-	    					<th scope="col">Id</th>
-	    					<th scope="col">Commentaire</th>
-	    					<th scope="col">Date</th>
-	    				</tr>
-	 				</thead>
-	  				<tbody>
-	    				<tr>
-	    					<th scope="row">1</th>
-	    					<td class="mw-70"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor urna orci. Donec nisi turpis, pulvinar sit amet viverra eget, malesuada eget magna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur ac lectus sed lectus maximus tempor. Phasellus nec hendrerit orci. Morbi eleifend, augue ac egestas auctor, neque turpis pellentesque leo, quis fermentum nulla augue in sa...</p><span class="mustard fst-italic text-decoration-underline pointer">Afficher</span></td>
-	    					<td>2021-02-24 13:39:30</td>
-	    				</tr>
-	    				<tr>
-	    					<th scope="row">2</th>
-	    					<td class="mw-70"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor urna orci. Donec nisi turpis, pulvinar sit amet viverra eget, malesuada eget magna. Vestibulum ante ipsum primis in faucibus orci luctus.</p><span class="mustard fst-italic text-decoration-underline pointer">Afficher</span></td>
-	    					<td>2021-02-24 13:39:30</td>
-	    				</tr>
-	  				</tbody>
-				</table>
-			</div>
-		</div>
-	</div>	
-</section>
 </div>
 </div>
