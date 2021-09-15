@@ -29,10 +29,10 @@
 			<div class="col">
 				<h1>Modifier un commentaire</h1>
 			</div>
-			<?php if (isset($_SESSION['message'])): ?>
+			<?php if (isset($_SESSION['message-valid'])): ?>
 			<div class="row mb-3">
 				<div class="col mx-auto p-3 bg-light text-valid border-valid">
-					<p class="m-0"><?php echo $_SESSION['message']; ?></p>
+					<p class="m-0"><?php echo $_SESSION['message-valid']; ?></p>
 				</div>
 			</div>
 			<?php endif; ?>
@@ -51,15 +51,15 @@
 					<div class="mb-3">
 						<p class="form-label">Modifier le statut</p>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="status" id="online" <?php if($comment->getStatus() == 1): ?>checked<?php endif; ?>>
+							<input class="form-check-input" type="radio" name="status" value="1" id="online" <?php if($comment->getStatus() == 1): ?>checked<?php endif; ?>>
 							<label class="form-check-label" for="online">Approuvé</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="status" id="pending" <?php if($comment->getStatus() == 0): ?>checked<?php endif; ?>>
+							<input class="form-check-input" type="radio" name="status" value="0" id="pending" <?php if($comment->getStatus() == 0): ?>checked<?php endif; ?>>
 							<label class="form-check-label" for="pending">En attente</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="status" id="delete" <?php if($comment->getStatus() == 2): ?>checked<?php endif; ?>>
+							<input class="form-check-input" type="radio" name="status" value="2" id="delete" <?php if($comment->getStatus() == 2): ?>checked<?php endif; ?>>
 							<label class="form-check-label" for="delete">Corbeille</label>
 						</div>
 					</div>

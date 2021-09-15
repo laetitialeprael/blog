@@ -113,6 +113,12 @@ class AdminController extends Controller
         $commentModel = new CommentManager();
         $comment = $commentModel->read($params['id']);
 
+        if (isset($_POST['message'], $_POST['status']) && ($_POST['message'] != '') && ($_POST['status'] != '')) {
+            $comment = $commentModel->update(htmlspecialchars($_POST['message']), $_POST['status'], (int)$params['id']);
+            $_SESSION['message-valid'] = 'Mise à jour enregistrée.';
+            $comment = $commentModel->read($params['id']);
+        }
+
         include '../views/admin/dashboard-update-comment.php';
     }
 }

@@ -41,14 +41,14 @@ class CommentManager extends Manager
      * Méthode pour mettre à jour un commentaire
      * @return string
      */
-    public function update($message, $idcomment)
+    public function update($message, $status, $idcomment)
     {
         $db = $this->getDatabase();
         $comment = $db->insert(
         //$statement
-        "UPDATE comment SET message = :message, state = 2 WHERE comment.id_comment = :id_comment",
+        "UPDATE comment SET message = :message, status = :status WHERE comment.id_comment = :id_comment",
         //$attributes
-        [':message' => $message, 'id_comment' => $idcomment]
+        [':message' => $message, ':status' => $status, ':id_comment' => $idcomment]
         );
     }
 }
