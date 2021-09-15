@@ -5,15 +5,17 @@ namespace Src\Controllers;
 use Src\Models\PostManager;
 use Src\Models\Post;
 
-/*
+/**
  * Class PostController
  *
  * @package Src
  */
 class PostController extends Controller
 {
-    /*
+    /**
      * Méthode pour créer un article
+     * 
+     * @return void
      */
     public function postCreate()
     {
@@ -33,11 +35,15 @@ class PostController extends Controller
         else {
             $_SESSION['message'] = "Oops ! Une erreur est survenue, votre article n'a pas été enregistré.";
         }
-        require '../views/admin/create-post.php';
+        include '../views/admin/create-post.php';
     }
 
-    /*
+    /**
      * Méthode pour afficher le formulaire de modification d'un article
+     * 
+     * @param string|int $params
+     * 
+     * @return void
      */
     public function postUpdate($params)
     {
@@ -55,11 +61,13 @@ class PostController extends Controller
 
             $post = $postModel->read($params['slug'], $params['id']);
         }
-        require '../views/admin/update-post.php';
+        include '../views/admin/update-post.php';
     }
 
-    /*
+    /**
      * Méthode pour afficher les articles sur le statut "en attente de validation" dans l'administration de l'utilisateur
+     * 
+     * @return void
      */
     public function postRead()
     {
@@ -70,11 +78,13 @@ class PostController extends Controller
         $postPendingValidation = $postModel->countPostPendingValidation($_SESSION['user']['iduser']);
         $postPublished = $postModel->countPostPublished($_SESSION['user']['iduser']);
 
-        require '../views/admin/dashboard-read-post.php';
+        include '../views/admin/dashboard-read-post.php';
     }
 
-    /*
+    /**
      * Méthode pour afficher les articles sur le statut "publiés" dans l'administration de l'utilisateur
+     * 
+     * @return void
      */
     public function postPublish()
     {
@@ -85,12 +95,13 @@ class PostController extends Controller
         $postPendingValidation = $postModel->countPostPendingValidation($_SESSION['user']['iduser']);
         $postPublished = $postModel->countPostPublished($_SESSION['user']['iduser']);
 
-        require '../views/admin/dashboard-published-post.php';
+        include '../views/admin/dashboard-published-post.php';
     }
 
-    /*
+    /**
      * Méthode pour afficher les articles sur le statut "corbeille" dans l'administration de l'utilisateur
-     *
+     * 
+     * @return void
      */
     public function postDelete()
     {
@@ -101,34 +112,42 @@ class PostController extends Controller
         $postPendingValidation = $postModel->countPostPendingValidation($_SESSION['user']['iduser']);
         $postPublished = $postModel->countPostPublished($_SESSION['user']['iduser']);
 
-        require '../views/admin/dashboard-delete-post.php';
+        include '../views/admin/dashboard-delete-post.php';
     }
 
-    /*
+    /**
      * Méthode qui permet d'afficher sur la page d'accueil les derniers articles du blog
-    */
+     * 
+     * @return void
+     */
     public function viewLast()
     {
         // Appel à la méthode du model qui affiche les 3 derniers post
         $postModel = new PostManager();
         $result = $postModel->readLast();
 
-        require '../views/home.php';
+        include '../views/home.php';
     }
 
-    /*
+    /**
      * Méthode pour afficher tous les articles du blog
-    */
+     * 
+     * @return void
+     */
     public function viewList()
     {
         // Appelle à la méthode du model qui affiche la liste des articles
         $postModel = new PostManager();
         $result = $postModel->readAll();
-        require '../views/archive.php';
+        include '../views/archive.php';
     }
 
     /**
      * Méthode pour afficher un article et enregistrer un commentaire
+     * 
+     * @param string|int $params
+     * 
+     * @return void
      */
     public function viewSingle($params)
     {
@@ -141,30 +160,36 @@ class PostController extends Controller
             header("Location:/blog/article/".$params['slug']."-".$params['id']."");
         }
         // Appelle à la méthode qui affiche l'article en fonction de son id
-        require '../views/single-post.php';
+        include '../views/single-post.php';
     }
 
-    /*
+    /**
      * Méthode pour afficher la page "Mentions légales"
-    */
+     * 
+     * @return void
+     */
     public function viewMentions()
     {
-        require '../views/mention-legal.php';
+        include '../views/mention-legal.php';
     }
 
-    /*
+    /**
      * Méthode pour afficher la page "Politique de confidentialité"
-    */
+     * 
+     * @return void
+     */
     public function viewPolitique()
     {
-        require '../views/politique-confidentialite.php';
+        include '../views/politique-confidentialite.php';
     }
 
-    /*
+    /**
      * Méthode pour afficher la page "Cookies"
-    */
+     * 
+     * @return void
+     */
     public function viewCookies()
     {
-        require '../views/cookies.php';
+        include '../views/cookies.php';
     }
 }
