@@ -48,6 +48,8 @@ class User
     }
     
     /**
+     * Getter qui permet d'accéder à la propriété privée $id_user
+     * 
      * @return int
      */
     public function getId()
@@ -56,6 +58,8 @@ class User
     }
     
     /**
+     * Getter qui permet d'accéder à la propriété privée $user_name
+     * 
      * @return string
      */
     public function getName()
@@ -65,6 +69,8 @@ class User
     }
     
     /**
+     * Getter qui permet d'accéder à la propriété privée $user_first_name
+     * 
      * @return string
      */
     public function getFirstName()
@@ -73,6 +79,8 @@ class User
     }
     
     /**
+     * Getter qui permet d'accéder à la propriété privée $user_email
+     * 
      * @return string
      */
     public function getEmail()
@@ -81,6 +89,8 @@ class User
     }
     
     /**
+     * Getter qui permet d'accéder à la propriété privée $user_password
+     * 
      * @return string
      */
     public function getPassword()
@@ -89,6 +99,8 @@ class User
     }
     
     /**
+     * Getter qui permet d'accéder à la propriété privée $role
+     * 
      * @return int
      */
     public function getRole()
@@ -97,6 +109,8 @@ class User
     }
 
     /**
+     * Getter qui permet d'accéder à la propriété privée $user_creation_date
+     * 
      * @return int
      */
     public function getCreationDate()
