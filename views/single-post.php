@@ -39,6 +39,14 @@
         <div class="row">
             <div class="col">
                 <h2>Commentaire</h2>
+                    <?php if (isset($_SESSION['message-valid-comment'])): ?>
+                        <div class="row mb-3">
+                            <div class="col mx-auto p-3 bg-light text-valid border-valid">
+                                <p class="m-0"><?php echo $_SESSION['message-valid-comment']; ?></p>
+                                <?php unset($_SESSION['message-valid-comment']); ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                 <?php if ( empty($comments) ): ?>
                     <p class="current-text">Il n'y a pas de commentaire, rédigez le premier !</p>
                 <?php endif; ?>

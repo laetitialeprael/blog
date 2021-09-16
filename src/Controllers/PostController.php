@@ -156,6 +156,7 @@ class PostController extends Controller
         if (isset($_POST['message']) && ($_POST['message'] != '')) {
             $post = $postModel->createComment(htmlspecialchars($_POST['message']), $params['id'], $_SESSION['user']['iduser']);
             header("Location:/blog/article/".$params['slug']."-".$params['id']."");
+            $_SESSION['message-valid-comment'] = "Merci pour votre commentaire. Il est en cours de relecture.";
         }
         // Appelle à la méthode qui affiche l'article en fonction de son id
         include '../views/single-post.php';
