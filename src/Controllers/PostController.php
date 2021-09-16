@@ -151,6 +151,7 @@ class PostController extends Controller
         $postModel = new PostManager();
         $post = $postModel->read($params['slug'], $params['id']);
         $comments = $postModel->readComment($params['id']);
+        $count = $postModel->countCommentPublished($params['id']);
 
         if (isset($_POST['message']) && ($_POST['message'] != '')) {
             $post = $postModel->createComment(htmlspecialchars($_POST['message']), $params['id'], $_SESSION['user']['iduser']);

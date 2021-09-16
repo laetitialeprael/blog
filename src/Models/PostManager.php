@@ -325,4 +325,23 @@ class PostManager extends Manager
 
         return $results;
     }
+
+    /**
+     * Méthode pour compter le nombre de commentaire d'un article sur le statut 'approuvé'
+     * 
+     * @param int $iduserpost
+     *
+     * @return int
+     */
+    public function countCommentPublished($idpost)
+    {
+        $db = $this->getDatabase();
+        $results = $db->prepare(
+            'SELECT COUNT(*) AS approved from comment WHERE comment.status = "1" AND comment.post_id_post = :id_post',
+            [':id_post' => $idpost],
+            true
+        );
+
+        return $results;
+    }
 }

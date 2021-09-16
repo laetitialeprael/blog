@@ -17,13 +17,12 @@
                     <li class="list-inline-item"><i class="fas fa-circle smaller mx-1 fw-bold"></i></li>
                     <li class="list-inline-item"><?php echo $post->getPublishedDate(); ?></li>
                     <li class="list-inline-item"><i class="fas fa-circle smaller mx-1 fw-bold"></i></li>
-                    <li class="list-inline-item">Nombre de commentaire</li>
+                    <li class="list-inline-item">Nombre de commentaire (<?php echo $count['approved']; ?>)</li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
-
 <section class="pt-0">
     <div class="container">
         <div class="row">
